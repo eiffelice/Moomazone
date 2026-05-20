@@ -1,0 +1,53 @@
+---
+// src/layouts/Layout.astro
+export interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: string;
+  ogUrl?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogType = 'website',
+  ogUrl = 'https://mooma.online',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={ogUrl} />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">🐾 mooma.online</a>
+      <div class="nav-links">
+        <a href="/">หน้าแรก</a>
+        <a href="/#products">สินค้าแนะนำ</a>
+        <a href="/#about">เกี่ยวกับเรา</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <p>🐾 <strong>mooma.online</strong> — แหล่งรวมรีวิวสินค้าสัตว์เลี้ยงคุณภาพดี ราคาคุ้ม</p>
+    <p>© 2025 mooma.online</p>
+  </footer>
+</body>
+</html>
