@@ -16,6 +16,7 @@ export interface Props {
 }
 
 const { href, shopeeUrl, emoji, badge, badgeClass, title, suitable, highlight, note, stars, image, variant = 'homepage' } = Astro.props;
+const productSlug = href.split('/').filter(Boolean).pop() || '';
 
 const bgMap: Record<string, string> = {
   'badge-hot': '#FFF3EE',
@@ -45,8 +46,8 @@ const bgMap: Record<string, string> = {
         <div class="meta-row"><span class="meta-label">💡 ข้อควรรู้</span> {note}</div>
       </div>
       <div class="card-actions">
-        <a href={href} class="btn-card btn-card-primary">📖 อ่านรีวิวเต็ม</a>
-        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored">🛍️ ซื้อที่ Shopee</a>
+        <a href={href} class="btn-card btn-card-primary" data-track-event="product_click" data-product-slug={productSlug} data-track-label={title} data-track-location={variant}>📖 อ่านรีวิวเต็ม</a>
+        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" data-track-event="affiliate_cta_click" data-track-category="affiliate" data-product-slug={productSlug} data-track-label={title} data-track-location={variant}>🛍️ ซื้อที่ Shopee</a>
       </div>
       <p class="card-disclosure">* บางลิงก์เป็น Affiliate — <a href="/disclosure">อ่านเพิ่มเติม</a></p>
     </div>
@@ -86,7 +87,7 @@ const bgMap: Record<string, string> = {
         <div class="meta-row"><span class="meta-label">💡 ข้อควรรู้</span> {note}</div>
       </div>
       <div class="card-actions">
-        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored">🛍️ ซื้อที่ Shopee</a>
+        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" data-track-event="affiliate_cta_click" data-track-category="affiliate" data-product-slug={productSlug} data-track-label={title} data-track-location={variant}>🛍️ ซื้อที่ Shopee</a>
       </div>
     </div>
   </div>
@@ -99,8 +100,8 @@ const bgMap: Record<string, string> = {
       <h3>🛒 {title}</h3>
       <p>{highlight}</p>
       <div class="card-actions">
-        <a href={href} class="btn-card btn-card-primary">📖 อ่านรีวิวเต็ม</a>
-        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored">🛍️ ซื้อที่ Shopee</a>
+        <a href={href} class="btn-card btn-card-primary" data-track-event="product_click" data-product-slug={productSlug} data-track-label={title} data-track-location={variant}>📖 อ่านรีวิวเต็ม</a>
+        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" data-track-event="affiliate_cta_click" data-track-category="affiliate" data-product-slug={productSlug} data-track-label={title} data-track-location={variant}>🛍️ ซื้อที่ Shopee</a>
       </div>
     </div>
   </div>

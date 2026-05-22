@@ -1,0 +1,136 @@
+---
+const cloudflareToken = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+---
+
+{cloudflareToken && (
+  <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${cloudflareToken}"}`}></script>
+)}
+
+{gaMeasurementId && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+    <script is:inline define:vars={{ gaMeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', gaMeasurementId, { anonymize_ip: true });
+    </script>
+  </>
+)}
+
+<script is:inline>
+  (function () {
+    const SHOPEE_HOST_RE = /(^|\.)shopee\.co\.th$/i;
+
+    function readPathName(pathname) {
+      if (!pathname) return '';
+      const parts = pathname.split('/').filter(Boolean);
+      if (parts[0] === 'products' && parts[1]) return parts[1];
+      if ((parts[0] === 'category' || parts[0] === 'compare') && parts[1]) return parts[1];
+      return parts[parts.length - 1] || '';
+    }
+
+    function eventFromLink(link) {
+      const href = link.getAttribute('href') || '';
+      let url;
+      try {
+        url = new URL(href, window.location.origin);
+      } catch (_) {
+        return null;
+      }
+
+      const label = link.dataset.trackLabel || link.textContent.trim().replace(/\s+/g, ' ').slice(0, 120);
+      const location = link.dataset.trackLocation || document.body.dataset.pageType || 'site';
+      const pathName = readPathName(url.pathname);
+
+      if (link.dataset.trackEvent) {
+        return {
+          name: link.dataset.trackEvent,
+          params: {
+            event_category: link.dataset.trackCategory || 'engagement',
+            event_label: label,
+            link_url: url.href,
+            item_id: link.dataset.productSlug || pathName,
+            location,
+          },
+        };
+      }
+
+      if (SHOPEE_HOST_RE.test(url.hostname) || url.hostname === 's.shopee.co.th') {
+        return {
+          name: 'affiliate_cta_click',
+          params: {
+            event_category: 'affiliate',
+            event_label: label,
+            link_url: url.href,
+            item_id: link.dataset.productSlug || readPathName(window.location.pathname),
+            location,
+          },
+        };
+      }
+
+      if (url.origin === window.location.origin && url.pathname.startsWith('/products/')) {
+        return {
+          name: 'product_click',
+          params: {
+            event_category: 'navigation',
+            event_label: label,
+            link_url: url.href,
+            item_id: link.dataset.productSlug || pathName,
+            location,
+          },
+        };
+      }
+
+      if (url.origin === window.location.origin && url.pathname.startsWith('/category/')) {
+        return {
+          name: 'category_click',
+          params: {
+            event_category: 'navigation',
+            event_label: label,
+            link_url: url.href,
+            item_id: pathName,
+            location,
+          },
+        };
+      }
+
+      if (url.origin === window.location.origin && url.pathname.startsWith('/compare/')) {
+        return {
+          name: 'compare_article_click',
+          params: {
+            event_category: 'navigation',
+            event_label: label,
+            link_url: url.href,
+            item_id: pathName,
+            location,
+          },
+        };
+      }
+
+      return null;
+    }
+
+    window.moomaTrack = function (eventName, params) {
+      const payload = Object.assign({ page_path: window.location.pathname }, params || {});
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, ...payload });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, payload);
+      }
+      if (window.localStorage && window.localStorage.getItem('mooma_debug_tracking') === '1') {
+        console.debug('[moomaTrack]', eventName, payload);
+      }
+    };
+
+    document.addEventListener('click', function (event) {
+      const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+      if (!link) return;
+      const tracked = eventFromLink(link);
+      if (!tracked) return;
+      window.moomaTrack(tracked.name, tracked.params);
+    }, { capture: true });
+  })();
+</script>
