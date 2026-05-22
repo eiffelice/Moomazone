@@ -5,6 +5,16 @@ import productsData from '../data/products.json';
 import { organizationSchema } from '../utils/structuredData';
 
 const featured = productsData.products.filter(p => p.featured).sort((a, b) => a.priority - b.priority);
+const categoryLabels = {
+  'dog-food': 'อาหารสุนัข',
+  'cat-food': 'อาหารแมว',
+  'dog-treats': 'ขนมสุนัข',
+  'cat-litter': 'กระบะทรายแมว',
+  'cat-condo': 'คอนโดแมว / ของเล่น',
+  'smart-pet': 'Smart Pet Gadgets',
+  'supplements': 'อาหารเสริมสัตว์เลี้ยง',
+  'grooming': 'กรูมมิ่ง & ดูแลสุขอนามัย',
+};
 const orgData = organizationSchema();
 ---
 
@@ -74,7 +84,7 @@ const orgData = organizationSchema();
       <div class="cat-icon">🐟</div><h4>อาหารแมว</h4><p>พรีเมียม โปรตีนสูง</p>
     </a>
     <a href="/category/dog-treats" class="cat-card">
-      <div class="cat-icon">🦴</div><h4>ขนมสัตว์เลี้ยง</h4><p>ขัดฟัน ฝึก สร้างสายใย</p>
+      <div class="cat-icon">🦴</div><h4>ขนมสุนัข</h4><p>ขัดฟัน ฝึก เป็นรางวัล</p>
     </a>
     <a href="/category/cat-litter" class="cat-card">
       <div class="cat-icon">🚽</div><h4>กระบะทราย / ห้องน้ำแมว</h4><p>UV ระบบปิด เก็บกลิ่น</p>
@@ -89,7 +99,7 @@ const orgData = organizationSchema();
       <div class="cat-icon">💊</div><h4>อาหารเสริมสัตว์เลี้ยง</h4><p>บำรุงขน ข้อต่อ ภูมิคุ้มกัน</p>
     </a>
     <a href="/category/grooming" class="cat-card">
-      <div class="cat-icon">✂️</div><h4>กรูมมิ่ง & ดูแล</h4><p>แชมพู แปรง ตัดเล็บ</p>
+      <div class="cat-icon">✂️</div><h4>กรูมมิ่ง & ดูแลสุขอนามัย</h4><p>แผ่นเช็ด ยาหยดหลัง แชมพู</p>
     </a>
   </div>
 </section>
@@ -126,7 +136,7 @@ const orgData = organizationSchema();
       <div class="review-card">
         <div class="review-thumb" style="background:#FFF0EB">{p.emoji}</div>
         <div class="review-body">
-          <div class="review-cat">{p.category === 'dog-food' ? 'อาหารสุนัข' : p.category === 'cat-food' ? 'อาหารแมว' : p.category === 'dog-treats' ? 'ขนมสัตว์เลี้ยง' : p.category === 'cat-litter' ? 'กระบะทรายแมว' : 'สินค้าสัตว์เลี้ยง'}</div>
+          <div class="review-cat">{categoryLabels[p.category] || 'สินค้าสัตว์เลี้ยง'}</div>
           <h4>{p.title}</h4>
           <p>{p.highlight.slice(0, 50)}...</p>
           <div class="review-meta">

@@ -44,12 +44,14 @@ sleep 3
 
 # Verify key URLs
 HOME_CHECK=$(curl -sI https://mooma.online/ 2>/dev/null | head -1)
-SITEMAP_CHECK=$(curl -sI https://mooma.online/sitemap.xml 2>/dev/null | head -1)
+SITEMAP_CHECK=$(curl -sI https://mooma.online/sitemap-index.xml 2>/dev/null | head -1)
+SITEMAP_ALIAS_CHECK=$(curl -sI https://mooma.online/sitemap.xml 2>/dev/null | head -1)
 ROBOTS_CHECK=$(curl -sI https://mooma.online/robots.txt 2>/dev/null | head -1)
 
-echo "  Homepage:    $HOME_CHECK"
-echo "  Sitemap:     $SITEMAP_CHECK"
-echo "  Robots.txt:  $ROBOTS_CHECK"
+echo "  Homepage:       $HOME_CHECK"
+echo "  Sitemap index:  $SITEMAP_CHECK"
+echo "  Sitemap alias:  $SITEMAP_ALIAS_CHECK"
+echo "  Robots.txt:     $ROBOTS_CHECK"
 
 echo ""
 echo "✅ Deploy complete! 🎉"

@@ -1,58 +1,80 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'grooming');
 ---
 
 <Layout
-  title="อุปกรณ์กรูมมิ่งสัตว์เลี้ยง — แปรง กรรไกร ที่ตัดเล็บ | mooma.online"
-  description="คู่มือเลือกอุปกรณ์กรูมมิ่งสัตว์เลี้ยง — แปรงขนสุนัข แปรงขนแมว กรรไกรตัดขน ที่ตัดเล็บ ที่ลับเล็บ ยาสีฟันสัตว์เลี้ยง จาก Shopee"
-  ogTitle="อุปกรณ์กรูมมิ่งสัตว์เลี้ยง — แปรงขน ตัดเล็บ | mooma.online"
-  ogDescription="อุปกรณ์กรูมมิ่งครบชุด — แปรงขน กรรไกร ตัดเล็บ ยาสีฟัน สำหรับหมาแมว"
+  title="กรูมมิ่ง & ดูแลสุขอนามัยสัตว์เลี้ยง — แผ่นเช็ด ยาหยดหลัง แชมพู | mooma.online"
+  description="รวมรีวิวของใช้ดูแลสุขอนามัยหมาแมวจาก Shopee — แผ่นเช็ดคราบน้ำตา ผ้าเช็ดหู ยาหยดหลัง แชมพู แปรงขน และอุปกรณ์กรูมมิ่ง"
+  ogTitle="กรูมมิ่ง & ดูแลสุขอนามัยสัตว์เลี้ยง | mooma.online"
+  ogDescription="แผ่นเช็ด ยาหยดหลัง แชมพู แปรงขน และของใช้ดูแลความสะอาดสำหรับหมาแมว"
   ogType="website"
   ogUrl="https://mooma.online/category/grooming"
 >
   <section class="section">
     <nav class="breadcrumb">
       <a href="/">หน้าแรก</a> ›
-      <span>กรูมมิ่ง</span>
+      <span>กรูมมิ่ง & ดูแลสุขอนามัย</span>
     </nav>
 
     <div class="section-header">
-      <h1 style="font-size:1.8em">✂️ อุปกรณ์กรูมมิ่งสัตว์เลี้ยง</h1>
-      <p>ดูแลความสะอาดน้องเองที่บ้าน — ประหยัดค่ากรูมเมอร์</p>
+      <h1 style="font-size:1.8em">✂️ กรูมมิ่ง & ดูแลสุขอนามัยสัตว์เลี้ยง</h1>
+      <p>แผ่นเช็ด ยาหยดหลัง แชมพู แปรงขน และของใช้ดูแลความสะอาดน้องหมาน้องแมว</p>
     </div>
 
-    <p style="text-align:center;color:var(--gray-400);padding:48px 0;">
-      🚧 กำลังรวบรวมรีวิวอุปกรณ์กรูมมิ่ง — กลับมาเร็วๆ นี้
-    </p>
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังเพิ่มสินค้าใหม่ — กลับมาเช็กเร็วๆ นี้
+        </p>
+      )}
+    </div>
+  </section>
 
-    <h2>🐾 อุปกรณ์กรูมมิ่งที่ควรมี</h2>
+  <section class="section">
+    <h2>🐾 ของดูแลสุขอนามัยที่ควรมี</h2>
     <div class="facts-grid" style="grid-template-columns:1fr 1fr">
-      <div class="fact"><strong>🪮 แปรงสลิกเกอร์</strong> — แปรงขนสำหรับสุนัขขนยาว แกะขนพันกัน</div>
-      <div class="fact"><strong>🧤 ถุงมือแปรงขน</strong> — สำหรับสุนัข/แมวขนสั้น นวดไปด้วย แปรงไปด้วย</div>
-      <div class="fact"><strong>✂️ กรรไกรตัดขน</strong> — กรรไกรโค้งปลายมน ปลอดภัยสำหรับมือใหม่</div>
-      <div class="fact"><strong>💅 ที่ตัดเล็บ</strong> — แบบกิโยติน (Guillotine) หรือแบบกรรไกร — ต้องคมและแม่นยำ</div>
-      <div class="fact"><strong>🪥 ยาสีฟัน + แปรง</strong> — ยาสีฟันสำหรับสัตว์เลี้ยงเท่านั้น (ห้ามใช้ของคน)</div>
-      <div class="fact"><strong>🧴 แชมพู</strong> — สูตรอ่อนโยน pH balanced สำหรับสัตว์เลี้ยง</div>
+      <div class="fact"><strong>🧻 แผ่นเช็ดสัตว์เลี้ยง</strong> — เช็ดตา ปาก หู หรือคราบสกปรกระหว่างวัน</div>
+      <div class="fact"><strong>💧 ยาหยดหลัง</strong> — ดูแลเห็บหมัดตามรอบการใช้งานของสินค้า</div>
+      <div class="fact"><strong>🪮 แปรงสลิกเกอร์</strong> — แปรงขนสำหรับสุนัข/แมวขนยาว แกะขนพันกัน</div>
+      <div class="fact"><strong>💅 ที่ตัดเล็บ</strong> — ต้องคม จับถนัดมือ และตัดทีละน้อย</div>
+      <div class="fact"><strong>🪥 ยาสีฟัน + แปรง</strong> — ใช้สูตรสำหรับสัตว์เลี้ยงเท่านั้น</div>
+      <div class="fact"><strong>🧴 แชมพู</strong> — สูตรอ่อนโยน pH balanced สำหรับหมาแมว</div>
     </div>
+  </section>
 
-    <section class="faq" style="margin-top:32px">
-      <h2>❓ คำถามที่พบบ่อย — กรูมมิ่ง</h2>
-      <details>
-        <summary>แปรงขนสุนัขวันละกี่ครั้ง?</summary>
-        <p>ขนสั้น — สัปดาห์ละ 1-2 ครั้ง / ขนยาว — วันละครั้ง เพื่อป้องกันขนพันกันและลดขนร่วงในบ้าน</p>
-      </details>
-      <details>
-        <summary>ตัดเล็บเองปลอดภัยไหม?</summary>
-        <p>ปลอดภัยถ้ารู้วิธี — ตัดเฉพาะปลายเล็บตรงส่วนโค้ง (ไม่เกิน 2-3 มม.) หลีกเลี่ยง Quick (เส้นเลือดในเล็บ) — ถ้าไม่แน่ใจให้กรูมเมอร์ทำให้</p>
-      </details>
-      <details>
-        <summary>ใช้อุปกรณ์กรูมมิ่งคนกับสัตว์เลี้ยงได้ไหม?</summary>
-        <p>ไม่ควร — ขนสัตว์หนากว่า ผิวหนัง pH ต่างกัน ใช้ของคนอาจระคายเคืองหรือบาด</p>
-      </details>
-      <details>
-        <summary>อาบน้ำสุนัขบ่อยแค่ไหน?</summary>
-        <p>ทุก 4-6 สัปดาห์ — อาบบ่อยเกินไปทำให้น้ำมันธรรมชาติเสีย ผิวแห้งคัน</p>
-      </details>
-    </section>
+  <section class="faq">
+    <h2>❓ คำถามที่พบบ่อย — กรูมมิ่ง & ดูแลสุขอนามัย</h2>
+    <details>
+      <summary>แผ่นเช็ดสัตว์เลี้ยงใช้แทนอาบน้ำได้ไหม?</summary>
+      <p>ใช้เช็ดเฉพาะจุดหรือระหว่างวันได้ แต่ไม่ควรใช้แทนอาบน้ำทั้งหมด โดยเฉพาะสัตว์เลี้ยงที่สกปรกมากหรือมีกลิ่นตัวสะสม</p>
+    </details>
+    <details>
+      <summary>ยาหยดหลังควรอยู่หมวดไหน?</summary>
+      <p>จัดอยู่ในหมวดกรูมมิ่ง & ดูแลสุขอนามัย เพราะเป็นสินค้าดูแลเห็บหมัดและสุขอนามัยภายนอก ไม่ใช่อาหารหรือขนม</p>
+    </details>
+    <details>
+      <summary>ตัดเล็บเองปลอดภัยไหม?</summary>
+      <p>ปลอดภัยถ้ารู้วิธี — ตัดเฉพาะปลายเล็บทีละน้อย หลีกเลี่ยง Quick หรือเส้นเลือดในเล็บ ถ้าไม่แน่ใจให้กรูมเมอร์ทำให้</p>
+    </details>
   </section>
 </Layout>
