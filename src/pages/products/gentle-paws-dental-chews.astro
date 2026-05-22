@@ -17,7 +17,7 @@ const structuredData = productArticleSchema({
   ],
   breadcrumbs: [
     { name: "หน้าแรก", url: "https://mooma.online" },
-    { name: "ขนมสุนัข", url: "https://mooma.online/products/gentle-paws-dental-chews" },
+    { name: "ขนมสุนัข", url: "https://mooma.online/category/dog-treats" },
     { name: "Gentle Paws Dental Chews ขนมขัดฟัน", url: "https://mooma.online/products/gentle-paws-dental-chews" },
   ],
 });
@@ -154,6 +154,21 @@ const structuredData = productArticleSchema({
       <summary>ให้วันละกี่ชิ้นดี?</summary>
       <p>แนะนำวันละ 1-2 ชิ้น ควรให้เป็นขนมเสริมไม่ใช่แทนอาหารหลัก และควรมีน้ำสะอาดให้สุนัขดื่มเสมอ</p>
     </details>
+  </section>
+
+  <!-- Internal Linking — สินค้าที่เกี่ยวข้อง -->
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1.25em;">🐶 สินค้าที่เกี่ยวข้องสำหรับน้องหมา</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🐶</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">Kin-D กินดี อาหารสุนัข 20 กก.</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">กระสอบใหญ่ โปรตีน 18% คุ้มค่า รับรองโดยสัตวแพทย์</p>
+          <a href="/products/kin-d-dog-food" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+    </div>
   </section>
 
 </article>

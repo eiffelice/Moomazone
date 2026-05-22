@@ -17,7 +17,7 @@ const structuredData = productArticleSchema({
   ],
   breadcrumbs: [
     { name: "หน้าแรก", url: "https://mooma.online" },
-    { name: "อาหารสุนัข", url: "https://mooma.online/products/kin-d-dog-food" },
+    { name: "อาหารสุนัข", url: "https://mooma.online/category/dog-food" },
     { name: "Kin-D กินดี 20 กก. สูตรเนื้อ", url: "https://mooma.online/products/kin-d-dog-food" },
   ],
 });
@@ -167,6 +167,21 @@ const structuredData = productArticleSchema({
       <summary>เปลี่ยนอาหารให้สุนัขต้องทำยังไง?</summary>
       <p>ควรค่อยๆ ผสม Kin-D กับอาหารเดิม วันแรก 25% → 50% → 75% → 100% ใช้เวลา 7 วัน เพื่อให้สุนัขปรับตัว</p>
     </details>
+  </section>
+
+  <!-- Internal Linking — สินค้าที่เกี่ยวข้อง -->
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1.25em;">🐶 สินค้าที่เกี่ยวข้องสำหรับน้องหมา</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🦷</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">Gentle Paws ขนมขัดฟันสุนัข</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">เทคโนโลยีเอนไซม์ G.E.T. ลดหินปูน กลิ่นปาก Plant-Based</p>
+          <a href="/products/gentle-paws-dental-chews" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+    </div>
   </section>
 
 </article>
