@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'cat-food');
+---
+
+<Layout
+  title="รีวิว อาหารแมว ยี่ห้อไหนดี? เลือกซื้อถูก บำรุงขน | mooma.online"
+  description="รวมรีวิวอาหารแมวจาก Shopee — อาหารเปียกแมว อาหารเม็ดแมว อาหารแมวบำรุงขน อาหารแมวลดขนร่วง ดูรีวิวก่อนซื้อให้เหมาะกับน้องแมว"
+  ogTitle="รีวิว อาหารแมว — เปรียบเทียบก่อนซื้อ | mooma.online"
+  ogDescription="เปรียบเทียบอาหารแมว อาหารเปียก อาหารเม็ด บำรุงขน ลดขนร่วง จาก Shopee เลือกให้เหมาะกับแมวคุณ"
+  ogType="website"
+  ogUrl="https://mooma.online/category/cat-food"
+>
+  <section class="section">
+    <nav class="breadcrumb">
+      <a href="/">หน้าแรก</a> ›
+      <span>อาหารแมว</span>
+    </nav>
+
+    <div class="section-header">
+      <h1 style="font-size:1.8em">🐱 รีวิว อาหารแมว</h1>
+      <p>รวมรีวิวอาหารแมวคุณภาพ จาก Shopee — เลือกอาหารที่ใช่ให้แมวสุขภาพดี ขนสวย</p>
+    </div>
+
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังเพิ่มสินค้าใหม่ — กลับมาเช็กเร็วๆ นี้
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Buying Guide -->
+  <section class="section">
+    <h2>🐾 วิธีเลือกอาหารแมว — อาหารเปียก vs อาหารเม็ด</h2>
+
+    <div class="facts-grid" style="grid-template-columns:1fr 1fr">
+      <div class="fact"><strong>🥫 อาหารเปียก</strong> — เพิ่มความชื้น ช่วยแมวกินน้ำน้อย ลดเสี่ยงโรคไต เนื้อนุ่มกินง่าย</div>
+      <div class="fact"><strong>🟤 อาหารเม็ด</strong> — สะดวก เก็บได้นาน ช่วยขัดฟัน ประหยัดกว่าต่อมื้อ</div>
+      <div class="fact"><strong>💧 น้ำคือสิ่งสำคัญ</strong> — แมวเป็นสัตว์ทะเลทราย ต้องได้รับความชื้นจากอาหาร ไม่ใช่แค่ดื่มน้ำ</div>
+      <div class="fact"><strong>🐟 โปรตีนจากปลา</strong> — ทูน่า แซลมอน ให้กรดไขมันโอเมก้า ช่วยบำรุงขนและผิวหนัง</div>
+      <div class="fact"><strong>🧪 Taurine</strong> — กรดอะมิโนจำเป็นสำหรับแมว อาหารแมวทุกสูตรต้องมี</div>
+      <div class="fact"><strong>🎂 อายุ</strong> — แมวเด็ก (&lt; 1 ปี), แมวโต (1-7 ปี), แมวสูงวัย (7+ ปี) ต้องการสูตรต่างกัน</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>❓ คำถามที่พบบ่อย — อาหารแมว</h2>
+    <details>
+      <summary>ให้แมวกินอาหารเปียกทุกวันดีไหม?</summary>
+      <p>ดีมาก — อาหารเปียกช่วยเพิ่มปริมาณน้ำที่แมวได้รับ ลดความเสี่ยงโรคไตและระบบทางเดินปัสสาวะ ให้วันละ 1-2 มื้อสลับกับอาหารเม็ด</p>
+    </details>
+    <details>
+      <summary>อาหารแมวบำรุงขนจำเป็นไหม?</summary>
+      <p>ถ้าแมวขนร่วงมาก ขนแห้ง หรือผิวหนังลอก — อาหารเสริมโอเมก้า 3-6-9, ไบโอติน, Zinc ช่วยได้ แต่ต้องกินต่อเนื่อง 3-4 สัปดาห์ถึงเห็นผล</p>
+    </details>
+    <details>
+      <summary>แมวกินอาหารหมาได้ไหม?</summary>
+      <p>ไม่ควร — อาหารหมาขาด Taurine และมีสัดส่วนสารอาหารที่ต่างกัน กินนานๆ แมวจะขาดสารอาหาร</p>
+    </details>
+    <details>
+      <summary>เปลี่ยนอาหารแมวต้องทำยังไง?</summary>
+      <p>ค่อยๆ ผสมอาหารใหม่กับเดิม เริ่ม 25% → 50% → 75% → 100% ใช้เวลา 7-10 วัน แมวเรื่องมากอาจใช้เวลานานกว่า</p>
+    </details>
+  </section>
+</section>
+</Layout>

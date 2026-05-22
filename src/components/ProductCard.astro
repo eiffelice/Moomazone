@@ -1,0 +1,107 @@
+---
+// src/components/ProductCard.astro
+export interface Props {
+  href: string;
+  shopeeUrl: string;
+  emoji: string;
+  badge: string;
+  badgeClass: string;
+  title: string;
+  suitable: string;
+  highlight: string;
+  note: string;
+  stars: string;
+  image?: string;
+  variant?: 'homepage' | 'category' | 'compare' | 'article';
+}
+
+const { href, shopeeUrl, emoji, badge, badgeClass, title, suitable, highlight, note, stars, image, variant = 'homepage' } = Astro.props;
+
+const bgMap: Record<string, string> = {
+  'badge-hot': '#FFF3EE',
+  'badge-new': '#F0F7E8',
+  'badge-rec': '#F6F1EB',
+};
+---
+
+{/* === HOMEPAGE (default) === */}
+{variant === 'homepage' && (
+  <div class="product-card">
+    <div class="card-img" style={`background:${bgMap[badgeClass] || '#F6F1EB'}`}>
+      {image ? (
+        <img src={image} alt={title} class="card-img-real" loading="lazy" onclick={`openLightbox('${image}')`} onerror="this.style.display='none';this.parentElement.querySelector('.card-img-fallback').style.display='flex'" />
+      ) : null}
+      <span class="card-img-fallback" style={image ? "display:none" : ""}>
+        <span class="card-img-placeholder">{emoji}</span>
+      </span>
+      <span class={`card-badge ${badgeClass}`}>{badge}</span>
+    </div>
+    <div class="card-body">
+      <h3>{title}</h3>
+      <div class="card-stars">{stars}</div>
+      <div class="card-meta">
+        <div class="meta-row"><span class="meta-label">🐾 เหมาะกับ</span> {suitable}</div>
+        <div class="meta-row"><span class="meta-label">⭐ จุดเด่น</span> {highlight}</div>
+        <div class="meta-row"><span class="meta-label">💡 ข้อควรรู้</span> {note}</div>
+      </div>
+      <div class="card-actions">
+        <a href={href} class="btn-card btn-card-primary">📖 อ่านรีวิวเต็ม</a>
+        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored">🛍️ ซื้อที่ Shopee</a>
+      </div>
+      <p class="card-disclosure">* บางลิงก์เป็น Affiliate — <a href="/disclosure">อ่านเพิ่มเติม</a></p>
+    </div>
+  </div>
+)}
+
+{/* === CATEGORY (compact) === */}
+{variant === 'category' && (
+  <a href={href} class="product-card category-card">
+    <div class="card-img cat-img" style={`background:${bgMap[badgeClass] || '#F6F1EB'}`}>
+      <span class="card-img-placeholder">{emoji}</span>
+    </div>
+    <div class="card-body cat-body">
+      <h3>{title}</h3>
+      <span class={`card-badge ${badgeClass}`}>{badge}</span>
+      <div class="card-stars">{stars}</div>
+    </div>
+  </a>
+)}
+
+{/* === COMPARE (side-by-side) === */}
+{variant === 'compare' && (
+  <div class="product-card compare-card">
+    <div class="card-img" style={`background:${bgMap[badgeClass] || '#F6F1EB'}`}>
+      {image ? (
+        <img src={image} alt={title} class="card-img-real" loading="lazy" onclick={`openLightbox('${image}')`} />
+      ) : (
+        <span class="card-img-placeholder">{emoji}</span>
+      )}
+    </div>
+    <div class="card-body">
+      <h3>{title}</h3>
+      <span class={`card-badge ${badgeClass}`}>{badge}</span>
+      <div class="card-stars">{stars}</div>
+      <div class="card-meta">
+        <div class="meta-row"><span class="meta-label">⭐ จุดเด่น</span> {highlight}</div>
+        <div class="meta-row"><span class="meta-label">💡 ข้อควรรู้</span> {note}</div>
+      </div>
+      <div class="card-actions">
+        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored">🛍️ ซื้อที่ Shopee</a>
+      </div>
+    </div>
+  </div>
+)}
+
+{/* === ARTICLE (inline CTA) === */}
+{variant === 'article' && (
+  <div class="product-card article-card">
+    <div class="card-body article-body">
+      <h3>🛒 {title}</h3>
+      <p>{highlight}</p>
+      <div class="card-actions">
+        <a href={href} class="btn-card btn-card-primary">📖 อ่านรีวิวเต็ม</a>
+        <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored">🛍️ ซื้อที่ Shopee</a>
+      </div>
+    </div>
+  </div>
+)}

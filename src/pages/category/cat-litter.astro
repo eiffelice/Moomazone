@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'cat-litter');
+---
+
+<Layout
+  title="รีวิว กระบะทรายแมว เก็บกลิ่น UV ระบบปิด เลือกแบบไหนดี? | mooma.online"
+  description="รวมรีวิวกระบะทรายแมวจาก Shopee — กระบะทรายแมว UV กระบะทรายระบบปิด กระบะทรายเก็บกลิ่น กระบะทรายแมวคอนโด ดูรีวิวก่อนซื้อ"
+  ogTitle="รีวิว กระบะทรายแมว — UV ระบบปิด เก็บกลิ่น | mooma.online"
+  ogDescription="เลือกกระบะทรายแมวที่ใช่ — UV ฆ่าเชื้อ ระบบปิดเก็บกลิ่น ดักทราย เปรียบเทียบก่อนซื้อ"
+  ogType="website"
+  ogUrl="https://mooma.online/category/cat-litter"
+>
+  <section class="section">
+    <nav class="breadcrumb">
+      <a href="/">หน้าแรก</a> ›
+      <span>กระบะทรายแมว</span>
+    </nav>
+
+    <div class="section-header">
+      <h1 style="font-size:1.8em">🐱 รีวิว กระบะทรายแมว</h1>
+      <p>กระบะทรายที่ใช่อยู่ไปนาน — เลือกให้เหมาะกับแมวและพื้นที่ของคุณ</p>
+    </div>
+
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังเพิ่มสินค้าใหม่ — กลับมาเช็กเร็วๆ นี้
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Buying Guide -->
+  <section class="section">
+    <h2>🐾 วิธีเลือกกระบะทรายแมวให้เหมาะกับบ้านคุณ</h2>
+
+    <div class="facts-grid" style="grid-template-columns:1fr 1fr">
+      <div class="fact"><strong>📦 ระบบปิด</strong> — เก็บกลิ่นได้ดีกว่า กันทรายกระเด็น เหมาะกับคอนโด</div>
+      <div class="fact"><strong>🦠 UV ฆ่าเชื้อ</strong> — ไฟ UV ฆ่าเชื้อแบคทีเรียในกระบะ ลดกลิ่นสะสม</div>
+      <div class="fact"><strong>🔓 เปิดข้าง</strong> — ทำความสะอาดง่าย ไม่ต้องถอดยกทั้งกระบะ</div>
+      <div class="fact"><strong>📏 ขนาด</strong> — ควรใหญ่พอที่แมวเดินเข้าออกและหมุนตัวได้สบาย (1.5 เท่าของความยาวตัวแมว)</div>
+      <div class="fact"><strong>🧹 ดักทราย</strong> — แผ่นดักทรายช่วยลดทรายหกเลอะพื้น</div>
+      <div class="fact"><strong>🔌 ปลั๊กไฟ</strong> — ถ้าเป็นรุ่น UV ต้องดูตำแหน่งปลั๊กก่อนซื้อ</div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>❓ คำถามที่พบบ่อย — กระบะทรายแมว</h2>
+    <details>
+      <summary>กระบะทรายระบบปิดต่างจากเปิดยังไง?</summary>
+      <p>ระบบปิดเก็บกลิ่นได้ดีกว่า กันทรายกระเด็น แต่แมวบางตัวไม่ชอบพื้นที่ปิด — ดูนิสัยแมวก่อนซื้อ</p>
+    </details>
+    <details>
+      <summary>UV ฆ่าเชื้อจำเป็นไหม?</summary>
+      <p>ไม่จำเป็น แต่เป็นฟีเจอร์เสริมที่มีประโยชน์ — ช่วยลดแบคทีเรียและกลิ่น โดยเฉพาะบ้านที่ทำความสะอาดไม่บ่อย</p>
+    </details>
+    <details>
+      <summary>บ้านมีแมว 3 ตัว ต้องใช้กี่กระบะ?</summary>
+      <p>กฎคือ จำนวนแมว + 1 = อย่างน้อย 4 กระบะ — เพื่อป้องกันปัญหาแมวแย่งกันใช้</p>
+    </details>
+    <details>
+      <summary>เปลี่ยนทรายบ่อยแค่ไหน?</summary>
+      <p>ตักทุกวัน / เปลี่ยนทรายทั้งหมด + ล้างกระบะทุก 2-3 สัปดาห์</p>
+    </details>
+  </section>
+</section>
+</Layout>

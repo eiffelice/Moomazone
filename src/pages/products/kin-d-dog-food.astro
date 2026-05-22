@@ -1,14 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const structuredData = productArticleSchema({
+  title: "รีวิว Kin-D กินดี อาหารสุนัข 20 กก. สูตรเนื้อ",
+  description: "รีวิว Kin-D กินดี อาหารสุนัข กระสอบ 20 กก. สูตรเนื้อ โปรตีน 18% สำหรับสุนัขโต 1 ปีขึ้นไป เม็ดเล็กทานง่าย ช่วยขับถ่าย ลดกลิ่นมูล รับรองโดยสัตวแพทย์",
+  url: "https://mooma.online/products/kin-d-dog-food",
+  image: "https://down-th.img.susercontent.com/file/th-11134207-7rasj-m95pwayl0jk9ad.webp",
+  datePublished: "2026-05-21",
+  dateModified: "2026-05-21",
+  faqs: [
+    { question: "Kin-D กินดี เหมาะกับสุนัขพันธุ์อะไร?", answer: "เหมาะกับสุนัขทุกสายพันธุ์ที่อายุ 1 ปีขึ้นไป เม็ดเล็กทำให้แม้แต่พันธุ์เล็กอย่างชิวาว่า ปอมเมอเรเนียน ก็ทานได้สบาย" },
+    { question: "กระสอบ 20 กก. อยู่ได้นานแค่ไหน?", answer: "สำหรับสุนัขขนาดกลาง 1 ตัว (15 กก.) ใช้ได้ประมาณ 50-60 วัน คุ้มค่ามากเมื่อเทียบกับถุงเล็ก" },
+    { question: "ช่วยลดกลิ่นมูลจริงไหม?", answer: "ใช่ — สูตรของ Kin-D ถูกออกแบบมาให้ช่วยลดกลิ่นมูลโดยเฉพาะ ได้รับการยืนยันจากผู้ใช้จริงจำนวนมาก" },
+    { question: "เปลี่ยนอาหารให้สุนัขต้องทำยังไง?", answer: "ควรค่อยๆ ผสม Kin-D กับอาหารเดิม วันแรก 25% → 50% → 75% → 100% ใช้เวลา 7 วัน เพื่อให้สุนัขปรับตัว" },
+  ],
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "อาหารสุนัข", url: "https://mooma.online/products/kin-d-dog-food" },
+    { name: "Kin-D กินดี 20 กก. สูตรเนื้อ", url: "https://mooma.online/products/kin-d-dog-food" },
+  ],
+});
 ---
 
 <Layout
-  title="Kin-D กินดี อาหารสุนัข 20 กก. รีวิวเต็ม สูตรเนื้อ ราคาถูก 2025 | mooma.online"
-  description="รีวิว Kin-D กินดี อาหารสุนัข กระสอบ 20 กก. สูตรเนื้อ โปรตีน 18% สำหรับสุนัขโต 1 ปีขึ้นไป เม็ดเล็กทานง่าย ช่วยขับถ่าย ลดกลิ่นมูล รับรองโดยสัตวแพทย์ ราคาดีที่สุดใน Shopee"
+  title="Kin-D กินดี อาหารสุนัข 20 กก. รีวิวเต็ม สูตรเนื้อ 2025 | mooma.online"
+  description="Kin-D กินดี อาหารสุนัข 20 กก. สูตรเนื้อ โปรตีน 18% สำหรับสุนัขโต เม็ดเล็กทานง่าย ช่วยขับถ่าย ลดกลิ่นมูล รับรองโดยสัตวแพทย์"
   ogTitle="รีวิว Kin-D กินดี อาหารสุนัข 20 กก. สูตรเนื้อ | mooma.online"
-  ogDescription="อาหารสุนัขคุณภาพ ราคาคุ้มค่า โปรตีน 18% กระสอบใหญ่ 20 กก. สุนัขกินดี ถ่ายดี ไม่เค็ม รับรองโดยสัตวแพทย์"
+  ogDescription="อาหารสุนัขคุณภาพ คุ้มค่า โปรตีน 18% กระสอบใหญ่ 20 กก. สุนัขกินดี ถ่ายดี ไม่เค็ม รับรองโดยสัตวแพทย์"
   ogType="article"
   ogUrl="https://mooma.online/products/kin-d-dog-food"
+  ogImage="https://down-th.img.susercontent.com/file/th-11134207-7rasj-m95pwayl0jk9ad.webp"
+  structuredData={structuredData}
 >
 
 <article class="product-review">
@@ -24,8 +47,14 @@ import Layout from '../../layouts/Layout.astro';
   <section class="product-hero">
     <h1>🐶 รีวิว Kin-D กินดี อาหารสุนัข 20 กก. สูตรเนื้อ</h1>
     <p class="subtitle">อาหารเม็ดคุณภาพสำหรับสุนัขโต อายุ 1 ปีขึ้นไป • กระสอบใหญ่ คุ้มค่า • รับรองโดยสัตวแพทย์</p>
-    <div class="price-badge">💰 ราคาประหยัด • คุ้มค่าที่สุดใน Shopee</div>
+    <div class="price-badge">💰 ประหยัด • คุ้มค่าที่สุดใน Shopee</div>
   </section>
+
+  <!-- Product Images -->
+  <div class="product-gallery">
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasj-m95pwayl0jk9ad.webp" alt="Kin-D กินดี อาหารสุนัข 20 กก. สูตรเนื้อ" onclick="openLightbox(this.src)" loading="lazy" />
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-7ras9-m95p4ltc7v4w24.webp" alt="Kin-D กินดี — ข้อมูลโภชนาการ" onclick="openLightbox(this.src)" loading="lazy" />
+  </div>
 
   <!-- Quick Facts -->
   <section class="quick-facts">
@@ -46,7 +75,7 @@ import Layout from '../../layouts/Layout.astro';
   <section class="review-body">
     <h2>🍖 ทำไม Kin-D กินดี ถึงเป็นตัวเลือกอันดับต้นๆ สำหรับสุนัขของคุณ</h2>
 
-    <p>ถ้าคุณกำลังมองหา <strong>อาหารสุนัขคุณภาพดี ราคาประหยัด</strong> สำหรับน้องหมาที่บ้าน <strong>Kin-D กินดี กระสอบ 20 กก. รสเนื้อ</strong> คือคำตอบที่ใช่</p>
+    <p>ถ้าคุณกำลังมองหา <strong>อาหารสุนัขคุณภาพดี คุ้มค่า</strong> สำหรับน้องหมาที่บ้าน <strong>Kin-D กินดี กระสอบ 20 กก. รสเนื้อ</strong> คือคำตอบที่ใช่</p>
 
     <h3>✅ โภชนาการครบถ้วน โปรตีน 18%</h3>
     <p>Kin-D กินดี ให้โปรตีนสูงถึง <strong>18%</strong> และไขมัน <strong>8%</strong> ซึ่งเป็นสัดส่วนที่เหมาะสมสำหรับสุนัขโต ช่วยเสริมสร้างกล้ามเนื้อ ให้พลังงานเพียงพอในแต่ละวัน โดยไม่อ้วนเกินไป</p>
@@ -68,7 +97,7 @@ import Layout from '../../layouts/Layout.astro';
   <section class="benefits">
     <h2>🌟 8 เหตุผลที่ควรเลือก Kin-D กินดี</h2>
     <ol>
-      <li><strong>ราคาประหยัด</strong> — กระสอบ 20 กก. ใช้ได้นานหลายเดือน</li>
+      <li><strong>ประหยัด</strong> — กระสอบ 20 กก. ใช้ได้นานหลายเดือน</li>
       <li><strong>โปรตีนคุณภาพ 18%</strong> — เสริมกล้ามเนื้อ แข็งแรง</li>
       <li><strong>ไขมันต่ำเพียง 8%</strong> — ไม่อ้วน ไม่อุดตัน</li>
       <li><strong>ช่วยระบบขับถ่าย</strong> — กินดี ถ่ายดี</li>
@@ -83,7 +112,7 @@ import Layout from '../../layouts/Layout.astro';
   <section class="who-for">
     <h2>🐕 เหมาะกับใครบ้าง?</h2>
     <ul>
-      <li>🐶 เจ้าของสุนัขที่ต้องการอาหารคุณภาพดี ราคาคุ้มค่า</li>
+      <li>🐶 เจ้าของสุนัขที่ต้องการอาหารคุณภาพดี คุ้มค่า</li>
       <li>🏠 บ้านที่มีสุนัขหลายตัว — กระสอบใหญ่ ใช้ได้นาน</li>
       <li>👴 สุนัขสูงวัยที่ต้องการอาหารเม็ดเล็ก เคี้ยวง่าย</li>
       <li>🌿 คนที่ใส่ใจสุขภาพน้องหมา — ไม่ใส่สี ไม่แต่งกลิ่น</li>
@@ -105,14 +134,14 @@ import Layout from '../../layouts/Layout.astro';
 
   <!-- Where to Buy -->
   <section class="buy">
-    <h2>🛒 ซื้อ Kin-D กินดี ได้ที่ไหน? ราคาดีที่สุด?</h2>
-    <p>Kin-D กินดี 20 กก. มีขายใน <strong>Shopee</strong> ในราคาพิเศษ จากร้าน <strong>opaanlp</strong> ร้านขายสัตว์เลี้ยงออนไลน์ที่มียอดขายสูงและรีวิวดี</p>
+    <h2>🛒 ซื้อ Kin-D กินดี ได้ที่ไหน? ดีลดีที่สุด?</h2>
+    <p>Kin-D กินดี 20 กก. มีขายใน <strong>Shopee</strong> ในดีลพิเศษ จากร้าน <strong>opaanlp</strong> ร้านขายสัตว์เลี้ยงออนไลน์ที่มียอดขายสูงและรีวิวดี</p>
 
     <a href="https://s.shopee.co.th/60OZAB5Cqm" class="cta-button" target="_blank" rel="nofollow sponsored">
-      🛍️ ดูราคาล่าสุดที่ Shopee
+      🛍️ ซื้อที่ Shopee
     </a>
 
-    <p class="disclaimer">* ราคาอาจเปลี่ยนแปลงตามโปรโมชั่นของทางร้าน</p>
+    <p class="disclaimer">* ตรวจสอบข้อมูลล่าสุดจากร้านค้าก่อนสั่งซื้อ</p>
   </section>
 
   <!-- FAQ -->
@@ -141,5 +170,11 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 </article>
+
+<div style="max-width:780px;margin:0 auto;padding:16px 0;">
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — หากคุณสั่งซื้อผ่านลิงก์นี้ เราอาจได้รับค่าคอมมิชชั่น โดยไม่มีผลต่อการตัดสินใจของคุณ โปรดตรวจสอบรายละเอียดสินค้าโดยตรงจากร้านค้าก่อนสั่งซื้อ | <a href="/disclosure" style="color:var(--coral)">อ่านเพิ่มเติม</a>
+  </p>
+</div>
 
 </Layout>

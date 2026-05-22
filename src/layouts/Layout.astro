@@ -1,5 +1,8 @@
 ---
 // src/layouts/Layout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 export interface Props {
   title: string;
   description: string;
@@ -7,6 +10,9 @@ export interface Props {
   ogDescription?: string;
   ogType?: string;
   ogUrl?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  structuredData?: Record<string, any>;
 }
 
 const {
@@ -16,6 +22,9 @@ const {
   ogDescription = description,
   ogType = 'website',
   ogUrl = 'https://mooma.online',
+  ogImage = 'https://mooma.online/og-default.png',
+  canonicalUrl = ogUrl,
+  structuredData,
 } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -25,29 +34,66 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
   <meta property="og:title" content={ogTitle} />
   <meta property="og:description" content={ogDescription} />
   <meta property="og:type" content={ogType} />
   <meta property="og:url" content={ogUrl} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="th_TH" />
+  <meta property="og:site_name" content="mooma.online" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={ogTitle} />
+  <meta name="twitter:description" content={ogDescription} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
+
+  <!-- JSON-LD Structured Data -->
+  {structuredData && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  )}
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/" class="logo">🐾 mooma.online</a>
-      <div class="nav-links">
-        <a href="/">หน้าแรก</a>
-        <a href="/#products">สินค้าแนะนำ</a>
-        <a href="/#about">เกี่ยวกับเรา</a>
-      </div>
-    </nav>
-  </header>
+  <Header />
   <main>
     <slot />
   </main>
-  <footer>
-    <p>🐾 <strong>mooma.online</strong> — แหล่งรวมรีวิวสินค้าสัตว์เลี้ยงคุณภาพดี ราคาคุ้ม</p>
-    <p>© 2025 mooma.online</p>
-  </footer>
+  <Footer />
+
+  <!-- Image Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+  </div>
+
+  <script is:inline>
+    window.openLightbox = function(src) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      if (!(lb instanceof HTMLElement) || !(img instanceof HTMLImageElement)) return;
+      img.src = src;
+      lb.classList.add('lightbox--open');
+      document.body.style.overflow = 'hidden';
+    };
+    window.closeLightbox = function() {
+      const lb = document.getElementById('lightbox');
+      if (!(lb instanceof HTMLElement)) return;
+      lb.classList.remove('lightbox--open');
+      document.body.style.overflow = '';
+    };
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') window.closeLightbox();
+    });
+  </script>
 </body>
 </html>

@@ -1,13 +1,37 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const structuredData = productArticleSchema({
+  title: "รีวิว กระบะทรายแมวระบบ UV ฆ่าเชื้อ เปิด 2 ข้าง เก็บกลิ่น",
+  description: "รีวิวกระบะทรายแมวระบบ UV ฆ่าเชื้อโรค เปิดได้ 2 ข้าง มีประตูเข้าออก เก็บกลิ่น ดักทรายกันหก บรรจุทราย 10 ลิตร ขนาด 53x38.5x41 ซม.",
+  url: "https://mooma.online/products/uv-litter-box",
+  image: "https://down-th.img.susercontent.com/file/th-11134207-81zth-mhpy60se3x1i2e@resize_w900_nl.webp",
+  datePublished: "2026-05-21",
+  dateModified: "2026-05-21",
+  faqs: [
+    { question: "UV ปลอดภัยกับแมวจริงไหม?", answer: "ปลอดภัย — UV จะติดเฉพาะเมื่อแมวอยู่ในกระบะและเป็นรังสีอ่อนที่ใช้ฆ่าเชื้อแบคทีเรียเท่านั้น ไม่เป็นอันตรายต่อผิวหนังหรือดวงตาแมว" },
+    { question: "ต้องเสียบปลั๊กตลอดเวลาไหม?", answer: "ใช่ — หลอด UV ใช้ไฟฟ้า เสียบปลั๊กไว้ตลอด ระบบจะทำงานอัตโนมัติเมื่อเซ็นเซอร์จับการเคลื่อนไหว" },
+    { question: "แมวตัวใหญ่เข้าได้ไหม?", answer: "ขนาด 53x38.5x41 ซม. เพียงพอสำหรับแมวน้ำหนัก 5-8 กก. เมนคูนตัวใหญ่ก็เข้าได้สบาย" },
+    { question: "ซื้อแล้วอยากให้ร้านไม่ใส่ชื่อสินค้าบนกล่อง?", answer: "แจ้งในช่อง \"หมายเหตุ\" ตอนกดสั่งซื้อเท่านั้น — แจ้งทางแชทหลังจากนั้นจะไม่สามารถแก้ไขได้" },
+  ],
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "กระบะทรายแมว", url: "https://mooma.online/products/uv-litter-box" },
+    { name: "กระบะทรายแมว UV ฆ่าเชื้อ 10 ลิตร", url: "https://mooma.online/products/uv-litter-box" },
+  ],
+});
 ---
 
 <Layout
-  title="รีวิว กระบะทรายแมว UV ฆ่าเชื้อ เปิด2ข้าง เก็บกลิ่น 10 ลิตร | mooma.online"
+  title="รีวิว กระบะทรายแมว UV ฆ่าเชื้อ เปิด 2 ข้าง เก็บกลิ่น | mooma.online"
   description="รีวิวกระบะทรายแมวระบบ UV ฆ่าเชื้อโรค เปิดได้ 2 ข้าง มีประตูเข้าออก เก็บกลิ่น ดักทรายกันหก บรรจุทราย 10 ลิตร ขนาด 53x38.5x41 ซม. จากร้าน opaanlp"
   ogTitle="รีวิว กระบะทรายแมว UV ฆ่าเชื้อ | mooma.online"
   ogDescription="กระบะทรายแมวระบบปิด แสง UV ฆ่าเชื้อแบคทีเรีย เปิด 2 ข้าง ดักทราย ลดกลิ่น"
   ogType="article"
+  ogUrl="https://mooma.online/products/uv-litter-box"
+  ogImage="https://down-th.img.susercontent.com/file/th-11134207-81zth-mhpy60se3x1i2e@resize_w900_nl.webp"
+  structuredData={structuredData}
 >
 
 <article class="product-review">
@@ -21,8 +45,16 @@ import Layout from '../../layouts/Layout.astro';
   <section class="product-hero">
     <h1>🐱 รีวิว กระบะทรายแมวระบบ UV ฆ่าเชื้อ เปิด 2 ข้าง เก็บกลิ่น</h1>
     <p class="subtitle">กระบะทรายแมวระบบปิดครบวงจร • แสง UV ต้านแบคทีเรีย • ดักทรายกันหก • เก็บกลิ่นอยู่หมัด</p>
-    <div class="price-badge">💎 ฟีเจอร์พรีเมียม ราคาคุ้ม</div>
+    <div class="price-badge">💎 ฟีเจอร์พรีเมียม คุ้มค่า</div>
   </section>
+
+  <!-- Product Images -->
+  <div class="product-gallery">
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-81zth-mhpy60se3x1i2e@resize_w900_nl.webp" alt="กระบะทรายแมว UV ฆ่าเชื้อ เปิด 2 ข้าง" onclick="openLightbox(this.src)" loading="lazy" />
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-81ztm-mhpy60se5bly92.webp" alt="กระบะทรายแมว UV — มุมด้านข้าง" onclick="openLightbox(this.src)" loading="lazy" />
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-81zti-mhpy60sjym888e.webp" alt="กระบะทรายแมว UV — รายละเอียดภายใน" onclick="openLightbox(this.src)" loading="lazy" />
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98y-lwwleiaczqa7bf.webp" alt="กระบะทรายแมว UV — เปิดฝาทั้ง 2 ข้าง" onclick="openLightbox(this.src)" loading="lazy" />
+  </div>
 
   <section class="quick-facts">
     <h2>📋 ข้อมูลสินค้า</h2>
@@ -99,7 +131,7 @@ import Layout from '../../layouts/Layout.astro';
     <p>จำหน่ายที่ร้าน <strong>opaanlp</strong> บน Shopee — ร้านขายอุปกรณ์สัตว์เลี้ยงยอดนิยม ส่งเร็วจากกรุงเทพ</p>
 
     <a href="https://s.shopee.co.th/5ApSBkTRdy" class="cta-button" target="_blank" rel="nofollow sponsored">
-      🛍️ ดูราคาล่าสุดที่ Shopee
+      🛍️ ซื้อที่ Shopee
     </a>
 
     <p class="disclaimer">💡 ต้องการให้ลบชื่อสินค้าออกจากกล่องพัสดุ? แจ้งใน "หมายเหตุ" ก่อนกดสั่งซื้อ</p>
@@ -130,5 +162,11 @@ import Layout from '../../layouts/Layout.astro';
   </section>
 
 </article>
+
+<div style="max-width:780px;margin:0 auto;padding:16px 0;">
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — หากคุณสั่งซื้อผ่านลิงก์นี้ เราอาจได้รับค่าคอมมิชชั่น โดยไม่มีผลต่อการตัดสินใจของคุณ โปรดตรวจสอบรายละเอียดสินค้าโดยตรงจากร้านค้าก่อนสั่งซื้อ | <a href="/disclosure" style="color:var(--coral)">อ่านเพิ่มเติม</a>
+  </p>
+</div>
 
 </Layout>

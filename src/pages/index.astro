@@ -1,57 +1,217 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import productsData from '../data/products.json';
+import { organizationSchema } from '../utils/structuredData';
+
+const featured = productsData.products.filter(p => p.featured).sort((a, b) => a.priority - b.priority);
+const orgData = organizationSchema();
 ---
 
 <Layout
-  title="mooma.online — รีวิวสินค้าสัตว์เลี้ยง ราคาดี Shopee | อาหารหมา อาหารแมว อุปกรณ์สัตว์เลี้ยง"
-  description="mooma.online แหล่งรวมรีวิวสินค้าสัตว์เลี้ยงจาก Shopee แนะนำอาหารสุนัข อาหารแมว อุปกรณ์สัตว์เลี้ยง ของใช้หมาแมว ราคาถูก คุณภาพดี"
-  ogTitle="mooma.online — รีวิวสินค้าสัตว์เลี้ยง"
-  ogDescription="แหล่งรวมรีวิวสินค้าสัตว์เลี้ยง ราคาดี จาก Shopee"
+  title="mooma.online — รีวิวของใช้หมาแมว จาก Shopee คัดมาแล้วว่าคุ้มจริง"
+  description="รีวิวของใช้หมาแมว จาก Shopee ที่คัดมาแล้วว่าคุ้มจริง เปรียบเทียบง่าย อ่านไว เหมาะกับเจ้าของสัตว์เลี้ยงที่อยากซื้อของดี ไม่เสียเงินมั่ว"
+  ogTitle="mooma.online — รีวิวของใช้หมาแมว คัดมาแล้วว่าคุ้มจริง"
+  ogDescription="เปรียบเทียบง่าย อ่านไว เหมาะกับเจ้าของสัตว์เลี้ยงที่อยากซื้อของดี ไม่เสียเงินมั่ว"
+  ogUrl="https://mooma.online"
+  structuredData={orgData}
 >
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero">
-  <h1>🐾 รีวิวสินค้าสัตว์เลี้ยง… ที่คุณไว้ใจได้</h1>
-  <p class="subtitle">คัดสรรของดี ราคาคุ้ม สำหรับน้องหมาน้องแมวของคุณ จาก Shopee</p>
-</section>
-
-<!-- Products Grid -->
-<section id="products">
-  <h2>🛒 สินค้าแนะนำ</h2>
-  <div class="product-grid">
-
-    <article class="product-card">
-      <div class="card-badge">🔥 ขายดี</div>
-      <h3>🐶 Kin-D กินดี อาหารสุนัข 20 กก. สูตรเนื้อ</h3>
-      <p class="card-desc">โปรตีน 18% • เม็ดเล็กทานง่าย • ช่วยขับถ่าย ลดกลิ่นมูล • รับรองโดยสัตวแพทย์</p>
-      <a href="/products/kin-d-dog-food" class="card-link">อ่านรีวิวเต็ม →</a>
-    </article>
-
-    <article class="product-card">
-      <div class="card-badge">🦠 UV</div>
-      <h3>🐱 กระบะทรายแมว UV ฆ่าเชื้อ เปิด 2 ข้าง</h3>
-      <p class="card-desc">แสง UV ต้านแบคทีเรีย • บรรจุ 10 ลิตร • ประตูปิด เก็บกลิ่น • ช่องดักทรายกันหก</p>
-      <a href="/products/uv-litter-box" class="card-link">อ่านรีวิวเต็ม →</a>
-    </article>
-
-    <article class="product-card">
-      <h3>🐱 สินค้ามาใหม่เร็วๆ นี้</h3>
-      <p class="card-desc">น้ำพุสัตว์เลี้ยง • ที่ลับเล็บแมว • ขนมขัดฟัน • ของเล่นอัจฉริยะ</p>
-      <span class="coming-soon">⏳ เร็วๆ นี้</span>
-    </article>
-
+  <div class="hero-badge">🐾 ไม่มีค่าใช้จ่าย · อ่านรีวิวได้ไม่จำกัด</div>
+  <h1>รีวิวของใช้หมาแมว จาก Shopee<br>ที่<span>คัดมาแล้วว่าคุ้มจริง</span></h1>
+  <p class="hero-sub">เปรียบเทียบง่าย อ่านไว เหมาะกับเจ้าของสัตว์เลี้ยงที่อยากซื้อของดี ไม่เสียเงินมั่ว</p>
+  <div class="hero-ctas">
+    <a href="#products" class="btn-primary">🐾 ดูสินค้าแนะนำ — ฟรี</a>
+    <a href="#categories" class="btn-outline">📂 เลือกตามหมวดหมู่</a>
+  </div>
+  <div class="trust-row">
+    <div class="trust-item"><span class="trust-dot"></span>เปรียบเทียบง่าย</div>
+    <div class="trust-item"><span class="trust-dot"></span>ซื้อตามได้จริง</div>
+    <div class="trust-item"><span class="trust-dot"></span>ไม่เสียเงินมั่ว</div>
   </div>
 </section>
 
-<!-- About -->
-<section id="about">
-  <h2>🐾 เกี่ยวกับ mooma.online</h2>
-  <p>เราเชื่อว่าสัตว์เลี้ยงทุกตัวสมควรได้รับของดีในราคาที่คุ้มค่า mooma.online คือแหล่งรวม<strong>รีวิวสินค้าสัตว์เลี้ยง</strong>ที่คัดสรรมาแล้วว่าคุณภาพดี ราคาคุ้ม จากร้านค้าที่เชื่อถือได้บน Shopee</p>
-  <ul>
-    <li>✅ รีวิวจากประสบการณ์จริง</li>
-    <li>✅ ราคาคุ้มค่า หาซื้อได้จริง</li>
-    <li>✅ ข้อมูลครบ ตัดสินใจง่าย</li>
-  </ul>
+<!-- FEATURED PRODUCTS (data-driven) -->
+<section class="section" id="products">
+  <div class="section-header">
+    <h2>🛒 สินค้าแนะนำ</h2>
+    <p>คัดมาแล้วว่าคุ้มค่าที่สุด สำหรับน้องหมาน้องแมวของคุณ</p>
+    <p style="font-size:0.82em;color:var(--gray-400);margin-top:6px">หมายเหตุ: บางลิงก์เป็น Affiliate — อ่านเพิ่มเติม<a href="/disclosure" style="color:var(--coral)">ที่นี่</a></p>
+  </div>
+  <div class="product-grid">
+    {featured.map(p => (
+      <ProductCard
+        href={`/products/${p.slug}`}
+        shopeeUrl={p.shopeeUrl}
+        emoji={p.emoji}
+        badge={p.badge}
+        badgeClass={p.badgeClass}
+        image={p.image || undefined}
+        title={p.title}
+        suitable={p.suitable}
+        highlight={p.highlight}
+        note={p.note}
+        stars={p.stars}
+        variant="homepage"
+      />
+    ))}
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="section-header">
+    <h2>📂 เลือกดูตามหมวดหมู่</h2>
+    <p>หาของที่เหมาะกับน้องแบบง่ายๆ</p>
+  </div>
+  <div class="cat-grid">
+    <a href="/category/dog-food" class="cat-card">
+      <div class="cat-icon">🍖</div><h4>อาหารสุนัข</h4><p>อาหารเม็ด เปียก เกรนฟรี</p>
+    </a>
+    <a href="/category/cat-food" class="cat-card">
+      <div class="cat-icon">🐟</div><h4>อาหารแมว</h4><p>พรีเมียม โปรตีนสูง</p>
+    </a>
+    <a href="/category/dog-treats" class="cat-card">
+      <div class="cat-icon">🦴</div><h4>ขนมสัตว์เลี้ยง</h4><p>ขัดฟัน ฝึก สร้างสายใย</p>
+    </a>
+    <a href="/category/cat-litter" class="cat-card">
+      <div class="cat-icon">🚽</div><h4>กระบะทราย / ห้องน้ำแมว</h4><p>UV ระบบปิด เก็บกลิ่น</p>
+    </a>
+    <a href="/category/cat-condo" class="cat-card">
+      <div class="cat-icon">🏰</div><h4>คอนโดแมว / ของเล่น</h4><p>ติดผนัง ต้นไม้ ลับเล็บ</p>
+    </a>
+    <a href="/category/smart-pet" class="cat-card">
+      <div class="cat-icon">🤖</div><h4>Smart Pet Gadgets</h4><p>น้ำพุ เครื่องให้อาหาร</p>
+    </a>
+    <a href="/category/supplements" class="cat-card">
+      <div class="cat-icon">💊</div><h4>อาหารเสริมสัตว์เลี้ยง</h4><p>บำรุงขน ข้อต่อ ภูมิคุ้มกัน</p>
+    </a>
+    <a href="/category/grooming" class="cat-card">
+      <div class="cat-icon">✂️</div><h4>กรูมมิ่ง & ดูแล</h4><p>แชมพู แปรง ตัดเล็บ</p>
+    </a>
+  </div>
+</section>
+
+<!-- DECISION HELPER -->
+<section class="section">
+  <div class="section-header">
+    <h2>🎯 เลือกของให้เหมาะกับน้องแบบง่ายๆ</h2>
+    <p>กรองตามความต้องการของคุณ</p>
+  </div>
+  <div class="filter-section">
+    <div class="filter-chips">
+      <span class="chip active">🐶 สำหรับหมา</span>
+      <span class="chip">🐱 สำหรับแมว</span>
+      <span class="chip">💰 งบประหยัด</span>
+      <span class="chip">🔥 ขายดี</span>
+      <span class="chip">🧹 ดูแลง่าย</span>
+      <span class="chip">🏢 บ้านพื้นที่น้อย</span>
+      <span class="chip">👃 กลิ่นน้อย</span>
+      <span class="chip">🤖 Smart Pet</span>
+    </div>
+    <p style="margin-top:20px;color:var(--gray-600);font-size:0.9em">💡 เลือก filter ด้านบน แล้วเราจะคัดสินค้าที่เหมาะกับคุณให้ — หรือ <a href="#products" style="color:var(--coral);font-weight:600">ดูสินค้าทั้งหมด</a></p>
+  </div>
+</section>
+
+<!-- REVIEW ARTICLES (data-driven) -->
+<section class="section" id="reviews">
+  <div class="section-header">
+    <h2>📝 รีวิวล่าสุดจาก mooma.online</h2>
+    <p>อ่านรีวิวแบบละเอียด ก่อนตัดสินใจซื้อ</p>
+  </div>
+  <div class="review-grid">
+    {featured.map(p => (
+      <div class="review-card">
+        <div class="review-thumb" style="background:#FFF0EB">{p.emoji}</div>
+        <div class="review-body">
+          <div class="review-cat">{p.category === 'dog-food' ? 'อาหารสุนัข' : p.category === 'cat-food' ? 'อาหารแมว' : p.category === 'dog-treats' ? 'ขนมสัตว์เลี้ยง' : p.category === 'cat-litter' ? 'กระบะทรายแมว' : 'สินค้าสัตว์เลี้ยง'}</div>
+          <h4>{p.title}</h4>
+          <p>{p.highlight.slice(0, 50)}...</p>
+          <div class="review-meta">
+            <span class="read-time">⏱ {(p.priority || 1) * 2 + 1} นาที</span>
+            <a href={`/products/${p.slug}`} class="read-link">อ่านรีวิว →</a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div style="text-align:center;margin-top:32px">
+    <a href="/reviews" class="btn-outline">📋 ดูรีวิวทั้งหมด</a>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section">
+  <div class="section-header">
+    <h2>ทำไมต้องอ่านรีวิวจาก mooma.online</h2>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon">✅</div>
+      <h4>คัดสินค้าที่หาซื้อได้จริง</h4>
+      <p>ทุกรีวิวมีลิงก์ซื้อจริงจาก Shopee ไม่ต้องเสียเวลาหาเอง</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">📊</div>
+      <h4>เปรียบเทียบจุดเด่น-ข้อควรรู้</h4>
+      <p>บอกทั้งข้อดีและข้อควรรู้แบบตรงไปตรงมา ไม่อวยเกินจริง</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">⚡</div>
+      <h4>ตัดสินใจได้ใน 3-5 นาที</h4>
+      <p>ข้อมูลครบในหน้าเดียว — เหมาะกับ เจ้าของสัตว์เลี้ยงที่ไม่มีเวลาอ่านรีวิวเป็นสิบๆ อัน</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE REVIEW -->
+<section class="section">
+  <div class="section-header">
+    <h2>🔍 เรารีวิวจากอะไร?</h2>
+  </div>
+  <div class="about-card" style="text-align:left;margin:0 auto">
+    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:12px">
+      <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.95em;color:var(--gray-600)">
+        <span style="font-size:1.3em;flex-shrink:0">📋</span>
+        <span><strong style="color:var(--charcoal)">ดูจากคุณสมบัติสินค้า</strong> — ตรวจสอบ spec, ส่วนผสม, วัสดุ, และเทคโนโลยีที่ใช้จริง</span>
+      </li>
+      <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.95em;color:var(--gray-600)">
+        <span style="font-size:1.3em;flex-shrink:0">💰</span>
+        <span><strong style="color:var(--charcoal)">ดูจากความคุ้มค่าเทียบกับปริมาณ</strong> — คำนวณความคุ้มค่าต่อหน่วย เช่น ความคุ้มค่าต่อ กก. หรือต่อการใช้งาน</span>
+      </li>
+      <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.95em;color:var(--gray-600)">
+        <span style="font-size:1.3em;flex-shrink:0">🐾</span>
+        <span><strong style="color:var(--charcoal)">ดูจากความเหมาะสมกับหมา/แมวแต่ละแบบ</strong> — พันธุ์เล็ก พันธุ์ใหญ่ สูงวัย ลูกสัตว์ แพ้ง่าย</span>
+      </li>
+      <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.95em;color:var(--gray-600)">
+        <span style="font-size:1.3em;flex-shrink:0">⭐</span>
+        <span><strong style="color:var(--charcoal)">ดูจากรีวิวผู้ซื้อจริงบน Shopee</strong> — อ่านแล้วสรุปภาพรวมคะแนนและปัญหาที่พบบ่อย</span>
+      </li>
+      <li style="display:flex;align-items:flex-start;gap:12px;font-size:0.95em;color:var(--gray-600)">
+        <span style="font-size:1.3em;flex-shrink:0">📝</span>
+        <span><strong style="color:var(--charcoal)">สรุปข้อดีข้อควรรู้แบบไม่อวยเกิน</strong> — บอกตรงๆ ว่าเหมาะกับใคร ไม่เหมาะกับใคร</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-card">
+    <h2>🐾 เกี่ยวกับ mooma.online</h2>
+    <p>mooma.online คือเว็บรีวิวสินค้าสัตว์เลี้ยงสำหรับคนรักหมาแมว ที่อยากได้ของดี คุ้มค่า และข้อมูลที่ช่วยตัดสินใจได้จริง — เราเชื่อว่าสัตว์เลี้ยงทุกตัวสมควรได้รับของดีที่คุ้มค่าและจับต้องได้</p>
+  </div>
 </section>
 
 </Layout>
+
+<script>
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+</script>

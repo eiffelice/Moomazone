@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'dog-treats');
+---
+
+<Layout
+  title="รีวิว ขนมสุนัข ขนมขัดฟัน ลดหินปูน กลิ่นปาก | mooma.online"
+  description="รวมรีวิวขนมสุนัขคุณภาพจาก Shopee — ขนมขัดฟันลดหินปูน ขนม Plant-Based ขนมสุนัขกลิ่นปาก ดูแลช่องปากน้องหมา"
+  ogTitle="รีวิว ขนมสุนัข — ขนมขัดฟัน ลดหินปูน | mooma.online"
+  ogDescription="ขนมสุนัขที่ช่วยดูแลฟัน — ขนมขัดฟันลดหินปูน ขนม Plant-Based เพื่อสุขภาพช่องปากน้องหมา"
+  ogType="website"
+  ogUrl="https://mooma.online/category/dog-treats"
+>
+  <section class="section">
+    <nav class="breadcrumb">
+      <a href="/">หน้าแรก</a> ›
+      <span>ขนมสุนัข</span>
+    </nav>
+
+    <div class="section-header">
+      <h1 style="font-size:1.8em">🦴 รีวิว ขนมสุนัข</h1>
+      <p>ขนมคุณภาพที่มากกว่าแค่อร่อย — ดูแลฟัน ฝึกวินัย เสริมสุขภาพ</p>
+    </div>
+
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังเพิ่มสินค้าใหม่ — กลับมาเช็กเร็วๆ นี้
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Buying Guide -->
+  <section class="section">
+    <h2>🐾 วิธีเลือกขนมสุนัขให้เหมาะสม</h2>
+
+    <div class="facts-grid" style="grid-template-columns:1fr 1fr">
+      <div class="fact"><strong>🦷 ขนมขัดฟัน</strong> — ช่วยขูดคราบหินปูน ลดกลิ่นปาก เลือกสูตรที่มีเอนไซม์ช่วยทำความสะอาด</div>
+      <div class="fact"><strong>🌿 Plant-Based</strong> — สำหรับสุนัขแพ้เนื้อสัตว์ หรือต้องการทางเลือกสุขภาพ</div>
+      <div class="fact"><strong>📏 ขนาดขนม</strong> — สุนัขเล็กต้องการขนมชิ้นเล็ก ป้องกันติดคอ</div>
+      <div class="fact"><strong>⚖️ แคลอรี่</strong> — ขนมไม่ควรเกิน 10% ของแคลอรี่ต่อวัน ไม่งั้นอ้วน</div>
+      <div class="fact"><strong>🚫 ส่วนผสมต้องห้าม</strong> — เลี่ยงขนมที่ใส่น้ำตาล สีสังเคราะห์ วัตถุกันเสีย</div>
+      <div class="fact"><strong>🏋️ ขนมสำหรับฝึก</strong> — ชิ้นเล็ก แคลอรี่ต่ำ ใช้เป็นรางวัลระหว่างฝึก</div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>❓ คำถามที่พบบ่อย — ขนมสุนัข</h2>
+    <details>
+      <summary>ให้ขนมสุนัขวันละกี่ครั้งดี?</summary>
+      <p>1-2 ครั้งต่อวัน ใช้เป็นรางวัลตอนฝึกหรือหลังอาหาร — ไม่ควรให้ขนมแทนอาหารหลัก</p>
+    </details>
+    <details>
+      <summary>ขนมขัดฟันใช้แทนการแปรงฟันได้ไหม?</summary>
+      <p>ช่วยลดหินปูนและกลิ่นปากได้ แต่ไม่ทดแทนการแปรงฟัน 100% ควรแปรงฟันให้สุนัขเป็นครั้งคราว</p>
+    </details>
+    <details>
+      <summary>สุนัขกินขนมแมวได้ไหม?</summary>
+      <p>กินได้นิดหน่อย แต่ไม่ควรให้เป็นประจำ — ขนมแมวมักโปรตีนสูงและมีแคลอรี่ที่ต่างกัน</p>
+    </details>
+    <details>
+      <summary>สุนัขแพ้เนื้อสัตว์ กินขนมอะไรได้?</summary>
+      <p>เลือกขนม Plant-Based หรือสูตรที่ใช้โปรตีนทางเลือก เช่น ผัก มันหวาน ฟักทอง</p>
+    </details>
+  </section>
+</section>
+</Layout>

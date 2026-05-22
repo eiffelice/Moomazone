@@ -1,0 +1,23 @@
+---
+// src/components/Header.astro
+---
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span class="logo-icon">🐾</span>mooma.online</a>
+    <button class="hamburger" id="hamburger" aria-label="เมนู">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="/">หน้าแรก</a>
+      <a href="/#products">สินค้าแนะนำ</a>
+      <a href="/#reviews">รีวิวล่าสุด</a>
+      <a href="/#categories">หมวดหมู่</a>
+      <a href="/#about">เกี่ยวกับเรา</a>
+      <a href="/#products" class="nav-cta">ดูสินค้าแนะนำ</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.getElementById('hamburger')?.addEventListener('click', () => {
+    document.getElementById('navLinks')?.classList.toggle('open');
+  });
+</script>

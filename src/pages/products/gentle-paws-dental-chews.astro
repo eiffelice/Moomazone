@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const structuredData = productArticleSchema({
+  title: "รีวิว Gentle Paws Dental Chews ขนมขัดฟันสุนัข รูปทรงแปรงสีฟัน",
+  description: "รีวิว Gentle Paws Dental Chews ขนมขัดฟันรูปทรงแปรงสีฟัน เทคโนโลยีเอนไซม์ G.E.T. ช่วยขูดหินปูน ลดกลิ่นปาก รสบรอคโคลี่มิ้นท์ ไฟเบอร์จากผัก ปราศจากเนื้อสัตว์",
+  url: "https://mooma.online/products/gentle-paws-dental-chews",
+  image: "https://down-th.img.susercontent.com/file/th-11134207-81ztn-mnzqodkudcsh7f@resize_w900_nl.webp",
+  datePublished: "2026-05-21",
+  dateModified: "2026-05-21",
+  faqs: [
+    { question: "ขนมขัดฟันใช้แทนการแปรงฟันได้ไหม?", answer: "ช่วยลดหินปูนและทำความสะอาดฟันได้ดี แต่ไม่สามารถทดแทนการแปรงฟัน 100% — ควรใช้คู่กับการแปรงฟันเป็นครั้งคราวเพื่อผลลัพธ์ที่ดีที่สุด" },
+    { question: "สุนัขพันธุ์เล็กทานได้ไหม?", answer: "ทานได้ — เนื้อสัมผัสนุ่มและขนาดพอดีคำ ออกแบบมาเพื่อทุกสายพันธุ์รวมถึงพันธุ์เล็ก" },
+    { question: "ส่วนผสมเป็น Plant-Based จริงหรือ?", answer: "ใช่ — ปราศจากเนื้อสัตว์ 100% ใช้ไฟเบอร์จากผักล้วน รสบรอคโคลี่และมิ้นท์ สกัดจากธรรมชาติ ไม่แต่งสี ไม่แต่งกลิ่น" },
+    { question: "ให้วันละกี่ชิ้นดี?", answer: "แนะนำวันละ 1-2 ชิ้น ควรให้เป็นขนมเสริมไม่ใช่แทนอาหารหลัก และควรมีน้ำสะอาดให้สุนัขดื่มเสมอ" },
+  ],
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "ขนมสุนัข", url: "https://mooma.online/products/gentle-paws-dental-chews" },
+    { name: "Gentle Paws Dental Chews ขนมขัดฟัน", url: "https://mooma.online/products/gentle-paws-dental-chews" },
+  ],
+});
+---
+
+<Layout
+  title="Gentle Paws Dental Chews รีวิว ขนมขัดฟันสุนัข เอนไซม์ | mooma.online"
+  description="รีวิว Gentle Paws Dental Chews ขนมขัดฟันรูปทรงแปรงสีฟัน เทคโนโลยีเอนไซม์ G.E.T. ช่วยขูดหินปูน ลดกลิ่นปาก รสบรอคโคลี่มิ้นท์ ไฟเบอร์จากผัก ปราศจากเนื้อสัตว์"
+  ogTitle="รีวิว Gentle Paws Dental Chews ขนมขัดฟันสุนัข | mooma.online"
+  ogDescription="ขนมขัดฟันสูตรเอนไซม์ ช่วยขูดหินปูน ทำความสะอาดฟันอย่างอ่อนโยน เหมาะทุกสายพันธุ์"
+  ogType="article"
+  ogUrl="https://mooma.online/products/gentle-paws-dental-chews"
+  ogImage="https://down-th.img.susercontent.com/file/th-11134207-81ztn-mnzqodkudcsh7f@resize_w900_nl.webp"
+  structuredData={structuredData}
+>
+
+<article class="product-review">
+
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/dog-treats">ขนมสุนัข</a> ›
+    <span>Gentle Paws Dental Chews ขนมขัดฟัน</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>🦷 รีวิว Gentle Paws Dental Chews ขนมขัดฟันสุนัข รูปทรงแปรงสีฟัน</h1>
+    <p class="subtitle">ขนมขัดฟันสูตรเอนไซม์ G.E.T. • ลดหินปูน • กลิ่นปากสะอาด • ไฟเบอร์จากผักล้วน</p>
+    <div class="price-badge">🌿 Plant-Based • ทุกสายพันธุ์ทานได้</div>
+  </section>
+
+  <!-- Product Images -->
+  <div class="product-gallery">
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-81ztn-mnzqodkudcsh7f@resize_w900_nl.webp" alt="Gentle Paws Dental Chews ขนมขัดฟันสุนัข" onclick="openLightbox(this.src)" loading="lazy" />
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-7ra0q-mbpgwot08dcs43.webp" alt="Gentle Paws — ส่วนผสม Plant-Based" onclick="openLightbox(this.src)" loading="lazy" />
+    <img src="https://down-th.img.susercontent.com/file/th-11134207-7ra0p-mbpgwi0u5otj11.webp" alt="Gentle Paws — วิธีใช้" onclick="openLightbox(this.src)" loading="lazy" />
+  </div>
+
+  <section class="quick-facts">
+    <h2>📋 ข้อมูลสินค้า</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>ยี่ห้อ:</strong> Gentle Paws</div>
+      <div class="fact"><strong>ประเภท:</strong> ขนมขัดฟันสุนัข</div>
+      <div class="fact"><strong>รูปทรง:</strong> แปรงสีฟัน</div>
+      <div class="fact"><strong>รสชาติ:</strong> บรอคโคลี่ &amp; มิ้นท์</div>
+      <div class="fact"><strong>เทคโนโลยี:</strong> G.E.T. Gentle Enzyme Teethcare</div>
+      <div class="fact"><strong>ส่วนผสมหลัก:</strong> ไฟเบอร์จากผักล้วน</div>
+      <div class="fact"><strong>จุดเด่น:</strong> ปราศจากเนื้อสัตว์ ไม่แต่งสี ไม่แต่งกลิ่น</div>
+      <div class="fact"><strong>เหมาะสำหรับ:</strong> สุนัขทุกสายพันธุ์ ทุกวัย</div>
+    </div>
+  </section>
+
+  <section class="review-body">
+    <h2>🪥 ทำไมขนมขัดฟันถึงสำคัญกับน้องหมา?</h2>
+
+    <p>ปัญหา<strong>กลิ่นปากและหินปูน</strong>คือปัญหาอันดับต้นๆ ที่เจ้าของสุนัขต้องเจอ การแปรงฟันให้สุนัขทุกวันเป็นเรื่องยาก <strong>Gentle Paws Dental Chews</strong> คือทางออกที่ทำให้น้องหมาได้ทั้งกินขนมและทำความสะอาดฟันไปพร้อมกัน</p>
+
+    <h3>✅ G.E.T. เทคโนโลยีเอนไซม์เฉพาะ — ขูดหินปูนอย่างอ่อนโยน</h3>
+    <p>Gentle Paws ใช้เทคโนโลยี <strong>G.E.T. (Gentle Enzyme Teethcare)</strong> ที่ออกแบบเอนไซม์เฉพาะให้มีส่วนช่วย<strong>ขูดคราบหินปูน</strong>ได้อย่างมีประสิทธิภาพ โดยไม่ต้องใช้สารเคมีรุนแรง ปลอดภัยแม้สุนัขฟันบอบบาง</p>
+
+    <h3>✅ รูปทรงแปรงสีฟัน — กระตุ้นการเคี้ยวทุกซอกฟัน</h3>
+    <p>ขนมออกแบบมาใน<strong>รูปทรงแปรงสีฟัน</strong>ที่มีร่องและปุ่มพิเศษ เนื้อสัมผัสถูกออกแบบให้<strong>กระตุ้นการเคี้ยว</strong>และช่วยขัดทำความสะอาดฟันได้อย่างทั่วถึง ทุกการเคี้ยวคือการแปรงฟัน</p>
+
+    <h3>✅ Plant-Based จากผักล้วน — ปราศจากเนื้อสัตว์ 100%</h3>
+    <p>รส<strong>บรอคโคลี่และมิ้นท์</strong> อุดมด้วย<strong>ไฟเบอร์จากผัก</strong> ปราศจากเนื้อสัตว์โดยสิ้นเชิง สกัดจากธรรมชาติ <strong>ไม่แต่งสี ไม่แต่งกลิ่น</strong> ไขมันต่ำ ย่อยง่าย — แม้แต่สุนัขที่แพ้เนื้อสัตว์หรือระบบย่อยอาหารไวก็ทานได้สบาย</p>
+
+    <h3>✅ เหมาะทุกสายพันธุ์ — ทั้งพันธุ์เล็ก พันธุ์ใหญ่ และฟันบอบบาง</h3>
+    <p>เนื้อสัมผัสได้รับการออกแบบมาให้<strong>นุ่มพอดีคำ แต่ไม่เละ</strong> สุนัขพันธุ์เล็กอย่างชิวาว่าหรือปอมก็เคี้ยวได้ สุนัขแก่ที่ฟันไม่แข็งแรงก็ทานได้ ไม่ต้องกังวลเรื่องฟันหักหรือเหงือกอักเสบ</p>
+  </section>
+
+  <section class="benefits">
+    <h2>🌟 7 เหตุผลที่ต้องมี Gentle Paws Dental Chews</h2>
+    <ol>
+      <li><strong>เทคโนโลยีเอนไซม์ G.E.T.</strong> — ขูดหินปูนอย่างมีประสิทธิภาพ</li>
+      <li><strong>รูปทรงแปรงสีฟัน</strong> — ทำความสะอาดฟันทุกซี่ทุกมุม</li>
+      <li><strong>ลดกลิ่นปาก</strong> — มิ้นท์ช่วยให้ลมหายใจหอมสดชื่น</li>
+      <li><strong>Plant-Based 100%</strong> — ปราศจากเนื้อสัตว์ ไฟเบอร์จากผัก</li>
+      <li><strong>ไม่แต่งสี ไม่แต่งกลิ่น</strong> — ปลอดภัยจากสารเคมี</li>
+      <li><strong>เคี้ยวง่าย ย่อยง่าย</strong> — ไขมันต่ำ ระบบย่อยไม่ทำงานหนัก</li>
+      <li><strong>ทุกสายพันธุ์ ทุกวัย</strong> — ตั้งแต่ลูกสุนัขถึงสุนัขแก่</li>
+    </ol>
+  </section>
+
+  <section class="who-for">
+    <h2>🐶 เหมาะกับใคร?</h2>
+    <ul>
+      <li>🦷 เจ้าของที่<strong>ไม่อยากแปรงฟันสุนัขทุกวัน</strong> — ขนมนี้ช่วยทดแทนได้</li>
+      <li>👃 บ้านที่<strong>ทนกลิ่นปากน้องหมา</strong>ไม่ไหวแล้ว — มิ้นท์ช่วยลดกลิ่น</li>
+      <li>🩺 สุนัขที่<strong>ฟันบอบบางหรืออายุมาก</strong> — เนื้อนุ่ม ไม่แข็งเกินไป</li>
+      <li>🥦 สุนัขที่<strong>แพ้เนื้อสัตว์</strong> — Plant-Based 100% ไม่มีเนื้อสัตว์</li>
+      <li>🐕‍🦺 เจ้าของที่ใส่ใจ<strong>สุขภาพช่องปาก</strong>ระยะยาว — ป้องกันโรคเหงือก หินปูน</li>
+    </ul>
+  </section>
+
+  <section class="feeding-guide">
+    <h2>🍽️ วิธีให้ขนม</h2>
+    <ul>
+      <li>ให้วันละ 1-2 ชิ้น หลังอาหาร หรือเป็นรางวัลตอนฝึก</li>
+      <li>ควรมีน้ำสะอาดให้สุนัขดื่มตลอดเวลา</li>
+      <li>ไม่ควรใช้แทนอาหารหลัก — เป็นขนมเสริมเพื่อสุขภาพฟันเท่านั้น</li>
+      <li>เหมาะสำหรับสุนัขอายุ 3 เดือนขึ้นไป</li>
+    </ul>
+  </section>
+
+  <section class="buy">
+    <h2>🛒 ซื้อ Gentle Paws Dental Chews ได้ที่ไหน?</h2>
+    <p>จำหน่ายที่ร้าน <strong>opaanlp</strong> บน Shopee — ร้านขายอุปกรณ์สัตว์เลี้ยงยอดนิยม ส่งไว มีบริการเก็บเงินปลายทาง</p>
+
+    <a href="https://s.shopee.co.th/2LVHs36jke" class="cta-button" target="_blank" rel="nofollow sponsored">
+      🛍️ ซื้อที่ Shopee
+    </a>
+
+    <p class="disclaimer">* ตรวจสอบข้อมูลล่าสุดจากร้านค้าก่อนสั่งซื้อ</p>
+  </section>
+
+  <section class="faq">
+    <h2>❓ คำถามที่พบบ่อย</h2>
+
+    <details>
+      <summary>ขนมขัดฟันใช้แทนการแปรงฟันได้ไหม?</summary>
+      <p>ช่วยลดหินปูนและทำความสะอาดฟันได้ดี แต่<strong>ไม่สามารถทดแทนการแปรงฟัน 100%</strong> — ควรใช้คู่กับการแปรงฟันเป็นครั้งคราวเพื่อผลลัพธ์ที่ดีที่สุด</p>
+    </details>
+
+    <details>
+      <summary>สุนัขพันธุ์เล็กทานได้ไหม?</summary>
+      <p>ทานได้ — เนื้อสัมผัสนุ่มและขนาดพอดีคำ ออกแบบมาเพื่อทุกสายพันธุ์รวมถึงพันธุ์เล็ก</p>
+    </details>
+
+    <details>
+      <summary>ส่วนผสมเป็น Plant-Based จริงหรือ?</summary>
+      <p>ใช่ — <strong>ปราศจากเนื้อสัตว์ 100%</strong> ใช้ไฟเบอร์จากผักล้วน รสบรอคโคลี่และมิ้นท์ สกัดจากธรรมชาติ ไม่แต่งสี ไม่แต่งกลิ่น</p>
+    </details>
+
+    <details>
+      <summary>ให้วันละกี่ชิ้นดี?</summary>
+      <p>แนะนำวันละ 1-2 ชิ้น ควรให้เป็นขนมเสริมไม่ใช่แทนอาหารหลัก และควรมีน้ำสะอาดให้สุนัขดื่มเสมอ</p>
+    </details>
+  </section>
+
+</article>
+
+<div style="max-width:780px;margin:0 auto;padding:16px 0;">
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — หากคุณสั่งซื้อผ่านลิงก์นี้ เราอาจได้รับค่าคอมมิชชั่น โดยไม่มีผลต่อการตัดสินใจของคุณ โปรดตรวจสอบรายละเอียดสินค้าโดยตรงจากร้านค้าก่อนสั่งซื้อ | <a href="/disclosure" style="color:var(--coral)">อ่านเพิ่มเติม</a>
+  </p>
+</div>
+
+</Layout>

@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'dog-food');
+---
+
+<Layout
+  title="รีวิว อาหารสุนัข ยี่ห้อไหนดี? เปรียบเทียบ เลือกซื้อ | mooma.online"
+  description="รวมรีวิวอาหารสุนัข อาหารหมา จาก Shopee — เปรียบเทียบก่อนซื้อ อาหารสุนัขประหยัด อาหารสุนัขโปรตีนสูง อาหารสุนัขหลายตัว ดูรีวิวก่อนตัดสินใจ"
+  ogTitle="รีวิว อาหารสุนัข — เปรียบเทียบก่อนซื้อ | mooma.online"
+  ogDescription="เปรียบเทียบอาหารสุนัขจาก Shopee — โปรตีนสูง คุ้มค่า กระสอบใหญ่ ให้อาหารหมาที่บ้านครบทุกความต้องการ"
+  ogType="website"
+  ogUrl="https://mooma.online/category/dog-food"
+>
+  <section class="section">
+    <nav class="breadcrumb">
+      <a href="/">หน้าแรก</a> ›
+      <span>อาหารสุนัข</span>
+    </nav>
+
+    <div class="section-header">
+      <h1 style="font-size:1.8em">🐶 รีวิว อาหารสุนัข</h1>
+      <p>รวมรีวิวอาหารสุนัขคุณภาพ จาก Shopee — เปรียบเทียบก่อนซื้อ ไม่ต้องเสียเงินผิดยี่ห้อ</p>
+    </div>
+
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังเพิ่มสินค้าใหม่ — กลับมาเช็กเร็วๆ นี้
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Buying Guide -->
+  <section class="section">
+    <h2>🐾 วิธีเลือกอาหารสุนัขให้เหมาะกับน้องหมา</h2>
+
+    <div class="facts-grid" style="grid-template-columns:1fr 1fr">
+      <div class="fact"><strong>🔬 โปรตีน</strong> — 18-25% สำหรับสุนัขโตปกติ, 25-30% สำหรับสุนัขที่ออกกำลังมาก</div>
+      <div class="fact"><strong>🍖 วัตถุดิบหลัก</strong> — ดูส่วนผสม 3 ตัวแรก ควรเป็นเนื้อสัตว์จริง ไม่ใช่ "ผลพลอยได้จากเนื้อ"</div>
+      <div class="fact"><strong>📏 ขนาดเม็ด</strong> — สุนัขพันธุ์เล็กต้องการเม็ดเล็กกว่าพันธุ์ใหญ่</div>
+      <div class="fact"><strong>🎂 อายุ</strong> — สูตรลูกสุนัข ≠ สูตรสุนัขโต ≠ สูตรสุนัขสูงวัย</div>
+      <div class="fact"><strong>⚖️ น้ำหนัก</strong> — ถ้าสุนัขอ้วน เลือกสูตร Light หรือ Low Fat</div>
+      <div class="fact"><strong>🚫 สารต้องห้าม</strong> — หลีกเลี่ยงอาหารที่ใส่สีสังเคราะห์ สารกันบูด BHA/BHT</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2>❓ คำถามที่พบบ่อย — อาหารสุนัข</h2>
+    <details>
+      <summary>อาหารสุนัข 20 กก. อยู่ได้นานแค่ไหน?</summary>
+      <p>สำหรับสุนัขขนาดกลาง 1 ตัว (15 กก.) ใช้ได้ประมาณ 50-60 วัน — ซื้อกระสอบใหญ่ประหยัดกว่าถุงเล็ก 20-30%</p>
+    </details>
+    <details>
+      <summary>เปลี่ยนอาหารสุนัขต้องทำยังไง?</summary>
+      <p>ค่อยๆ ผสมอาหารใหม่กับอาหารเดิม เริ่ม 25% → 50% → 75% → 100% ใช้เวลา 7 วัน เพื่อให้ระบบย่อยปรับตัว</p>
+    </details>
+    <details>
+      <summary>สุนัขกินอาหารคนได้ไหม?</summary>
+      <p>ไม่แนะนำ — อาหารคนมักมีเกลือและเครื่องปรุงที่อันตรายต่อสุนัข เช่น หัวหอม กระเทียม ช็อกโกแลต องุ่น</p>
+    </details>
+    <details>
+      <summary>อาหารสุนัขยี่ห้อไหนดีที่สุด?</summary>
+      <p>ไม่มี "ดีที่สุด" สำหรับทุกตัว — ขึ้นอยู่กับงบประมาณ อายุ สุขภาพ และความชอบของสุนัข อ่านรีวิวแล้วเลือกที่เหมาะที่สุด</p>
+    </details>
+  </section>
+</section>
+</Layout>
