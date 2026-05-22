@@ -2,8 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
+import { itemListSchema } from '../../utils/structuredData';
 
 const categoryProducts = productsData.products.filter(p => p.category === 'dog-treats');
+const structuredData = itemListSchema({
+  name: "ขนมสุนัข",
+  description: "รวมรีวิวขนมสุนัขคุณภาพจาก Shopee — ขนมขัดฟันลดหินปูน ขนม Plant-Based ขนมสุนัขกลิ่นปาก ดูแลช่องปากน้องหมา",
+  url: "https://mooma.online/category/dog-treats",
+  products: categoryProducts,
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "ขนมสุนัข", url: "https://mooma.online/category/dog-treats" },
+  ],
+});
 ---
 
 <Layout
@@ -13,6 +24,7 @@ const categoryProducts = productsData.products.filter(p => p.category === 'dog-t
   ogDescription="ขนมสุนัขที่ช่วยดูแลฟัน — ขนมขัดฟันลดหินปูน ขนม Plant-Based เพื่อสุขภาพช่องปากน้องหมา"
   ogType="website"
   ogUrl="https://mooma.online/category/dog-treats"
+  structuredData={structuredData}
 >
   <section class="section">
     <nav class="breadcrumb">

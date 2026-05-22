@@ -2,8 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
+import { itemListSchema } from '../../utils/structuredData';
 
 const categoryProducts = productsData.products.filter(p => p.category === 'cat-food');
+const structuredData = itemListSchema({
+  name: "อาหารแมว",
+  description: "รวมรีวิวอาหารแมวจาก Shopee — อาหารเปียกแมว อาหารเม็ดแมว อาหารแมวบำรุงขน อาหารแมวลดขนร่วง ดูรีวิวก่อนซื้อให้เหมาะกับน้องแมว",
+  url: "https://mooma.online/category/cat-food",
+  products: categoryProducts,
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "อาหารแมว", url: "https://mooma.online/category/cat-food" },
+  ],
+});
 ---
 
 <Layout
@@ -13,6 +24,7 @@ const categoryProducts = productsData.products.filter(p => p.category === 'cat-f
   ogDescription="เปรียบเทียบอาหารแมว อาหารเปียก อาหารเม็ด บำรุงขน ลดขนร่วง จาก Shopee เลือกให้เหมาะกับแมวคุณ"
   ogType="website"
   ogUrl="https://mooma.online/category/cat-food"
+  structuredData={structuredData}
 >
   <section class="section">
     <nav class="breadcrumb">

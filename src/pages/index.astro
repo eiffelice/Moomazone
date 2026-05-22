@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import productsData from '../data/products.json';
-import { organizationSchema } from '../utils/structuredData';
+import { homePageSchema } from '../utils/structuredData';
 
 const featured = productsData.products.filter(p => p.featured).sort((a, b) => a.priority - b.priority);
 const categoryLabels = {
@@ -15,7 +15,7 @@ const categoryLabels = {
   'supplements': 'อาหารเสริมสัตว์เลี้ยง',
   'grooming': 'กรูมมิ่ง & ดูแลสุขอนามัย',
 };
-const orgData = organizationSchema();
+const orgData = homePageSchema(featured);
 ---
 
 <Layout

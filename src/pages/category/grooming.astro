@@ -2,8 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
+import { itemListSchema } from '../../utils/structuredData';
 
 const categoryProducts = productsData.products.filter(p => p.category === 'grooming');
+const structuredData = itemListSchema({
+  name: "กรูมมิ่ง & ดูแลสุขอนามัย",
+  description: "รวมรีวิวของใช้ดูแลสุขอนามัยหมาแมวจาก Shopee — แผ่นเช็ดคราบน้ำตา ผ้าเช็ดหู ยาหยดหลัง แชมพู แปรงขน และอุปกรณ์กรูมมิ่ง",
+  url: "https://mooma.online/category/grooming",
+  products: categoryProducts,
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "กรูมมิ่ง & ดูแลสุขอนามัย", url: "https://mooma.online/category/grooming" },
+  ],
+});
 ---
 
 <Layout
@@ -13,6 +24,7 @@ const categoryProducts = productsData.products.filter(p => p.category === 'groom
   ogDescription="แผ่นเช็ด ยาหยดหลัง แชมพู แปรงขน และของใช้ดูแลความสะอาดสำหรับหมาแมว"
   ogType="website"
   ogUrl="https://mooma.online/category/grooming"
+  structuredData={structuredData}
 >
   <section class="section">
     <nav class="breadcrumb">

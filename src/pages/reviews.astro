@@ -1,10 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import productsData from '../data/products.json';
+import { itemListSchema } from '../utils/structuredData';
+
+const structuredData = itemListSchema({
+  name: 'รีวิวสินค้าสัตว์เลี้ยงทั้งหมด',
+  description: 'รวมรีวิวสินค้าสัตว์เลี้ยงทั้งหมดจาก mooma.online — อาหาร กระบะทราย คอนโดแมว ขนม ของใช้หมาแมว',
+  url: 'https://mooma.online/reviews',
+  products: productsData.products,
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'รีวิวทั้งหมด', url: 'https://mooma.online/reviews' },
+  ],
+});
 ---
 <Layout
   title="รีวิวสินค้าสัตว์เลี้ยงทั้งหมด | mooma.online"
   description="รวมรีวิวสินค้าสัตว์เลี้ยงทั้งหมดจาก mooma.online — อาหาร กระบะทราย คอนโดแมว ขนม ของใช้หมาแมว"
   ogUrl="https://mooma.online/reviews"
+  structuredData={structuredData}
 >
 <section class="section">
   <div class="section-header">

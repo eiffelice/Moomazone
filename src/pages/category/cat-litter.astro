@@ -2,8 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
+import { itemListSchema } from '../../utils/structuredData';
 
 const categoryProducts = productsData.products.filter(p => p.category === 'cat-litter');
+const structuredData = itemListSchema({
+  name: "กระบะทรายแมว",
+  description: "รวมรีวิวกระบะทรายแมวจาก Shopee — กระบะทรายแมว UV กระบะทรายระบบปิด กระบะทรายเก็บกลิ่น กระบะทรายแมวคอนโด ดูรีวิวก่อนซื้อ",
+  url: "https://mooma.online/category/cat-litter",
+  products: categoryProducts,
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "กระบะทรายแมว", url: "https://mooma.online/category/cat-litter" },
+  ],
+});
 ---
 
 <Layout
@@ -13,6 +24,7 @@ const categoryProducts = productsData.products.filter(p => p.category === 'cat-l
   ogDescription="เลือกกระบะทรายแมวที่ใช่ — UV ฆ่าเชื้อ ระบบปิดเก็บกลิ่น ดักทราย เปรียบเทียบก่อนซื้อ"
   ogType="website"
   ogUrl="https://mooma.online/category/cat-litter"
+  structuredData={structuredData}
 >
   <section class="section">
     <nav class="breadcrumb">
