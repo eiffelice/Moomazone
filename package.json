@@ -9,6 +9,8 @@
     "validate": "bash scripts/no-price-check.sh && bash scripts/check-disclosure.sh",
     "prebuild": "npm run validate",
     "build": "astro build && node scripts/alias-sitemap.mjs",
+    "health": "node scripts/check-site-health.mjs",
+    "health:external": "CHECK_EXTERNAL=1 node scripts/check-site-health.mjs",
     "preview": "astro preview",
     "deploy": "bash scripts/deploy.sh"
   },

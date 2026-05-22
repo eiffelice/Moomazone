@@ -24,12 +24,17 @@ npx astro check
 
 # Step 4: Build
 echo ""
-echo "🏗️  Step 4/5: Build..."
+echo "🏗️  Step 4/6: Build..."
 npm run build
 
-# Step 5: Deploy
+# Step 5: Health check
 echo ""
-echo "📤 Step 5/5: Deploy to Cloudflare Pages..."
+echo "🩺 Step 5/6: Site health check..."
+npm run health
+
+# Step 6: Deploy
+echo ""
+echo "📤 Step 6/6: Deploy to Cloudflare Pages..."
 
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
   echo "❌ CLOUDFLARE_API_TOKEN not set. Set it and retry."
