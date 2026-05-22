@@ -47,7 +47,7 @@ export function productArticleSchema({
       name: 'mooma.online',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://mooma.online/og-default.png',
+        url: 'https://mooma.online/og-default-v2.png',
       },
     },
     mainEntityOfPage: {
