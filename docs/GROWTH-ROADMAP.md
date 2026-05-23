@@ -18,6 +18,44 @@
 - Pages with high impressions but low CTR
 - Pages with clicks but low affiliate CTR
 
+### Weekly SEO Dashboard Utility
+
+รันรายงาน Search Console + click events:
+
+```bash
+npm run seo:dashboard
+```
+
+ผลลัพธ์จะถูกบันทึกที่ `reports/seo/weekly-YYYY-MM-DD.md` และ command จะ print path ออกมา
+
+ENV ที่ใช้:
+
+- `GSC_SITE_URL` optional, default `sc-domain:mooma.online`
+- `GOOGLE_TOKEN_PATH` optional, default `~/.hermes/google_token.json`
+- `GA4_PROPERTY_ID` optional, ใช้เมื่ออยากดึง GA4 Data API event rows
+
+token JSON ต้องมี `access_token` หรือ `refresh_token`; ถ้ามี `refresh_token`, `client_id`, `client_secret` script จะ refresh token ให้อัตโนมัติ
+
+### Search Console Index Utility
+
+รันงาน index/sitemap ผ่าน Search Console API:
+
+```bash
+npm run seo:gsc:sites
+npm run seo:gsc:submit-sitemap
+npm run seo:gsc:sitemap-status
+npm run seo:gsc:inspect
+```
+
+ค่า default:
+
+- `GSC_SITE_URL=sc-domain:mooma.online`
+- `SITEMAP_URL=https://mooma.online/sitemap.xml`
+- `INSPECT_LIMIT=25`
+- `GOOGLE_TOKEN_PATH=~/.hermes/google_token.json`
+
+`seo:gsc:inspect` จะอ่าน sitemap index สด จากนั้นไล่ child sitemap และ inspect URL ตาม limit ที่ตั้งไว้
+
 ## Event Naming Contract
 
 Implemented in `src/components/Analytics.astro`:

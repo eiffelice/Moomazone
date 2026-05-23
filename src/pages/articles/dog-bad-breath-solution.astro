@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShopeeSignupCTA from '../../components/ShopeeSignupCTA.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const faqs = [
+  { question: 'หมากลิ่นปากแรงเกิดจากอะไร?', answer: 'สาเหตุที่พบบ่อยคือคราบฟัน หินปูน เศษอาหาร เหงือกอักเสบ หรือการดูแลช่องปากไม่สม่ำเสมอ แต่บางกรณีอาจเกี่ยวกับระบบย่อยอาหาร ไต หรือโรคอื่น จึงควรดูอาการร่วมด้วย' },
+  { question: 'กลิ่นปากแบบไหนควรพาไปหาหมอ?', answer: 'ถ้ากลิ่นแรงมาก น้ำลายไหล เหงือกแดง เลือดออก เคี้ยวข้างเดียว ไม่ยอมกิน หรือมีอาการซึม ควรพาไปพบสัตวแพทย์' },
+  { question: 'แปรงฟันหมาทุกวันจำเป็นไหม?', answer: 'ถ้าทำได้ การแปรงฟันสม่ำเสมอช่วยลดคราบสะสมได้ดีมาก แต่ถ้าน้องยังไม่ยอม ให้เริ่มจากการจับปากสั้นๆ ใช้ผ้าก๊อซ หรือเสริมด้วยขนมขัดฟันขนาดเหมาะสม' },
+  { question: 'ขนมขัดฟันช่วยลดกลิ่นปากได้ไหม?', answer: 'ช่วยได้ในระดับเสริม โดยเฉพาะกลิ่นจากคราบอาหารและคราบฟันเริ่มต้น แต่ถ้ามีหินปูนหนาหรือเหงือกอักเสบ ต้องให้สัตวแพทย์ตรวจ' },
+];
+
+const structuredData = productArticleSchema({
+  title: 'หมากลิ่นปากแรง แก้ยังไง? วิธีดูแลช่องปากสุนัขแบบเริ่มได้ทันที',
+  description: 'คู่มือแก้ปัญหาหมากลิ่นปากแรง เช็กสาเหตุจากฟัน เหงือก อาหาร และสุขภาพ พร้อมวิธีดูแลช่องปากและสัญญาณที่ควรพาไปพบสัตวแพทย์',
+  url: 'https://mooma.online/articles/dog-bad-breath-solution',
+  image: 'https://mooma.online/og-default-v2.png',
+  datePublished: '2026-05-23',
+  dateModified: '2026-05-23',
+  faqs,
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'กรูมมิ่ง & ดูแลสุขอนามัย', url: 'https://mooma.online/category/grooming' },
+    { name: 'หมากลิ่นปากแรง', url: 'https://mooma.online/articles/dog-bad-breath-solution' },
+  ],
+});
+---
+
+<Layout
+  title="หมากลิ่นปากแรง แก้ยังไง? วิธีดูแลช่องปากสุนัข"
+  description="หมากลิ่นปากแรงเกิดจากอะไร? เช็กสาเหตุจากฟัน เหงือก อาหาร และสุขภาพ พร้อมวิธีดูแลช่องปากสุนัขแบบเริ่มได้ทันที"
+  ogTitle="หมากลิ่นปากแรง แก้ยังไง?"
+  ogDescription="วิธีดูแลช่องปากสุนัข ลดกลิ่นปาก และเช็กสัญญาณที่ควรพบสัตวแพทย์"
+  ogType="article"
+  ogUrl="https://mooma.online/articles/dog-bad-breath-solution"
+  structuredData={structuredData}
+>
+<article class="product-review">
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/grooming">กรูมมิ่ง & ดูแลสุขอนามัย</a> ›
+    <span>หมากลิ่นปากแรง</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>😬 หมากลิ่นปากแรง แก้ยังไง? วิธีดูแลช่องปากสุนัขแบบเริ่มได้ทันที</h1>
+    <p class="subtitle">กลิ่นปากน้องหมาไม่ใช่แค่เรื่องกวนใจ แต่อาจเป็นสัญญาณของคราบฟัน เหงือกอักเสบ หรือสุขภาพช่องปากที่ต้องดูแล</p>
+  </section>
+
+  <section class="quick-facts">
+    <h2>📋 เช็กเร็ว: กลิ่นปากหมาควรเริ่มจากอะไร</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>ฟัน:</strong> คราบฟันและหินปูนเป็นสาเหตุที่พบบ่อย</div>
+      <div class="fact"><strong>เหงือก:</strong> แดง บวม หรือเลือดออกควรพบสัตวแพทย์</div>
+      <div class="fact"><strong>อาหาร:</strong> เศษอาหารติดฟันทำให้กลิ่นสะสม</div>
+      <div class="fact"><strong>พฤติกรรม:</strong> ชอบกัดของสกปรกหรือเลียสิ่งแปลกปลอม</div>
+      <div class="fact"><strong>การดูแล:</strong> แปรงฟันและขนมขัดฟันช่วยเสริมได้</div>
+      <div class="fact"><strong>สัญญาณเสี่ยง:</strong> ไม่กิน เคี้ยวข้างเดียว ซึม หรือเจ็บปาก</div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>1) กลิ่นปากหมาเริ่มจากคราบฟันได้ง่ายมาก</h2>
+    <p>หลังอาหาร เศษอาหารและแบคทีเรียจะเกาะบนผิวฟัน ถ้าไม่ได้ดูแลสม่ำเสมอจะกลายเป็นคราบสะสมและหินปูน ทำให้เกิดกลิ่นปาก เหงือกแดง หรือเจ็บเวลาเคี้ยวได้</p>
+    <p>ถ้าน้องหมาเริ่มไม่อยากกินอาหารเม็ดร่วมด้วย อ่าน <a href="/articles/dog-not-eating-guide">หมาไม่ค่อยกินข้าว ทำยังไงดี</a> เพราะปัญหาฟันอาจทำให้เคี้ยวแล้วเจ็บ</p>
+  </section>
+
+  <section class="content-section">
+    <h2>2) เริ่มดูแลช่องปากแบบไม่ฝืนเกินไป</h2>
+    <ol>
+      <li>เริ่มจากจับปากและยกริมฝีปากสั้นๆ ให้ชินก่อน</li>
+      <li>ใช้ผ้าก๊อซหรือแปรงนิ้วแตะฟันเบาๆ</li>
+      <li>ค่อยๆ เพิ่มเวลาตามความร่วมมือของน้อง</li>
+      <li>ให้รางวัลหลังทำเสร็จเพื่อสร้างประสบการณ์ที่ดี</li>
+      <li>เสริมด้วยขนมขัดฟันหรือของเคี้ยวที่เหมาะกับขนาดตัว</li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <h2>3) ขนมขัดฟันช่วยได้แค่ไหน</h2>
+    <p>ขนมขัดฟันช่วยเสริมการดูแลได้ โดยเฉพาะน้องหมาที่ไม่ยอมแปรงฟันในช่วงแรก การเคี้ยวช่วยเสียดสีกับผิวฟันและลดคราบบางส่วน แต่ไม่ควรใช้แทนการตรวจช่องปากหรือการแปรงฟันทั้งหมด</p>
+    <p>อ่านคู่มือเต็มได้ที่ <a href="/articles/dog-dental-chews-guide">ขนมขัดฟันสุนัขจำเป็นไหม</a> หรือดูตัวอย่างสินค้าในรีวิว <a href="/products/gentle-paws-dental-chews">Gentle Paws Dental Chews</a></p>
+  </section>
+
+  <section class="content-section">
+    <h2>4) เมื่อไหร่ที่ไม่ควรรอ</h2>
+    <p>ถ้าน้องหมากลิ่นปากแรงมากร่วมกับน้ำลายไหล เหงือกแดง เลือดออก ฟันโยก เคี้ยวข้างเดียว หรือไม่ยอมกิน ควรพาไปพบสัตวแพทย์ เพราะอาจต้องตรวจช่องปากอย่างละเอียดและรักษาตามสาเหตุ</p>
+  </section>
+
+  <section class="content-section">
+    <h2>คำถามที่พบบ่อย</h2>
+    {faqs.map((faq) => (
+      <details>
+        <summary>{faq.question}</summary>
+        <p>{faq.answer}</p>
+      </details>
+    ))}
+  </section>
+
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2>🐶 อ่านต่อที่เกี่ยวข้อง</h2>
+    <ul>
+      <li><a href="/category/grooming">หมวดกรูมมิ่ง & ดูแลสุขอนามัย</a></li>
+      <li><a href="/category/dog-treats">หมวดขนมสุนัข</a></li>
+      <li><a href="/products/gentle-paws-dental-chews">รีวิว Gentle Paws Dental Chews</a></li>
+    </ul>
+    <p style="font-size:0.86em;color:var(--gray-400);">หมายเหตุ: บางลิงก์เป็น Affiliate</p>
+  </section>
+
+  <ShopeeSignupCTA />
+</article>
+</Layout>

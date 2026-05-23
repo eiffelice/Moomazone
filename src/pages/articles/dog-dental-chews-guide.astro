@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShopeeSignupCTA from '../../components/ShopeeSignupCTA.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const faqs = [
+  { question: 'ขนมขัดฟันสุนัขแทนการแปรงฟันได้ไหม?', answer: 'ไม่ควรใช้แทนการแปรงฟันทั้งหมด ขนมขัดฟันช่วยเสริมการดูแลช่องปาก ลดคราบบางส่วน และทำให้น้องยอมให้ดูแลฟันง่ายขึ้น แต่การแปรงฟันและตรวจช่องปากยังสำคัญที่สุด' },
+  { question: 'ให้ขนมขัดฟันทุกวันได้ไหม?', answer: 'ขึ้นอยู่กับสูตร ขนาดตัว และพลังงานรวมในแต่ละวัน ควรอ่านคำแนะนำบนสินค้าและไม่ให้มากจนกระทบมื้อหลัก' },
+  { question: 'สุนัขพันธุ์เล็กต้องใช้ขนมขัดฟันไหม?', answer: 'พันธุ์เล็กมักมีปัญหาคราบฟันและกลิ่นปากง่าย เพราะช่องปากเล็กและฟันเบียด การใช้ขนมขัดฟันขนาดเหมาะสมช่วยเสริมการดูแลได้' },
+  { question: 'ถ้าหินปูนเยอะแล้ว ขนมขัดฟันช่วยได้ไหม?', answer: 'ถ้าหินปูนหนา เหงือกแดง หรือมีกลิ่นแรงมาก ขนมขัดฟันอาจไม่พอ ควรให้สัตวแพทย์ตรวจและพิจารณาการดูแลช่องปากที่เหมาะสม' },
+];
+
+const structuredData = productArticleSchema({
+  title: 'ขนมขัดฟันสุนัขจำเป็นไหม? วิธีดูแลกลิ่นปากและคราบฟันน้องหมา',
+  description: 'คู่มือเลือกขนมขัดฟันสุนัข เหมาะกับหมาแบบไหน ใช้แทนการแปรงฟันได้ไหม ควรดูขนาด เนื้อสัมผัส ส่วนผสม และข้อควรระวังอะไรบ้าง',
+  url: 'https://mooma.online/articles/dog-dental-chews-guide',
+  image: 'https://mooma.online/og-default-v2.png',
+  datePublished: '2026-05-23',
+  dateModified: '2026-05-23',
+  faqs,
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'ขนมสุนัข', url: 'https://mooma.online/category/dog-treats' },
+    { name: 'ขนมขัดฟันสุนัข', url: 'https://mooma.online/articles/dog-dental-chews-guide' },
+  ],
+});
+---
+
+<Layout
+  title="ขนมขัดฟันสุนัขจำเป็นไหม? วิธีดูแลกลิ่นปากและคราบฟัน"
+  description="ขนมขัดฟันสุนัขจำเป็นไหม ใช้แทนแปรงฟันได้หรือเปล่า ดูวิธีเลือกขนาด เนื้อสัมผัส ส่วนผสม และข้อควรระวังสำหรับน้องหมา"
+  ogTitle="ขนมขัดฟันสุนัขจำเป็นไหม?"
+  ogDescription="คู่มือเลือกขนมขัดฟันสุนัขแบบเข้าใจง่าย ช่วยดูแลกลิ่นปากและคราบฟันอย่างเหมาะสม"
+  ogType="article"
+  ogUrl="https://mooma.online/articles/dog-dental-chews-guide"
+  structuredData={structuredData}
+>
+<article class="product-review">
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/dog-treats">ขนมสุนัข</a> ›
+    <span>ขนมขัดฟันสุนัข</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>🦷 ขนมขัดฟันสุนัขจำเป็นไหม? วิธีดูแลกลิ่นปากและคราบฟันน้องหมา</h1>
+    <p class="subtitle">ขนมขัดฟันไม่ใช่ของเล่นธรรมดา แต่เป็นตัวช่วยเสริมการดูแลช่องปาก ถ้าเลือกขนาดและเนื้อสัมผัสให้เหมาะกับน้อง</p>
+  </section>
+
+  <section class="quick-facts">
+    <h2>📋 สรุปเร็ว: ขนมขัดฟันเหมาะกับใคร</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>เหมาะกับ:</strong> สุนัขที่มีกลิ่นปากเล็กน้อยหรือเริ่มมีคราบฟัน</div>
+      <div class="fact"><strong>ไม่ใช่ยา:</strong> ไม่สามารถแก้หินปูนหนาหรือเหงือกอักเสบรุนแรง</div>
+      <div class="fact"><strong>ขนาด:</strong> ต้องพอดีกับปากและแรงเคี้ยว</div>
+      <div class="fact"><strong>เนื้อสัมผัส:</strong> ควรเคี้ยวได้นานพอ ไม่แตกเป็นชิ้นคม</div>
+      <div class="fact"><strong>มื้อหลัก:</strong> ไม่ควรให้จนกินอาหารหลักลดลง</div>
+      <div class="fact"><strong>เสริม:</strong> ใช้คู่กับการแปรงฟันและตรวจช่องปาก</div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>ขนมขัดฟันช่วยอะไรได้จริง</h2>
+    <p>หลักการของขนมขัดฟันคือให้สุนัขเคี้ยวเพื่อช่วยเสียดสีกับผิวฟัน ลดคราบอาหารบางส่วน และกระตุ้นให้น้ำลายทำงาน แต่ผลลัพธ์ขึ้นอยู่กับรูปทรง เนื้อสัมผัส เวลาที่น้องใช้เคี้ยว และความสม่ำเสมอในการดูแลช่องปาก</p>
+    <p>ถ้าน้องหมามีกลิ่นปากแรงมาก อ่านคู่มือ <a href="/articles/dog-bad-breath-solution">หมากลิ่นปากแรง แก้ยังไง</a> ร่วมด้วย เพราะกลิ่นปากอาจมาจากฟัน เหงือก หรือระบบย่อยอาหาร</p>
+  </section>
+
+  <section class="content-section">
+    <h2>เลือกขนมขัดฟันยังไงไม่ให้พลาด</h2>
+    <ol>
+      <li><strong>ดูขนาดให้เหมาะกับตัวน้อง</strong> — เล็กเกินไปเสี่ยงกลืนเร็ว ใหญ่เกินไปเคี้ยวยาก</li>
+      <li><strong>ดูความแข็ง</strong> — แข็งเกินไปอาจเสี่ยงฟันบิ่นในสุนัขบางตัว</li>
+      <li><strong>ดูส่วนผสม</strong> — ถ้าน้องแพ้ง่าย ควรหลีกเลี่ยงส่วนผสมที่เคยแพ้</li>
+      <li><strong>ดูพฤติกรรมเคี้ยว</strong> — ถ้าชอบกลืนเร็ว ควรเฝ้าระหว่างให้</li>
+      <li><strong>ดูพลังงานรวม</strong> — ให้เป็นของเสริม ไม่ใช่แทนอาหารหลัก</li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <h2>ตัวอย่างสินค้าที่เชื่อมกับหัวข้อนี้</h2>
+    <p>ถ้าอยากดูรีวิวสินค้าเฉพาะทาง อ่าน <a href="/products/gentle-paws-dental-chews">Gentle Paws Dental Chews ขนมขัดฟันสุนัข</a> ซึ่งเป็นหน้าที่สรุปจุดเด่น ข้อควรรู้ และเหมาะกับสุนัขแบบไหน โดยไม่ต้องเสียเวลาไล่อ่านหลายที่</p>
+  </section>
+
+  <section class="content-section">
+    <h2>ควรเริ่มดูแลฟันน้องหมาตอนไหน</h2>
+    <p>ยิ่งเริ่มเร็ว ยิ่งง่าย เพราะสุนัขจะคุ้นกับการจับปาก แปรงฟัน และเคี้ยวของที่เหมาะสม ถ้ารอจนมีกลิ่นปากแรงหรือเหงือกแดงแล้ว การดูแลเองที่บ้านอาจไม่พอและต้องให้สัตวแพทย์ช่วยตรวจ</p>
+  </section>
+
+  <section class="content-section">
+    <h2>คำถามที่พบบ่อย</h2>
+    {faqs.map((faq) => (
+      <details>
+        <summary>{faq.question}</summary>
+        <p>{faq.answer}</p>
+      </details>
+    ))}
+  </section>
+
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2>🐶 อ่านต่อที่เกี่ยวข้อง</h2>
+    <ul>
+      <li><a href="/category/dog-treats">หมวดขนมสุนัข</a></li>
+      <li><a href="/products/gentle-paws-dental-chews">รีวิว Gentle Paws Dental Chews</a></li>
+      <li><a href="/articles/dog-not-eating-guide">หมาไม่ค่อยกินข้าว ทำยังไงดี</a></li>
+    </ul>
+    <p style="font-size:0.86em;color:var(--gray-400);">หมายเหตุ: บางลิงก์เป็น Affiliate</p>
+  </section>
+
+  <ShopeeSignupCTA />
+</article>
+</Layout>

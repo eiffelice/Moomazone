@@ -11,6 +11,11 @@
     "build": "astro build && node scripts/alias-sitemap.mjs",
     "health": "node scripts/check-site-health.mjs",
     "health:external": "CHECK_EXTERNAL=1 node scripts/check-site-health.mjs",
+    "seo:dashboard": "node scripts/seo-dashboard.mjs",
+    "seo:gsc:sites": "node scripts/gsc-index-system.mjs list-sites",
+    "seo:gsc:submit-sitemap": "node scripts/gsc-index-system.mjs submit-sitemap",
+    "seo:gsc:sitemap-status": "node scripts/gsc-index-system.mjs sitemap-status",
+    "seo:gsc:inspect": "node scripts/gsc-index-system.mjs inspect-urls",
     "preview": "astro preview",
     "deploy": "bash scripts/deploy.sh"
   },
