@@ -2,7 +2,7 @@
 
 ## สถานะล่าสุด
 
-เพิ่มหน้ารีวิวสินค้า `เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง ปลอดสารเคมี และดินพร้อมปลูก` ลง branch `feat/pet-wheatgrass-kit` แล้ว ตรวจ build/QA ผ่านทั้งหมด กำลังเตรียม commit/push/deploy เข้า production `https://mooma.online/`
+เพิ่มหน้ารีวิวสินค้า `เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง ปลอดสารเคมี และดินพร้อมปลูก` และ deploy ขึ้น Cloudflare Pages production/custom domain `https://mooma.online/` เรียบร้อยแล้ว
 
 ## งานที่เสร็จแล้ว
 
@@ -33,19 +33,17 @@
 - `npm run health` ผ่าน
   - checked 30 routes from `dist/`
 - ตรวจคำต้องห้ามผ่าน: ไม่พบ `รักษาเชื้อรา`, `หายแน่นอน`, `ขับก้อนขนหาย`, `ลดกลิ่นปากหาย`, `ราคา`, `โปรโมชัน` ใน `src/`
+- Production/custom domain spot-check ผ่าน: `https://mooma.online/products/pet-wheatgrass-seeds-soil-kit/` HTTP 200 และพบชื่อสินค้า + affiliate code `1gFhY38BnC`
+- Submitted sitemap เข้า Google Search Console แล้ว
 
 ## งานที่ยังค้าง
 
-- ต้อง commit/push/merge และ deploy production
-- หลัง deploy ต้อง spot-check หน้า live และ submit sitemap เข้า Google Search Console
+- Google อาจยังไม่ index หน้าใหม่ทันที เพราะเพิ่ง deploy
 
 ## สิ่งที่ต้องทำต่อ
 
-1. Commit และ push branch `feat/pet-wheatgrass-kit`
-2. Merge เข้า `main`
-3. Deploy Cloudflare Pages production
-4. ตรวจ `https://mooma.online/products/pet-wheatgrass-seeds-soil-kit/`
-5. Submit sitemap เข้า GSC
+1. รอ Google crawl 24–72 ชั่วโมง แล้วตรวจ Search Console
+2. ถ้ายังไม่ index ให้ใช้ GSC request indexing สำหรับ `https://mooma.online/products/pet-wheatgrass-seeds-soil-kit/`
 
 ## คำเตือน
 
