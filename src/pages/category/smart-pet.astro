@@ -1,5 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+import { itemListSchema } from '../../utils/structuredData';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'smart-pet');
+const structuredData = itemListSchema({
+  name: 'Smart Pet — อุปกรณ์อัจฉริยะสำหรับสัตว์เลี้ยง',
+  description: 'รวมรีวิวอุปกรณ์ Smart Pet — เครื่องให้อาหารอัตโนมัติ น้ำพุดื่มน้ำแมว กล้องดูสัตว์เลี้ยง GPS tracker อุปกรณ์ IoT สำหรับหมาแมว',
+  url: 'https://mooma.online/category/smart-pet',
+  products: categoryProducts,
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'Smart Pet', url: 'https://mooma.online/category/smart-pet' },
+  ],
+});
 ---
 
 <Layout
@@ -9,6 +24,7 @@ import Layout from '../../layouts/Layout.astro';
   ogDescription="อุปกรณ์อัจฉริยะสำหรับสัตว์เลี้ยง — ให้อาหารอัตโนมัติ กล้องดูน้อง น้ำพุแมว"
   ogType="website"
   ogUrl="https://mooma.online/category/smart-pet"
+  structuredData={structuredData}
 >
   <section class="section">
     <nav class="breadcrumb">
@@ -21,9 +37,29 @@ import Layout from '../../layouts/Layout.astro';
       <p>เทคโนโลยีเพื่อน้อง — ดูแลสัตว์เลี้ยงได้แม้ไม่อยู่บ้าน</p>
     </div>
 
-    <p style="text-align:center;color:var(--gray-400);padding:48px 0;">
-      🚧 กำลังรวบรวมรีวิวอุปกรณ์ Smart Pet — กลับมาเร็วๆ นี้
-    </p>
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังรวบรวมรีวิวอุปกรณ์ Smart Pet — กลับมาเร็วๆ นี้
+        </p>
+      )}
+    </div>
 
     <h2>🐾 Smart Pet มีอะไรบ้าง?</h2>
     <div class="facts-grid" style="grid-template-columns:1fr 1fr">

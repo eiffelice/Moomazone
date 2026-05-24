@@ -1,0 +1,244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShopeeSignupCTA from '../../components/ShopeeSignupCTA.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const productUrl = 'https://mooma.online/products/automatic-cat-water-fountain';
+const shopeeUrl = 'https://s.shopee.co.th/5VSQAsJJBH';
+const heroImage = 'https://down-th.img.susercontent.com/file/sg-11134201-7rdxu-mckglnspm1ck66@resize_w450_nl.webp';
+const gallery = [
+  'https://down-th.img.susercontent.com/file/sg-11134201-7rdxu-mckglnspm1ck66@resize_w450_nl.webp',
+  'https://down-th.img.susercontent.com/file/sg-11134201-7rdxw-mckglomoe5dj19@resize_w450_nl.webp',
+  'https://down-th.img.susercontent.com/file/sg-11134201-7rdxc-mckglqrt9b5f8a.webp',
+  'https://down-th.img.susercontent.com/file/sg-11134201-7rdxu-mckglre0h1gza4.webp',
+  'https://down-th.img.susercontent.com/file/sg-11134201-7rdvw-mckglsah2q1ga1.webp',
+  'https://down-th.img.susercontent.com/file/sg-11134201-7rdxp-mckglsr4ebxibc.webp',
+];
+
+const highlights = [
+  'น้ำพุแมวอัตโนมัติสำหรับสัตว์เลี้ยง',
+  'เหมาะสำหรับแมวและสุนัขขนาดเล็ก',
+  'มีระบบกรองน้ำในตัว',
+  'ระบบทำงานเสียงเงียบ',
+  'มีโหมดน้ำไหลต่อเนื่อง',
+  'มีโหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้',
+  'ระบบไร้สาย ลดความเสี่ยงจากการเหยียบสายไฟ',
+  'ระบบป้องกันการทำงานเมื่อน้ำแห้ง',
+  'ตัวเครื่องโปร่งใส มองเห็นระดับน้ำได้ง่าย',
+  'ตัวกรองคาร์บอนกัมมันต์ช่วยกรองขน เศษอาหาร และสิ่งสกปรก',
+];
+
+const suitableFor = [
+  'คนเลี้ยงแมว',
+  'คนเลี้ยงสุนัขขนาดเล็ก',
+  'บ้านที่ต้องการเครื่องให้น้ำสัตว์เลี้ยง',
+  'คนที่อยากให้น้องดื่มน้ำสะดวกขึ้น',
+  'บ้านหรือคอนโดที่ต้องการเครื่องทำงานเสียงเงียบ',
+];
+
+const modes = [
+  { name: 'โหมดน้ำไหลต่อเนื่อง', bestFor: 'วันที่อยากให้มีน้ำไหลตลอดช่วงใช้งาน', note: 'เหมาะกับน้องที่ชอบน้ำเคลื่อนไหวและเข้ามาดื่มบ่อย' },
+  { name: 'โหมดตรวจจับเมื่อเข้าใกล้', bestFor: 'บ้านที่อยากให้เครื่องทำงานเมื่อสัตว์เลี้ยงเข้ามาใกล้', note: 'ช่วยให้ใช้งานเป็นจังหวะมากขึ้นตามพฤติกรรมของน้อง' },
+];
+
+const structuredData = productArticleSchema({
+  title: 'รีวิว น้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำ เสียงเงียบ',
+  description: 'รีวิวน้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำในตัว เสียงเงียบ มีโหมดน้ำไหลต่อเนื่องและโหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้ เหมาะสำหรับแมวและสุนัขขนาดเล็ก',
+  url: productUrl,
+  image: heroImage,
+  product: {
+    name: 'น้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำ เสียงเงียบ',
+    description: 'น้ำพุแมวอัตโนมัติสำหรับแมวและสุนัขขนาดเล็ก มีระบบกรองน้ำในตัว เสียงเงียบ โหมดน้ำไหลต่อเนื่อง โหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้ ระบบไร้สาย และระบบป้องกันการทำงานเมื่อน้ำแห้ง',
+    image: heroImage,
+    category: 'smart-pet',
+    sameAs: shopeeUrl,
+  },
+  datePublished: '2026-05-24',
+  dateModified: '2026-05-24',
+  faqs: [
+    { question: 'น้ำพุแมวอัตโนมัตินี้เหมาะกับสัตว์เลี้ยงแบบไหน?', answer: 'จากข้อมูลสินค้า เหมาะสำหรับแมวและสุนัขขนาดเล็ก รวมถึงบ้านที่ต้องการเครื่องให้น้ำสัตว์เลี้ยงที่ทำงานเสียงเงียบ' },
+    { question: 'มีระบบกรองน้ำไหม?', answer: 'มีระบบกรองน้ำในตัว โดยตัวกรองคาร์บอนกัมมันต์ช่วยกรองขน เศษอาหาร และสิ่งสกปรกตามข้อมูลสินค้า' },
+    { question: 'เครื่องทำงานแบบไหนบ้าง?', answer: 'มีโหมดน้ำไหลต่อเนื่อง และโหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้ เจ้าของสามารถเลือกใช้งานให้เหมาะกับพฤติกรรมของน้อง' },
+    { question: 'ต้องระวังอะไรตอนใช้งาน?', answer: 'ควรเติมน้ำให้อยู่ในระดับเหมาะสม ล้างตัวเครื่องและเปลี่ยนตัวกรองตามรอบที่ร้านค้าแนะนำ แม้เครื่องจะมีระบบป้องกันการทำงานเมื่อน้ำแห้งก็ตาม' },
+  ],
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'Smart Pet', url: 'https://mooma.online/category/smart-pet' },
+    { name: 'น้ำพุแมวอัตโนมัติ', url: productUrl },
+  ],
+});
+---
+
+<Layout
+  title="น้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำ เสียงเงียบ | mooma.online"
+  description="น้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำในตัว เสียงเงียบ มีโหมดน้ำไหลต่อเนื่องและโหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้ เหมาะสำหรับแมวและสุนัขขนาดเล็ก"
+  ogTitle="น้ำพุแมวอัตโนมัติ — เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำ เสียงเงียบ | mooma.online"
+  ogDescription="เครื่องให้น้ำสัตว์เลี้ยงสำหรับแมวและสุนัขขนาดเล็ก มีระบบกรองน้ำ โหมดน้ำไหลต่อเนื่อง และโหมดตรวจจับเมื่อเข้าใกล้"
+  ogType="article"
+  ogUrl={productUrl}
+  ogImage={heroImage}
+  structuredData={structuredData}
+>
+
+<article class="product-review">
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/smart-pet">Smart Pet</a> ›
+    <span>น้ำพุแมวอัตโนมัติ</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>💧 รีวิว น้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง ระบบกรองน้ำ เสียงเงียบ</h1>
+    <p class="subtitle">ตัวช่วยให้น้องดื่มน้ำสะดวกขึ้น เหมาะสำหรับแมวและสุนัขขนาดเล็ก มีระบบกรองน้ำในตัว ตัวเครื่องโปร่งใส และโหมดใช้งานสำหรับบ้านที่ต้องการความเงียบ</p>
+  </section>
+
+  <div class="product-gallery">
+    {gallery.map((src, index) => (
+      <img src={src} alt={`น้ำพุแมวอัตโนมัติ เครื่องให้น้ำสัตว์เลี้ยง รูปที่ ${index + 1}`} onclick="openLightbox(this.src)" loading="lazy" />
+    ))}
+  </div>
+
+  <section class="quick-facts">
+    <h2>📋 ข้อมูลสินค้าแบบสั้น</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>ประเภท:</strong> น้ำพุแมวอัตโนมัติ / เครื่องให้น้ำสัตว์เลี้ยง</div>
+      <div class="fact"><strong>หมวด:</strong> Smart Pet / น้ำพุแมว / ของใช้แมวและสุนัขขนาดเล็ก</div>
+      <div class="fact"><strong>ขนาด:</strong> 165 x 210 x 140 มม.</div>
+      <div class="fact"><strong>เหมาะกับ:</strong> แมวและสุนัขขนาดเล็ก</div>
+      <div class="fact"><strong>ระบบเด่น:</strong> กรองน้ำในตัว เสียงเงียบ โหมดน้ำไหลต่อเนื่อง และโหมดตรวจจับเมื่อเข้าใกล้</div>
+      <div class="fact"><strong>ความปลอดภัย:</strong> ระบบไร้สาย และระบบป้องกันการทำงานเมื่อน้ำแห้ง</div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🔍 น้ำพุแมวอัตโนมัติตัวนี้เหมาะกับบ้านแบบไหน?</h2>
+    <p><strong>น้ำพุแมวอัตโนมัติ</strong> รุ่นนี้เหมาะกับบ้านที่อยากให้แมวหรือสุนัขขนาดเล็กมีจุดดื่มน้ำที่ใช้งานง่ายขึ้น โดยเฉพาะบ้านหรือคอนโดที่ต้องการเครื่องเสียงเงียบ และอยากเห็นระดับน้ำได้ง่ายจากตัวเครื่องโปร่งใส</p>
+    <p>ข้อมูลที่น่าสนใจคือมีทั้งระบบกรองน้ำในตัว โหมดน้ำไหลต่อเนื่อง โหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้ และระบบป้องกันการทำงานเมื่อน้ำแห้ง จึงเป็นตัวเลือกในกลุ่มแก็ดเจ็ตสัตว์เลี้ยงที่เน้นความสะดวกประจำวัน</p>
+  </section>
+
+  <section class="content-section">
+    <h2>✅ จุดเด่นสินค้า</h2>
+    <ul>
+      {highlights.map((item) => <li>{item}</li>)}
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>⚙️ โหมดการทำงาน เลือกใช้แบบไหนดี?</h2>
+    <div class="compare-table">
+      <div class="compare-row compare-header">
+        <div class="compare-cell">โหมด</div>
+        <div class="compare-cell">เหมาะกับ</div>
+        <div class="compare-cell">คำแนะนำ</div>
+      </div>
+      {modes.map((item) => (
+        <div class="compare-row">
+          <div class="compare-cell"><strong>{item.name}</strong></div>
+          <div class="compare-cell">{item.bestFor}</div>
+          <div class="compare-cell green">{item.note}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🐾 เหมาะกับใคร?</h2>
+    <div class="verdict-box">
+      <h3>เหมาะกับ</h3>
+      <ul>
+        {suitableFor.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+    <div class="verdict-box" style="background:var(--coral-light);border-color:rgba(224,117,77,0.18);">
+      <h3>ควรพิจารณาก่อนใช้ถ้า...</h3>
+      <ul>
+        <li>บ้านมีสัตว์เลี้ยงตัวใหญ่หรือกัดแทะอุปกรณ์แรง ควรเช็กความเหมาะสมของขนาดและตำแหน่งวาง</li>
+        <li>น้องกลัวเครื่องใช้ไฟฟ้าหรือเสียงน้ำ ควรเริ่มวางให้คุ้นเคยทีละน้อย</li>
+        <li>เจ้าของไม่สะดวกล้างเครื่องและดูแลตัวกรองสม่ำเสมอ เพราะอุปกรณ์ให้น้ำควรรักษาความสะอาดเป็นประจำ</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🧼 วิธีใช้งาน / การดูแลเบื้องต้น</h2>
+    <ol>
+      <li><strong>เติมน้ำให้เหมาะสม</strong> — ใช้ตัวเครื่องโปร่งใสช่วยดูระดับน้ำได้ง่าย</li>
+      <li><strong>เลือกโหมดการทำงาน</strong> — ใช้โหมดน้ำไหลต่อเนื่องหรือโหมดตรวจจับเมื่อสัตว์เลี้ยงเข้าใกล้ตามพฤติกรรมของน้อง</li>
+      <li><strong>วางในจุดที่น้องเข้าถึงง่าย</strong> — เลี่ยงพื้นที่ที่อาจชนหรือสะดุดระหว่างเดิน</li>
+      <li><strong>ล้างตัวเครื่องสม่ำเสมอ</strong> — เพื่อลดคราบ ขน และเศษอาหารที่อาจสะสม</li>
+      <li><strong>ดูแลตัวกรอง</strong> — เปลี่ยนหรือทำความสะอาดตามคำแนะนำจากร้านค้า เพื่อให้ระบบกรองทำงานได้ดี</li>
+    </ol>
+  </section>
+
+  <section class="content-section" id="faq">
+    <h2>❓ FAQ — น้ำพุแมวอัตโนมัติ</h2>
+    <div class="faq-item">
+      <h3>Q: ใช้กับสุนัขได้ไหม?</h3>
+      <p><strong>A:</strong> จากข้อมูลสินค้า เหมาะสำหรับแมวและสุนัขขนาดเล็ก หากเป็นสุนัขขนาดกลางหรือใหญ่ควรเช็กปริมาณน้ำและขนาดเครื่องให้เหมาะกับการใช้งานจริง</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ตัวกรองช่วยอะไร?</h3>
+      <p><strong>A:</strong> ตัวกรองคาร์บอนกัมมันต์ช่วยกรองขน เศษอาหาร และสิ่งสกปรกตามข้อมูลสินค้า ทำให้น้ำในเครื่องดูแลได้ง่ายขึ้นเมื่อใช้งานร่วมกับการล้างเครื่องสม่ำเสมอ</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ระบบไร้สายดียังไง?</h3>
+      <p><strong>A:</strong> ช่วยลดความเสี่ยงจากการเหยียบสายไฟ และทำให้จัดวางในบ้านได้ยืดหยุ่นขึ้น แต่ควรวางในจุดมั่นคงและปลอดภัยสำหรับสัตว์เลี้ยง</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ถ้าน้ำแห้งเครื่องจะเป็นอะไรไหม?</h3>
+      <p><strong>A:</strong> สินค้าระบุว่ามีระบบป้องกันการทำงานเมื่อน้ำแห้ง อย่างไรก็ตามควรเติมน้ำและตรวจระดับน้ำเป็นประจำเพื่อยืดอายุการใช้งานของเครื่อง</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🛒 ดูรายละเอียดสินค้าใน Shopee</h2>
+    <p>หากต้องการดูรายละเอียดร้านค้า ตัวเลือกสินค้า และรีวิวผู้ซื้อ แนะนำกดไปดูหน้าสินค้าบน Shopee โดยตรงก่อนตัดสินใจ</p>
+    <div class="cta-section">
+      <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" style="font-size:1.1em;padding:14px 28px;">🛍️ ดูสินค้าใน Shopee</a>
+      <a href="#faq" class="btn-card btn-card-primary" style="font-size:1.1em;padding:14px 28px;">❓ อ่าน FAQ</a>
+    </div>
+  </section>
+
+  <section class="content-section" style="font-size:0.85em;color:var(--gray-300);border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1em;">เกี่ยวกับบทความนี้</h2>
+    <p>บทความนี้เป็นรีวิวเชิงข้อมูลจากรายละเอียดสินค้าและรูปภาพที่ผู้ใช้ส่งให้ เพื่อช่วยให้เจ้าของสัตว์เลี้ยงเลือกเครื่องให้น้ำสัตว์เลี้ยงได้ง่ายขึ้น</p>
+    <p><strong>คำค้นที่เกี่ยวข้อง:</strong> น้ำพุแมว, น้ำพุแมวอัตโนมัติ, เครื่องให้น้ำแมว, ที่ให้น้ำแมว, น้ำพุสัตว์เลี้ยง, เครื่องให้น้ำสัตว์เลี้ยง, น้ำพุแมวระบบกรอง, น้ำพุแมวเสียงเงียบ, น้ำพุแมวไร้สาย, น้ำพุแมวมีไส้กรอง</p>
+  </section>
+
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1.25em;">🐱 สินค้าที่เกี่ยวข้อง</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🐱</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">กระบะทรายแมว UV ฆ่าเชื้อ เปิด 2 ข้าง</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">ของใช้แมวสำหรับบ้านที่อยากดูแลกลิ่นและความสะอาด</p>
+          <a href="/products/uv-litter-box" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🧻</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">yoyopet แผ่นเช็ดคราบน้ำตาสุนัขและแมว</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">แผ่นเช็ดตา ปาก หู สำหรับดูแลความสะอาดเฉพาะจุด</p>
+          <a href="/products/yoyopet-pet-wipes" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ShopeeSignupCTA />
+</article>
+
+<div style="max-width:780px;margin:0 auto;padding:32px 0;">
+  <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:12px;padding:20px 24px;margin-bottom:12px;">
+    <p style="font-size:0.92em;color:#6D4C00;margin:0;line-height:1.7;">
+      ⚠️ <strong>ข้อควรรู้:</strong> ข้อมูลในบทความนี้ใช้เพื่อประกอบการตัดสินใจเท่านั้น ควรล้างภาชนะให้น้ำและดูแลตัวกรองตามคำแนะนำจากร้านค้า หากสัตว์เลี้ยงดื่มน้ำน้อยผิดปกติ ซึม หรือมีอาการผิดปกติ ควรปรึกษาสัตวแพทย์
+    </p>
+  </div>
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — อ่านเพิ่มเติมที่ <a href="/disclosure" style="color:var(--coral)">หน้าการเปิดเผยข้อมูล</a> | ตรวจสอบข้อมูลล่าสุดจากร้านค้าก่อนสั่งซื้อ
+  </p>
+</div>
+
+</Layout>
