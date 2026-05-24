@@ -2,7 +2,7 @@
 
 ## สถานะล่าสุด
 
-เพิ่มหน้ารีวิวสินค้า `หมอไทยทำเอง แชมพูสุนัขสมุนไพร ออร์แกนิค 5 สูตร` ลง branch `feat/thai-doctor-dog-shampoo` แล้ว ตรวจ build/QA ผ่านทั้งหมด แต่ยังไม่ได้ deploy production เพราะ `CLOUDFLARE_API_TOKEN` ไม่ได้ถูกตั้งใน environment และรอบนี้จะไม่ฝัง token ใน command/chat ตาม correction ด้านความปลอดภัย
+เพิ่มหน้ารีวิวสินค้า `หมอไทยทำเอง แชมพูสุนัขสมุนไพร ออร์แกนิค 5 สูตร` ลง branch `feat/thai-doctor-dog-shampoo` แล้ว ตรวจ build/QA ผ่านทั้งหมด และ deploy ขึ้น Cloudflare Pages production/custom domain `https://mooma.online/` เรียบร้อยแล้ว
 
 ## งานที่เสร็จแล้ว
 
@@ -32,17 +32,16 @@
 - `npm run health` ผ่าน
   - checked 29 routes from `dist/`
 - ตรวจคำต้องห้ามผ่าน: ไม่พบ `รักษาเชื้อรา`, `หายแน่นอน`, `ราคา`, `โปรโมชัน` ใน `src/`
+- Production/custom domain spot-check ผ่าน: `https://mooma.online/products/thai-doctor-herbal-dog-shampoo/` HTTP 200 และพบชื่อสินค้า + affiliate code `gNAM4FhUC`
 
 ## งานที่ยังค้าง
 
-- ยังไม่ได้ deploy production/custom domain เพราะไม่มี `CLOUDFLARE_API_TOKEN` ใน environment
-- ยังไม่ได้ submit sitemap เข้า Google Search Console หลัง deploy
+- Google อาจยังไม่ index หน้าใหม่ทันที เพราะเพิ่ง deploy
 
 ## สิ่งที่ต้องทำต่อ
 
-1. ตั้ง `CLOUDFLARE_API_TOKEN` ผ่าน environment/secret แบบไม่แปะในแชท แล้วรัน `npm run deploy`
-2. หลัง deploy ให้ spot-check URL: `https://mooma.online/products/thai-doctor-herbal-dog-shampoo/`
-3. Submit sitemap เข้า GSC แล้วติดตาม indexing
+1. รอ Google crawl 24–72 ชั่วโมง แล้วตรวจ Search Console
+2. ถ้ายังไม่ index ให้ใช้ GSC request indexing สำหรับ `https://mooma.online/products/thai-doctor-herbal-dog-shampoo/`
 
 ## คำเตือน
 
