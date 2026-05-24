@@ -2,71 +2,64 @@
 
 ## สถานะล่าสุด
 
-สร้างและ deploy บทความ SEO ชุดแมว + ชุดสุนัขสำหรับ mooma.online แล้ว รวม 6 บทความ พร้อมเพิ่มลิงก์บนหน้าแรกและหน้า `/reviews/` ขึ้น production แล้ว และ submit sitemap เข้า Google Search Console ล่าสุดแล้ว
+เพิ่มหน้ารีวิวสินค้า Bite of Wild อาหารแมว P42 5 กก. Grain Free โปรตีน 42% ลง mooma.online แล้ว และ deploy ขึ้น Cloudflare Pages production/custom domain `https://mooma.online/` เรียบร้อยแล้ว ยังไม่ได้ commit/push งานเข้า Git remote
 
 ## งานที่เสร็จแล้ว
 
-### บทความแมว
+### Bite of Wild P42 product page
 
-- `/articles/cat-pee-smell-solution/`
-- `/articles/cat-food-skin-coat-guide/`
-- `/articles/cat-condo-new-owner-checklist/`
+- สร้างหน้าใหม่ `src/pages/products/bite-of-wild-p42-cat-food.astro`
+- ใช้ข้อมูลจากผู้ใช้เท่านั้น: ชื่อสินค้า, รูปภาพ, รายละเอียด, โภชนาการ, จุดเด่น, Shopee affiliate URL
+- เพิ่มรูปสินค้า 7 รูปใน gallery
+- ใส่ SEO title/meta description, canonical ผ่าน Layout, OG image, JSON-LD structured data, FAQ, breadcrumb
+- ใส่ Shopee affiliate CTA: `https://s.shopee.co.th/1100areaTP`
+- ใส่ `<ShopeeSignupCTA />` ตาม workflow ของ mooma.online
+- ใส่ affiliate disclosure และคำเตือนเรื่องสุขภาพแมว/สูตรโปรตีนสูง
+- เพิ่มข้อมูลสินค้าใน `src/data/products.json` หมวด `cat-food`
+- เพิ่มการ์ดในหน้า `/reviews/`
+- Homepage และหน้า `/category/cat-food/` แสดงสินค้าจาก `products.json` แล้ว
 
-### บทความสุนัข
+### Deploy / GSC
 
-- `/articles/dog-not-eating-guide/`
-- `/articles/dog-dental-chews-guide/`
-- `/articles/dog-bad-breath-solution/`
-
-### Integration
-
-- เพิ่มการ์ดบทความใหม่ใน `src/pages/reviews.astro`
-- เพิ่ม/อัปเดต section “บทความแนะนำสำหรับทาสหมาแมว” บนหน้าแรก `src/pages/index.astro`
-- ใส่ SEO meta, canonical, structured data, FAQ, breadcrumb, internal links และ affiliate disclosure ในบทความทุกหน้า
-- Deploy ขึ้น Cloudflare Pages production แล้ว
-
-### Google Search Console
-
-- GSC property: `sc-domain:mooma.online`
-- Permission: `siteOwner`
-- Submitted sitemap: `https://mooma.online/sitemap.xml`
-- Submission result: submitted successfully
-- Sitemap status after submit:
-  - `isPending: true`
-  - `isSitemapsIndex: true`
-  - `warnings: 0`
-  - `errors: 0`
-  - GSC still showed old downloaded count at the moment of check because Google has not reprocessed the latest sitemap yet
+- Deploy Cloudflare Pages production สำเร็จ
+- Preview URL: `https://ff4b0d8e.mooma-online.pages.dev`
+- Submitted sitemap เข้า Google Search Console แล้ว
+- URL Inspection ล่าสุด: `https://mooma.online/products/bite-of-wild-p42-cat-food/` = `URL is unknown to Google` ซึ่งเป็นสถานะปกติของ URL ที่เพิ่งเผยแพร่
 
 ## ผลตรวจล่าสุด
 
-- URL Inspection API inspected 27 URLs from sitemap
-- Homepage: `PASS` / Submitted and indexed
-- `/compare/uv-vs-regular-litter-box/`: `PASS` / Submitted and indexed
-- 6 new article URLs: `NEUTRAL` / URL is unknown to Google — expected for newly published URLs before crawl
-- Production spot-check:
-  - 6 article URLs return HTTP 200
-  - each article has canonical URL
-  - each article has JSON-LD
-  - homepage and `/reviews/` link to the new article set
+- `npm run validate` ผ่าน
+  - no-price scanner: clean
+  - affiliate disclosure check: clean
+- `npx astro check` ผ่าน
+  - 0 errors
+  - 0 warnings
+  - 1 hint เดิมจาก `document.execCommand('copy')` ใน ShareButtons fallback
+- `npm run build` ผ่าน
+  - generated 28 pages
+  - sitemap alias สำเร็จ
+- `npm run health` ผ่าน
+  - checked 28 routes from `dist/`
+- Production/custom domain spot-check ผ่าน
+  - `https://mooma.online/products/bite-of-wild-p42-cat-food/` HTTP 200 และพบ `Bite of Wild`, `1100areaTP`, structured data
+  - `https://mooma.online/` HTTP 200 และพบสินค้าใหม่
+  - `https://mooma.online/category/cat-food/` HTTP 200 และพบสินค้าใหม่
+  - `https://mooma.online/reviews/` HTTP 200 และพบการ์ดสินค้าใหม่
+  - `https://mooma.online/sitemap-0.xml` HTTP 200 และพบ URL สินค้าใหม่
 
 ## งานที่ยังค้าง
 
-- Google has not indexed the 6 new articles yet
-- GSC sitemap is pending reprocess
 - ยังไม่ได้ commit/push งานเข้า Git remote
+- Google ยังไม่ index หน้า Bite of Wild เพราะเพิ่งเผยแพร่
 
 ## สิ่งที่ต้องทำต่อ
 
-1. Wait 24–72 hours for Google to re-crawl the submitted sitemap
-2. Re-run:
-   - `npm run seo:gsc:sitemap-status`
-   - `INSPECT_LIMIT=27 npm run seo:gsc:inspect`
-3. ถ้าหลัง 2–3 วันยัง unknown ให้ใช้ URL Inspection ใน GSC browser กด Request Indexing ทีละ URL
-4. หลังเริ่มมี impressions ให้ทำบทความถัดไปจาก query จริง
+1. รอ Google crawl 24–72 ชั่วโมง แล้วรัน `INSPECT_LIMIT=28 npm run seo:gsc:inspect`
+2. ถ้าหลัง 2–3 วันยัง `URL is unknown to Google` ให้ใช้ GSC browser กด Request Indexing สำหรับ URL สินค้า
+3. ถ้าต้องการเก็บประวัติ repo ให้ commit งานนี้ใน branch ปัจจุบัน
 
 ## คำเตือน
 
-- GSC URL Inspection API ตรวจสถานะได้ แต่ไม่ได้กด Request Indexing แทน browser
-- Deploy production ต้องใช้ `wrangler pages deploy dist/ --project-name=mooma-online --branch=main --commit-dirty=true`
-- อย่าใส่คำที่ no-price scanner บล็อกใน source files
+- อย่าใส่คำที่ no-price scanner บล็อก เช่น “ราคา”, “โปรโมชัน” ใน source files
+- Shopee scrape ไม่ได้ ให้ใช้ข้อมูลสินค้าที่ผู้ใช้ส่งมาเท่านั้น
+- สูตร Bite of Wild P42 เป็นโปรตีนสูง แมวมีโรคประจำตัว/โรคไตควรปรึกษาสัตวแพทย์ก่อนเปลี่ยนอาหาร

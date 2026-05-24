@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 2026-05-24 — Bite of Wild P42 cat food product page
+
+- Added `src/pages/products/bite-of-wild-p42-cat-food.astro` with Thai SEO review content, Shopee affiliate CTA, image gallery, FAQ, structured data, affiliate disclosure, and Shopee signup CTA.
+- Added Bite of Wild P42 to `src/data/products.json` under `cat-food` so it appears on homepage and category pages.
+- Added a Bite of Wild card to `src/pages/reviews.astro`.
+- Verification passed: `npm run validate`, `npx astro check` (0 errors), `npm run build`, and `npm run health`.
+- Deployed to Cloudflare Pages production/custom domain and verified live product page, homepage, cat-food category, reviews, and sitemap child URL.
+- Submitted sitemap to Google Search Console; new product URL is currently `URL is unknown to Google`, which is expected immediately after publishing.
+
+## 2026-05-24 — Improve share buttons
+
+- Redesigned `ShareButtons.astro` as a card-style share module with clearer Thai copy and stronger mobile layout.
+- Added native Web Share API button for supported devices, while keeping Facebook, LINE, X, and copy-link fallbacks.
+- Reworked copy-link UX with secure clipboard fallback and live status message.
+- Updated `public/style.css` for responsive two-column / one-column mobile behavior, larger tap targets, focus states, and premium visual styling.
+- Verification passed: `npm run validate`, `npm run build`, and `npm run health`.
+- Deployed to Cloudflare Pages production/custom domain and verified `https://mooma.online/` returns the new share module.
+
 ## 2026-05-23 — SEO informational articles, cat + dog clusters
 
 ### Dog article cluster

@@ -1,0 +1,237 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShopeeSignupCTA from '../../components/ShopeeSignupCTA.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const productUrl = 'https://mooma.online/products/bite-of-wild-p42-cat-food';
+const shopeeUrl = 'https://s.shopee.co.th/1100areaTP';
+const heroImage = 'https://down-th.img.susercontent.com/file/cn-11134207-7ras8-mb3huz2qypx582.webp';
+const gallery = [
+  'https://down-th.img.susercontent.com/file/cn-11134207-7ras8-mb3huz2qypx582.webp',
+  'https://down-th.img.susercontent.com/file/cn-11134207-820l4-mei23rl6ws1u73.webp',
+  'https://down-th.img.susercontent.com/file/cn-11134207-820l4-mei23rl8idc1ba.webp',
+  'https://down-th.img.susercontent.com/file/cn-11134207-820l4-mei23rl780lj14.webp',
+  'https://down-th.img.susercontent.com/file/cn-11134207-820l4-mei23rl8gyrl83.webp',
+  'https://down-th.img.susercontent.com/file/cn-11134207-820l4-mei23rl79f5z93.webp',
+  'https://down-th.img.susercontent.com/file/cn-11134207-820l4-mei23rlbcwskba.webp',
+];
+
+const structuredData = productArticleSchema({
+  title: 'รีวิว Bite of Wild อาหารแมว P42 5 กก. Grain Free โปรตีน 42%',
+  description: 'รีวิว Bite of Wild อาหารแมว Holistic P42 ขนาด 5 กก. Grain Free โปรตีน 42% ผสมฟรีซดรายไก่ แซลมอน ตับและหัวใจไก่ เหมาะกับแมวทุกช่วงวัย',
+  url: productUrl,
+  image: heroImage,
+  product: {
+    name: 'Bite of Wild อาหารแมว P42 5 กก. Grain Free โปรตีน 42%',
+    description: 'อาหารเม็ดแมว Holistic Grain Free โปรตีน 42% ผสมฟรีซดราย 3 ชนิด ได้แก่ เนื้อไก่ ปลาแซลมอน ตับและหัวใจไก่ เหมาะสำหรับทุกช่วงวัยตั้งแต่ 1 เดือนขึ้นไป',
+    image: heroImage,
+    category: 'cat-food',
+    sameAs: shopeeUrl,
+  },
+  datePublished: '2026-05-24',
+  dateModified: '2026-05-24',
+  faqs: [
+    { question: 'Bite of Wild P42 เหมาะกับแมววัยไหน?', answer: 'จากข้อมูลสินค้า เหมาะสำหรับแมวทุกช่วงวัยตั้งแต่ 1 เดือนขึ้นไป รวมถึงลูกแมว แมวโต และแมวตั้งครรภ์ แต่ควรปรับปริมาณตามน้ำหนัก อายุ และกิจกรรมของแมวแต่ละตัว' },
+    { question: 'สูตร Grain Free ต่างจากอาหารแมวทั่วไปยังไง?', answer: 'สูตรนี้ระบุว่าไม่มีส่วนประกอบของธัญพืช กลูเตน และข้าวโพด เหมาะกับเจ้าของที่ต้องการหลีกเลี่ยงธัญพืชในมื้ออาหารของแมว' },
+    { question: 'โปรตีน 42% สูงไหม?', answer: 'ถือว่าเป็นสัดส่วนโปรตีนสูงสำหรับอาหารแมวเม็ด โดยข้อมูลสินค้าระบุโปรตีนไม่น้อยกว่า 42% และส่วนผสมจากสัตว์ 92%' },
+    { question: 'มีฟรีซดรายอะไรบ้าง?', answer: 'ข้อมูลสินค้าระบุว่าผสมฟรีซดราย 3 ชนิด ได้แก่ เนื้อไก่ ปลาแซลมอน และตับกับหัวใจไก่' },
+    { question: 'ควรเปลี่ยนอาหารแมวยังไง?', answer: 'แนะนำให้ค่อย ๆ ผสมอาหารใหม่กับอาหารเดิม ใช้เวลาประมาณ 7-10 วัน เพื่อลดโอกาสท้องเสียหรือกินยาก' },
+  ],
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'อาหารแมว', url: 'https://mooma.online/category/cat-food' },
+    { name: 'Bite of Wild P42', url: productUrl },
+  ],
+});
+---
+
+<Layout
+  title="Bite of Wild P42 รีวิว อาหารแมว Grain Free โปรตีน 42% | mooma.online"
+  description="รีวิว Bite of Wild อาหารแมว P42 5 กก. Grain Free โปรตีน 42% ผสมฟรีซดราย 3 ชนิด เหมาะกับแมวทุกช่วงวัยตั้งแต่ 1 เดือนขึ้นไป"
+  ogTitle="Bite of Wild P42 — อาหารแมว Grain Free โปรตีน 42% | mooma.online"
+  ogDescription="อาหารเม็ดแมว Holistic ขนาด 5 กก. โปรตีนสูง ผสมฟรีซดรายไก่ แซลมอน ตับและหัวใจไก่ เหมาะกับแมวทุกช่วงวัย"
+  ogType="article"
+  ogUrl={productUrl}
+  ogImage={heroImage}
+  structuredData={structuredData}
+>
+
+<article class="product-review">
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/cat-food">อาหารแมว</a> ›
+    <span>Bite of Wild P42</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>🐱 รีวิว Bite of Wild อาหารแมว P42 5 กก. Grain Free โปรตีน 42%</h1>
+    <p class="subtitle">อาหารเม็ดแมว Holistic สูตรโปรตีนสูง ผสมฟรีซดราย 3 ชนิด — เนื้อไก่ ปลาแซลมอน ตับและหัวใจไก่ เหมาะสำหรับแมวทุกช่วงวัย</p>
+  </section>
+
+  <div class="product-gallery">
+    {gallery.map((src, index) => (
+      <img src={src} alt={`Bite of Wild P42 อาหารแมว Grain Free รูปที่ ${index + 1}`} onclick="openLightbox(this.src)" loading="lazy" />
+    ))}
+  </div>
+
+  <section class="quick-facts">
+    <h2>📋 ข้อมูลสินค้าแบบสั้น</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>แบรนด์:</strong> Bite of Wild</div>
+      <div class="fact"><strong>สูตร:</strong> P42 Holistic Grain Free</div>
+      <div class="fact"><strong>ประเภท:</strong> อาหารเม็ดแมวผสมฟรีซดราย</div>
+      <div class="fact"><strong>ขนาด:</strong> 5 กก.</div>
+      <div class="fact"><strong>โปรตีน:</strong> ≥ 42%</div>
+      <div class="fact"><strong>ไขมัน:</strong> ≥ 16%</div>
+      <div class="fact"><strong>ส่วนผสมจากสัตว์:</strong> 92%</div>
+      <div class="fact"><strong>เหมาะกับ:</strong> แมวทุกช่วงวัย ตั้งแต่ 1 เดือนขึ้นไป</div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🔍 Bite of Wild P42 คืออะไร?</h2>
+    <p><strong>Bite of Wild อาหารแมว P42</strong> เป็นอาหารเม็ดแมวแนว Holistic ขนาด 5 กก. ที่เน้นจุดขายเรื่อง <strong>Grain Free</strong>, โปรตีนสูง 42%, ส่วนผสมจากสัตว์ 92% และมีการผสม <strong>ฟรีซดราย 3 ชนิด</strong> เพื่อเพิ่มความน่ากินและความเข้มข้นของวัตถุดิบจากสัตว์</p>
+    <p>สูตรนี้เหมาะกับเจ้าของที่อยากได้อาหารเม็ดสำหรับแมวหลายวัยในบ้านเดียวกัน เพราะข้อมูลสินค้าระบุว่าใช้ได้ตั้งแต่ลูกแมวอายุ 1 เดือนขึ้นไป แมวโต ไปจนถึงแมวตั้งครรภ์</p>
+  </section>
+
+  <section class="content-section">
+    <h2>✅ จุดเด่นที่น่าสนใจ</h2>
+    <ul>
+      <li><strong>Grain Free</strong> — ไม่มีธัญพืช กลูเตน และข้าวโพด ตามข้อมูลสินค้า</li>
+      <li><strong>โปรตีนสูง 42%</strong> — เหมาะกับแมวที่ต้องการอาหารเน้นโปรตีนจากสัตว์</li>
+      <li><strong>ส่วนผสมจากสัตว์ 92%</strong> — ช่วยให้สูตรนี้ตอบโจทย์แมวซึ่งเป็นสัตว์กินเนื้อโดยธรรมชาติ</li>
+      <li><strong>ผสมฟรีซดราย 3 ชนิด</strong> — เนื้อไก่ ปลาแซลมอน ตับและหัวใจไก่ เพิ่มกลิ่นและรสที่แมวสนใจ</li>
+      <li><strong>โซเดียมต่ำ</strong> — ข้อมูลสินค้าระบุว่าควบคุมความเค็ม</li>
+      <li><strong>มีทอรีน ≥ 0.3%</strong> — ทอรีนเป็นสารอาหารจำเป็นต่อดวงตาและหัวใจของแมว</li>
+      <li><strong>มีพรีไบโอติกและวิตามินรวม</strong> — ช่วยสนับสนุนระบบย่อยและสุขภาพโดยรวม</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>🧪 คุณค่าทางโภชนาการที่ระบุ</h2>
+    <div class="compare-table">
+      <div class="compare-row compare-header">
+        <div class="compare-cell">สารอาหาร</div>
+        <div class="compare-cell">สัดส่วน</div>
+        <div class="compare-cell">หมายเหตุ</div>
+      </div>
+      <div class="compare-row"><div class="compare-cell"><strong>โปรตีน</strong></div><div class="compare-cell">≥ 42%</div><div class="compare-cell green">จุดเด่นหลักของสูตร P42</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>ไขมัน</strong></div><div class="compare-cell">≥ 16%</div><div class="compare-cell">ให้พลังงานและช่วยเรื่องผิวหนัง/เส้นขน</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>เถ้าดิบ</strong></div><div class="compare-cell">≤ 10%</div><div class="compare-cell">ค่าตามฉลากโภชนาการ</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>กาก</strong></div><div class="compare-cell">≤ 5%</div><div class="compare-cell">เกี่ยวกับไฟเบอร์ในสูตร</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>ทอรีน</strong></div><div class="compare-cell">≥ 0.3%</div><div class="compare-cell green">สำคัญต่อแมว</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>แคลเซียม</strong></div><div class="compare-cell">≥ 1%</div><div class="compare-cell">ช่วยโครงสร้างกระดูกและฟัน</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>ฟอสฟอรัสรวม</strong></div><div class="compare-cell">≥ 0.8%</div><div class="compare-cell">ควรดูร่วมกับสุขภาพไตของแมวแต่ละตัว</div></div>
+      <div class="compare-row"><div class="compare-cell"><strong>ความชื้น</strong></div><div class="compare-cell">≤ 10%</div><div class="compare-cell">เป็นอาหารเม็ด ควรมีน้ำสะอาดให้ตลอด</div></div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🐾 เหมาะกับแมวแบบไหน?</h2>
+    <div class="verdict-box">
+      <h3>เหมาะกับ</h3>
+      <ul>
+        <li>บ้านที่ต้องการอาหารเม็ดแมวถุงใหญ่ 5 กก. สำหรับใช้ต่อเนื่อง</li>
+        <li>แมวที่กินอาหารเม็ดเป็นหลัก และต้องการสูตรโปรตีนสูง</li>
+        <li>เจ้าของที่มองหาอาหารแมว Grain Free ไม่มีข้าวโพดและกลูเตน</li>
+        <li>บ้านที่มีแมวหลายช่วงวัย และอยากได้สูตรที่ใช้ร่วมกันได้</li>
+        <li>แมวที่ชอบกลิ่นวัตถุดิบจากสัตว์ เพราะมีฟรีซดรายไก่ แซลมอน ตับและหัวใจไก่</li>
+      </ul>
+    </div>
+    <div class="verdict-box" style="background:var(--coral-light);border-color:rgba(224,117,77,0.18);">
+      <h3>ควรพิจารณาก่อนซื้อถ้า...</h3>
+      <ul>
+        <li>แมวมีโรคไต โรคตับ หรือโรคประจำตัว — ควรถามสัตวแพทย์ก่อนเปลี่ยนเป็นสูตรโปรตีนสูง</li>
+        <li>แมวแพ้ไก่ ปลาแซลมอน หรือเครื่องในไก่</li>
+        <li>แมวกินอาหารเปียกเป็นหลัก — ควรเปลี่ยนแบบค่อยเป็นค่อยไป</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🥣 วิธีเปลี่ยนอาหารให้แมวกินง่าย</h2>
+    <ol>
+      <li><strong>วันที่ 1-2:</strong> ผสมอาหารใหม่ 25% กับอาหารเดิม 75%</li>
+      <li><strong>วันที่ 3-4:</strong> เพิ่มอาหารใหม่เป็น 50%</li>
+      <li><strong>วันที่ 5-6:</strong> เพิ่มอาหารใหม่เป็น 75%</li>
+      <li><strong>วันที่ 7 เป็นต้นไป:</strong> ถ้าอุจจาระปกติและแมวกินดี ค่อยเปลี่ยนเป็นสูตรใหม่เต็มมื้อ</li>
+    </ol>
+    <p>เพราะสูตรนี้เป็นอาหารเม็ดและมีโปรตีนสูง ควรมีน้ำสะอาดวางไว้หลายจุด โดยเฉพาะบ้านที่แมวดื่มน้ำน้อย</p>
+  </section>
+
+  <section class="content-section" id="faq">
+    <h2>❓ FAQ — Bite of Wild P42</h2>
+    <div class="faq-item">
+      <h3>Q: Bite of Wild P42 เป็นอาหาร Grain Free จริงไหม?</h3>
+      <p><strong>A:</strong> จากข้อมูลสินค้าที่ให้มา สูตรนี้ระบุว่า Grain Free และไม่มีส่วนประกอบของกลูเตนกับข้าวโพด 100%</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ลูกแมวกินได้ไหม?</h3>
+      <p><strong>A:</strong> ข้อมูลสินค้าระบุว่าเหมาะสำหรับแมวทุกช่วงวัยตั้งแต่ 1 เดือนขึ้นไป แต่ควรปรับปริมาณตามวัยและค่อย ๆ เปลี่ยนอาหาร</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: สูตรนี้ช่วยขนสวยจริงไหม?</h3>
+      <p><strong>A:</strong> ข้อมูลสินค้าระบุว่าช่วยลดการหลุดร่วงของเส้นขนและช่วยให้ขนสวยขึ้น โดยมีไขมัน 16%, วิตามินรวม และสารอาหารที่เกี่ยวข้องกับผิวหนัง/เส้นขน แต่ผลลัพธ์ขึ้นกับสุขภาพแมวแต่ละตัว</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: แมวท้องกินได้ไหม?</h3>
+      <p><strong>A:</strong> รายละเอียดสินค้าระบุว่าเหมาะกับแมวตั้งครรภ์ด้วย อย่างไรก็ตาม หากแมวมีภาวะแทรกซ้อนหรือกินยาก ควรปรึกษาสัตวแพทย์</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ถุง 5 กก. เหมาะกับบ้านแบบไหน?</h3>
+      <p><strong>A:</strong> เหมาะกับบ้านที่มีแมวกินอาหารเม็ดเป็นประจำ หรือมีแมวมากกว่า 1 ตัว เพราะเป็นขนาดใหญ่ ใช้ต่อเนื่องได้นานกว่าแพ็กเล็ก</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🛒 ซื้อ Bite of Wild P42 ได้ที่ไหน?</h2>
+    <p>หากต้องการดูรายละเอียดร้านค้า ดีลที่กำลังมี และรีวิวผู้ซื้อ แนะนำกดไปดูหน้าสินค้าบน Shopee โดยตรงก่อนตัดสินใจ</p>
+    <div class="cta-section">
+      <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" style="font-size:1.1em;padding:14px 28px;">🛍️ ดูสินค้าใน Shopee</a>
+      <a href="#faq" class="btn-card btn-card-primary" style="font-size:1.1em;padding:14px 28px;">❓ อ่าน FAQ</a>
+    </div>
+  </section>
+
+  <section class="content-section" style="font-size:0.85em;color:var(--gray-300);border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1em;">เกี่ยวกับบทความนี้</h2>
+    <p>บทความนี้เป็นรีวิวเชิงข้อมูลจากรายละเอียดสินค้าและรูปภาพที่ผู้ใช้ส่งให้ เพื่อช่วยให้เจ้าของแมวตัดสินใจเลือกอาหารเม็ดได้ง่ายขึ้น</p>
+    <p><strong>คำค้นที่เกี่ยวข้อง:</strong> Bite of Wild อาหารแมว, Bite of Wild P42, อาหารแมว Grain Free, อาหารแมวโปรตีนสูง, อาหารแมว 5 กก., อาหารแมวผสมฟรีซดราย, อาหารแมว Holistic, อาหารแมวทุกช่วงวัย</p>
+  </section>
+
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1.25em;">🐱 สินค้าที่เกี่ยวข้องสำหรับน้องแมว</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🐟</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">DeliSci Skin & Coat Cat อาหารเปียกบำรุงขน</h3>
+          <p style="font-size:0.85em;color:var(--gray-500);margin:4px 0 8px;">อาหารเปียกเสริมความชื้น โอเมก้า 3-6-9 ไบโอติน Zinc</p>
+          <a href="/products/delisci-skin-coat-cat" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🚽</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">กระบะทรายแมว UV ฆ่าเชื้อ เปิด 2 ข้าง</h3>
+          <p style="font-size:0.85em;color:var(--gray-500);margin:4px 0 8px;">ช่วยดูแลความสะอาด ลดกลิ่นในบ้านแมว</p>
+          <a href="/products/uv-litter-box" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ShopeeSignupCTA />
+</article>
+
+<div style="max-width:780px;margin:0 auto;padding:32px 0;">
+  <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:12px;padding:20px 24px;margin-bottom:12px;">
+    <p style="font-size:0.92em;color:#6D4C00;margin:0;line-height:1.7;">
+      ⚠️ <strong>ข้อควรรู้:</strong> ข้อมูลในบทความนี้ใช้เพื่อประกอบการตัดสินใจเท่านั้น ไม่ใช่คำแนะนำทางการแพทย์หรือการรักษาโรค หากแมวมีโรคประจำตัว กินยาก อาเจียน ท้องเสีย หรือมีอาการผิดปกติหลังเปลี่ยนอาหาร ควรหยุดใช้และปรึกษาสัตวแพทย์
+    </p>
+  </div>
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — อ่านเพิ่มเติมที่ <a href="/disclosure" style="color:var(--coral)">หน้าการเปิดเผยข้อมูล</a> | ตรวจสอบข้อมูลล่าสุดจากร้านค้าก่อนสั่งซื้อ
+  </p>
+</div>
+
+</Layout>
