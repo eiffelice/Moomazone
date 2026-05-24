@@ -30,6 +30,7 @@
 - Redesigned `ShareButtons.astro` as a card-style share module with clearer Thai copy and stronger mobile layout.
 - Added native Web Share API button for supported devices, while keeping Facebook, LINE, X, and copy-link fallbacks.
 - Reworked copy-link UX with secure clipboard fallback and live status message.
+- Refined the module again with warmer Thai copy, explanatory subtitle, paw badge, larger tap targets, better desktop button proportions, LINE share text, desktop popup sharing, and a green copied state for clearer feedback.
 - Updated `public/style.css` for responsive two-column / one-column mobile behavior, larger tap targets, focus states, and premium visual styling.
 - Verification passed: `npm run validate`, `npm run build`, and `npm run health`.
 - Deployed to Cloudflare Pages production/custom domain and verified `https://mooma.online/` returns the new share module.
