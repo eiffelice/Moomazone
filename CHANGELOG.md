@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-05-24 — Pet wheatgrass seeds and soil product page
+
+- Added `src/pages/products/pet-wheatgrass-seeds-soil-kit.astro` with Thai SEO review content, Shopee affiliate CTA, 5-image gallery, FAQ, structured data, affiliate disclosure, and Shopee signup CTA.
+- Added the product to `src/data/products.json` under `supplements` so it appears on homepage and supplements category pages.
+- Updated `src/pages/category/supplements.astro` from placeholder content to data-driven product cards.
+- Added a review card to `src/pages/reviews.astro`.
+- Used only user-provided product facts and safe wording for hairball/breath claims.
+
 ## 2026-05-24 — Thai Doctor herbal dog shampoo product page
 
 - Added `src/pages/products/thai-doctor-herbal-dog-shampoo.astro` with Thai SEO review content, Shopee affiliate CTA, 5-image gallery, FAQ, structured data, affiliate disclosure, and Shopee signup CTA.
