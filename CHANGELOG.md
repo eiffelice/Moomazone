@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-05-24 — Thai Doctor herbal dog shampoo product page
+
+- Added `src/pages/products/thai-doctor-herbal-dog-shampoo.astro` with Thai SEO review content, Shopee affiliate CTA, 5-image gallery, FAQ, structured data, affiliate disclosure, and Shopee signup CTA.
+- Added the product to `src/data/products.json` under `grooming` so it appears on homepage and grooming category pages.
+- Added a review card to `src/pages/reviews.astro`.
+- Used only user-provided product facts and safe wording: no strong treatment claims such as curing fungus or guaranteed results.
+- Verification passed: `npm run validate`, `npx astro check` (0 errors, 1 existing deprecated execCommand hint), `npm run build`, and `npm run health`.
+
 ## 2026-05-24 — Bite of Wild P42 cat food product page
 
 - Added `src/pages/products/bite-of-wild-p42-cat-food.astro` with Thai SEO review content, Shopee affiliate CTA, image gallery, FAQ, structured data, affiliate disclosure, and Shopee signup CTA.

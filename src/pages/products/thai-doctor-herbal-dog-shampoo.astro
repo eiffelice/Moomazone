@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShopeeSignupCTA from '../../components/ShopeeSignupCTA.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const productUrl = 'https://mooma.online/products/thai-doctor-herbal-dog-shampoo';
+const shopeeUrl = 'https://s.shopee.co.th/gNAM4FhUC';
+const heroImage = 'https://down-th.img.susercontent.com/file/th-11134207-7rask-m95snypgs5zjb9@resize_w900_nl.webp';
+const gallery = [
+  "https://down-th.img.susercontent.com/file/th-11134207-7rask-m95snypgs5zjb9@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/th-11134207-7rasi-m95so1dqwo3t1f@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/th-11134207-7rasd-m95so39g47678b@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/th-11134207-7rash-m95so8174utla9@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/th-11134207-7rasb-m95so9okpyz30e.webp"
+];
+
+const formulas = [
+  { name: 'สูตรลูกสุนัข', color: 'สีชมพู', bestFor: 'ลูกสุนัข หรือสุนัขผิวบอบบาง', note: 'เลือกเมื่อต้องการสูตรอ่อนโยนเป็นพิเศษ' },
+  { name: 'สูตรสุนัขพันธุ์เล็ก', color: 'สีฟ้า', bestFor: 'น้องหมาตัวเล็ก ผิวไว ล้างออกง่าย', note: 'เหมาะกับการอาบน้ำประจำบ้าน' },
+  { name: 'สูตรสุนัขพันธุ์ใหญ่', color: 'สีส้ม', bestFor: 'สุนัขตัวโต ขนหนา ต้องการทำความสะอาดล้ำลึก', note: 'เหมาะกับน้องหมาที่เล่นซนหรือขนแน่น' },
+  { name: 'สูตรสุนัขผิวแพ้ง่าย', color: 'สีเขียว', bestFor: 'สุนัขที่คันง่าย ระคายเคืองง่าย หรือมีรังแค', note: 'เน้นดูแลผิวที่ต้องการความอ่อนโยน' },
+  { name: 'สูตรลดกลิ่นสาบ', color: 'สีน้ำตาล', bestFor: 'สุนัขที่มีกลิ่นตัว เล่นซน หรือเหงื่อเยอะ', note: 'เหมาะกับบ้านที่ต้องการช่วยคุมกลิ่นหลังอาบน้ำ' },
+];
+
+const structuredData = productArticleSchema({
+  title: 'รีวิว หมอไทยทำเอง แชมพูสุนัขสมุนไพร ออร์แกนิค 5 สูตร',
+  description: 'รีวิวแชมพูสุนัขสมุนไพรออร์แกนิค หมอไทยทำเอง มี 5 สูตรสำหรับลูกสุนัข พันธุ์เล็ก พันธุ์ใหญ่ ผิวแพ้ง่าย และลดกลิ่นสาบ ช่วยดูแลคราบมัน คันเกา กลิ่นตัว และขนให้นุ่มหอมตามข้อมูลจากผู้ขาย',
+  url: productUrl,
+  image: heroImage,
+  product: {
+    name: 'หมอไทยทำเอง แชมพูสุนัขสมุนไพร ออร์แกนิค 5 สูตร',
+    description: 'แชมพูสุนัขสมุนไพรออร์แกนิคสำหรับดูแลความสะอาด ลดคราบมัน กลิ่นตัว และช่วยให้ขนนุ่มหอม มีสูตรให้เลือกตามวัย ขนาดตัว และสภาพผิวของสุนัข',
+    image: heroImage,
+    category: 'grooming',
+    sameAs: shopeeUrl,
+  },
+  datePublished: '2026-05-24',
+  dateModified: '2026-05-24',
+  faqs: [
+    { question: 'แชมพูสุนัขหมอไทยทำเองมีสูตรอะไรบ้าง?', answer: 'มี 5 สูตร ได้แก่ สูตรลูกสุนัข สีชมพู, สูตรสุนัขพันธุ์เล็ก สีฟ้า, สูตรสุนัขพันธุ์ใหญ่ สีส้ม, สูตรสุนัขผิวแพ้ง่าย สีเขียว และสูตรลดกลิ่นสาบ สีน้ำตาล' },
+    { question: 'ช่วยเรื่องคันเกาและกลิ่นตัวได้ไหม?', answer: 'จากข้อมูลผู้ขาย สินค้านี้ช่วยดูแลปัญหาผิว คัน กลิ่นตัว และความสะอาดของขน แต่ไม่ใช่ยารักษาโรคผิวหนัง หากมีแผล ผื่นแดง หรือคันรุนแรงควรปรึกษาสัตวแพทย์' },
+    { question: 'สูตรไหนเหมาะกับสุนัขผิวแพ้ง่าย?', answer: 'สูตรสุนัขผิวแพ้ง่าย สีเขียว เหมาะกับสุนัขที่คันง่าย ระคายเคืองง่าย หรือมีรังแค ตามข้อมูลจากผู้ขาย' },
+    { question: 'มีข้อมูลผู้ขายหรือใบอนุญาตไหม?', answer: 'ผู้ขายให้ข้อมูลรหัสทะเบียนวิสาหกิจชุมชน 4-44-01-12/1-0038 และใบอนุญาต OTOP 4401000254' },
+  ],
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'กรูมมิ่งและดูแล', url: 'https://mooma.online/category/grooming' },
+    { name: 'แชมพูสุนัขสมุนไพร', url: productUrl },
+  ],
+});
+---
+
+<Layout
+  title="แชมพูสุนัขสมุนไพร หมอไทยทำเอง รีวิว 5 สูตร ออร์แกนิค | mooma.online"
+  description="รีวิวแชมพูสุนัขสมุนไพรออร์แกนิค หมอไทยทำเอง 5 สูตร ช่วยดูแลคราบมัน คันเกา กลิ่นตัว ขนนุ่มหอม พร้อมวิธีเลือกสูตรให้เหมาะกับน้องหมา"
+  ogTitle="แชมพูสุนัขสมุนไพร หมอไทยทำเอง — 5 สูตรเลือกตามสภาพผิว | mooma.online"
+  ogDescription="สูตรลูกสุนัข พันธุ์เล็ก พันธุ์ใหญ่ ผิวแพ้ง่าย และลดกลิ่นสาบ สำหรับดูแลความสะอาด ขนนุ่ม ตัวหอม"
+  ogType="article"
+  ogUrl={productUrl}
+  ogImage={heroImage}
+  structuredData={structuredData}
+>
+
+<article class="product-review">
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/grooming">กรูมมิ่งและดูแล</a> ›
+    <span>แชมพูสุนัขสมุนไพร</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>🧴 รีวิว หมอไทยทำเอง แชมพูสุนัขสมุนไพร ออร์แกนิค 5 สูตร</h1>
+    <p class="subtitle">แชมพูสุนัขแนวสมุนไพรสำหรับดูแลคราบมัน ลดคันเกา กลิ่นตัว ขนนุ่ม ตัวหอม และขนสวยเงางาม — เลือกสูตรตามวัย ขนาดตัว และสภาพผิวของน้องหมา</p>
+  </section>
+
+  <div class="product-gallery">
+    {gallery.map((src, index) => (
+      <img src={src} alt={`หมอไทยทำเอง แชมพูสุนัขสมุนไพร ออร์แกนิค รูปที่ ${index + 1}`} onclick="openLightbox(this.src)" loading="lazy" />
+    ))}
+  </div>
+
+  <section class="quick-facts">
+    <h2>📋 ข้อมูลสินค้าแบบสั้น</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>ประเภท:</strong> แชมพูสุนัขสมุนไพร / ผลิตภัณฑ์อาบน้ำสุนัข</div>
+      <div class="fact"><strong>แนวสินค้า:</strong> สมุนไพร ออร์แกนิค ตามข้อมูลจากผู้ขาย</div>
+      <div class="fact"><strong>มีให้เลือก:</strong> 5 สูตร แยกตามวัย ขนาดตัว และสภาพผิว</div>
+      <div class="fact"><strong>เหมาะกับ:</strong> บ้านที่อยากดูแลความสะอาด ขน และกลิ่นตัวสุนัข</div>
+      <div class="fact"><strong>จุดเด่น:</strong> ช่วยดูแลคราบมัน คันเกา กลิ่นตัว ขนนุ่ม ตัวหอม</div>
+      <div class="fact"><strong>เอกสารผู้ขาย:</strong> วิสาหกิจชุมชน / OTOP ตามเลขที่ระบุ</div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🔍 สินค้านี้เหมาะกับใคร?</h2>
+    <p><strong>หมอไทยทำเอง แชมพูสุนัขสมุนไพร</strong> เหมาะกับเจ้าของที่อยากได้แชมพูอาบน้ำสุนัขที่เลือกสูตรตามปัญหาจริงของน้องได้ เช่น ลูกสุนัขผิวบอบบาง น้องหมาตัวเล็กผิวไว สุนัขตัวใหญ่ขนหนา สุนัขคันง่าย หรือสุนัขที่มีกลิ่นตัวจากการเล่นซน</p>
+    <p>บทความนี้จะเขียนแบบปลอดภัยตามข้อมูลจากผู้ขาย: สินค้าช่วยดูแลปัญหาผิว คัน กลิ่นตัว และความสะอาดของขน แต่ไม่ใช่ยารักษาโรคผิวหนัง หากน้องหมามีแผล ผื่นแดง ขนร่วงเป็นหย่อม หรือคันรุนแรง ควรให้สัตวแพทย์ตรวจครับ</p>
+  </section>
+
+  <section class="content-section">
+    <h2>🧪 5 สูตรเลือกยังไงดี?</h2>
+    <div class="compare-table">
+      <div class="compare-row compare-header">
+        <div class="compare-cell">สูตร</div>
+        <div class="compare-cell">เหมาะกับ</div>
+        <div class="compare-cell">เลือกเมื่อ</div>
+      </div>
+      {formulas.map((item) => (
+        <div class="compare-row">
+          <div class="compare-cell"><strong>{item.name}</strong><br /><span style="color:var(--gray-400);font-size:0.88em;">{item.color}</span></div>
+          <div class="compare-cell">{item.bestFor}</div>
+          <div class="compare-cell green">{item.note}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>✅ จุดเด่นที่น่าสนใจ</h2>
+    <ul>
+      <li><strong>แยกสูตรชัดเจน</strong> — ไม่ต้องใช้สูตรเดียวกับสุนัขทุกแบบ เลือกตามวัย ขนาดตัว และสภาพผิวได้</li>
+      <li><strong>ช่วยดูแลคราบมันและกลิ่นตัว</strong> — เหมาะกับน้องหมาที่เล่นซน เหงื่อเยอะ หรืออาบแล้วกลิ่นกลับมาไว</li>
+      <li><strong>เน้นขนนุ่ม ตัวหอม ขนสวยเงางาม</strong> — ตอบโจทย์บ้านที่อยากให้อาบน้ำแล้วขนดูสุขภาพดีขึ้น</li>
+      <li><strong>มีสูตรสำหรับผิวแพ้ง่าย</strong> — สีเขียวเหมาะกับสุนัขที่คันง่าย ระคายเคืองง่าย หรือมีรังแค ตามข้อมูลผู้ขาย</li>
+      <li><strong>มีข้อมูลผู้ขายชัดเจน</strong> — ระบุรหัสทะเบียนวิสาหกิจชุมชนและใบอนุญาต OTOP</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>🐾 เหมาะ / ควรเลี่ยง</h2>
+    <div class="verdict-box">
+      <h3>เหมาะกับ</h3>
+      <ul>
+        <li>สุนัขที่ต้องอาบน้ำเป็นประจำ และต้องการแชมพูที่เลือกสูตรได้</li>
+        <li>บ้านที่มีสุนัขหลายตัว ต่างวัย ต่างขนาด หรือสภาพผิวไม่เหมือนกัน</li>
+        <li>น้องหมาที่มีคราบมัน กลิ่นตัว หรือขนดูไม่ค่อยนุ่มหลังอาบน้ำ</li>
+        <li>เจ้าของที่อยากลองแชมพูแนวสมุนไพร/ออร์แกนิคจากผู้ขายไทย</li>
+      </ul>
+    </div>
+    <div class="verdict-box" style="background:var(--coral-light);border-color:rgba(224,117,77,0.18);">
+      <h3>ควรพิจารณาก่อนใช้ถ้า...</h3>
+      <ul>
+        <li>สุนัขมีแผลเปิด ผิวหนังอักเสบ ผื่นแดง หรือคันมากผิดปกติ</li>
+        <li>สงสัยปัญหาปรสิต เห็บหมัด เชื้อผิวหนัง หรือโรคประจำตัว — ควรพบสัตวแพทย์ก่อน</li>
+        <li>เคยแพ้แชมพูหรือผลิตภัณฑ์อาบน้ำ ควรทดสอบบริเวณเล็ก ๆ ก่อนใช้อาบทั้งตัว</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🛁 วิธีใช้อย่างปลอดภัย</h2>
+    <ol>
+      <li><strong>แปรงขนก่อนอาบน้ำ</strong> — ช่วยให้สิ่งสกปรกและขนพันกันหลุดออกง่ายขึ้น</li>
+      <li><strong>ชโลมน้ำให้เปียกทั่วตัว</strong> — เลี่ยงเข้าตา หู จมูก และปาก</li>
+      <li><strong>นวดแชมพูเบา ๆ</strong> — เน้นจุดที่มันหรือมีกลิ่น เช่น คอ หน้าอก ขา และโคนหาง</li>
+      <li><strong>ล้างออกให้สะอาด</strong> — สำคัญมาก เพราะคราบแชมพูตกค้างอาจทำให้คันหรือระคายเคือง</li>
+      <li><strong>เช็ดและเป่าให้แห้ง</strong> — โดยเฉพาะสุนัขขนหนา เพื่อลดความอับชื้นหลังอาบน้ำ</li>
+    </ol>
+  </section>
+
+  <section class="content-section">
+    <h2>🏷️ ข้อมูลใบอนุญาตจากผู้ขาย</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>รหัสทะเบียนวิสาหกิจชุมชน:</strong> 4-44-01-12/1-0038</div>
+      <div class="fact"><strong>ใบอนุญาต OTOP:</strong> 4401000254</div>
+    </div>
+    <p style="font-size:0.9em;color:var(--gray-500);margin-top:12px;">ข้อมูลนี้เป็นข้อมูลที่ผู้ขายให้มา ควรตรวจสอบรายละเอียดล่าสุดจากหน้าร้านค้าก่อนสั่งซื้ออีกครั้ง</p>
+  </section>
+
+  <section class="content-section" id="faq">
+    <h2>❓ FAQ — แชมพูสุนัขสมุนไพร หมอไทยทำเอง</h2>
+    <div class="faq-item">
+      <h3>Q: สูตรไหนเหมาะกับลูกสุนัข?</h3>
+      <p><strong>A:</strong> สูตรลูกสุนัข สีชมพู เหมาะกับลูกสุนัขหรือสุนัขผิวบอบบาง ตามข้อมูลจากผู้ขาย</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ถ้าน้องหมาคันง่ายควรเลือกสูตรไหน?</h3>
+      <p><strong>A:</strong> สูตรสุนัขผิวแพ้ง่าย สีเขียว เหมาะกับสุนัขที่คันง่าย ระคายเคืองง่าย หรือมีรังแค แต่ถ้าคันรุนแรง มีแผล หรือขนร่วง ควรปรึกษาสัตวแพทย์ก่อน</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ใช้แทนการรักษาโรคผิวหนังได้ไหม?</h3>
+      <p><strong>A:</strong> ไม่ควรใช้แทนการรักษาครับ บทความนี้อ้างอิงข้อมูลผู้ขายว่าสินค้าช่วยดูแลปัญหาผิว คัน กลิ่นตัว และความสะอาดของขนเท่านั้น ไม่ใช่ยารักษาโรค</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: สุนัขตัวใหญ่มีกลิ่นตัวควรเลือกสูตรไหน?</h3>
+      <p><strong>A:</strong> ถ้าเป็นสุนัขตัวโต ขนหนา เลือกสูตรสุนัขพันธุ์ใหญ่ สีส้มได้ แต่ถ้ากังวลเรื่องกลิ่นตัวเป็นหลัก สูตรลดกลิ่นสาบ สีน้ำตาลจะตรงจุดกว่า</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🛒 ดูรายละเอียดสินค้าใน Shopee</h2>
+    <p>หากต้องการดูรายละเอียดร้านค้า ดีลที่กำลังมี รูปเพิ่มเติม และรีวิวผู้ซื้อ แนะนำกดไปดูหน้าสินค้าบน Shopee โดยตรงก่อนตัดสินใจ</p>
+    <div class="cta-section">
+      <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" style="font-size:1.1em;padding:14px 28px;">🛍️ ดูสินค้าใน Shopee</a>
+      <a href="#faq" class="btn-card btn-card-primary" style="font-size:1.1em;padding:14px 28px;">❓ อ่าน FAQ</a>
+    </div>
+  </section>
+
+  <section class="content-section" style="font-size:0.85em;color:var(--gray-300);border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1em;">เกี่ยวกับบทความนี้</h2>
+    <p>บทความนี้เป็นรีวิวเชิงข้อมูลจากรายละเอียดสินค้าและรูปภาพที่ผู้ใช้ส่งให้ เพื่อช่วยให้เจ้าของสุนัขเลือกแชมพูอาบน้ำได้ง่ายขึ้น</p>
+    <p><strong>คำค้นที่เกี่ยวข้อง:</strong> แชมพูสุนัข, แชมพูสมุนไพรสุนัข, แชมพูสุนัขออร์แกนิค, แชมพูสุนัขลดคัน, แชมพูสุนัขลดกลิ่นสาบ, แชมพูลูกสุนัข, ผลิตภัณฑ์อาบน้ำสุนัข</p>
+  </section>
+
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1.25em;">🐶 สินค้าที่เกี่ยวข้องสำหรับน้องหมา</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🧻</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">yoyopet แผ่นเช็ดคราบน้ำตาสุนัขและแมว</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">แผ่นเช็ดตา ปาก หู สำหรับดูแลความสะอาดเฉพาะจุด</p>
+          <a href="/products/yoyopet-pet-wipes" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🦷</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">Gentle Paws Dental Chews ขนมขัดฟันสุนัข</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">ช่วยดูแลช่องปากและลมหายใจระหว่างวัน</p>
+          <a href="/products/gentle-paws-dental-chews" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ShopeeSignupCTA />
+</article>
+
+<div style="max-width:780px;margin:0 auto;padding:32px 0;">
+  <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:12px;padding:20px 24px;margin-bottom:12px;">
+    <p style="font-size:0.92em;color:#6D4C00;margin:0;line-height:1.7;">
+      ⚠️ <strong>ข้อควรรู้:</strong> ข้อมูลในบทความนี้ใช้เพื่อประกอบการตัดสินใจเท่านั้น ไม่ใช่คำแนะนำทางการแพทย์หรือการรักษาโรคผิวหนัง หากสุนัขมีแผล ผื่นแดง คันรุนแรง ขนร่วงเป็นหย่อม หรือมีอาการผิดปกติหลังใช้ ควรหยุดใช้และปรึกษาสัตวแพทย์
+    </p>
+  </div>
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — อ่านเพิ่มเติมที่ <a href="/disclosure" style="color:var(--coral)">หน้าการเปิดเผยข้อมูล</a> | ตรวจสอบข้อมูลล่าสุดจากร้านค้าก่อนสั่งซื้อ
+  </p>
+</div>
+
+</Layout>
