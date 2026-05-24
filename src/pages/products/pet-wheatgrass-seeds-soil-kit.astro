@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ShopeeSignupCTA from '../../components/ShopeeSignupCTA.astro';
+import { productArticleSchema } from '../../utils/structuredData';
+
+const productUrl = 'https://mooma.online/products/pet-wheatgrass-seeds-soil-kit';
+const shopeeUrl = 'https://s.shopee.co.th/1gFhY38BnC';
+const heroImage = 'https://down-th.img.susercontent.com/file/dc1a64297b57f5dba96b7d3d72255d51@resize_w900_nl.webp';
+const gallery = [
+  "https://down-th.img.susercontent.com/file/dc1a64297b57f5dba96b7d3d72255d51@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/th-11134207-7r98v-lttj3o05dif3e2@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/th-11134207-7r98v-lttj3o05apa7d7@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/b233a0214920baacd4fdcfd4c1d79cf9@resize_w900_nl.webp",
+  "https://down-th.img.susercontent.com/file/db5ab7900876c36eccf90a3c6adadb59@resize_w900_nl.webp"
+];
+
+const options = [
+  { name: 'เมล็ดข้าวสาลี 500 กรัม', bestFor: 'เริ่มทดลองปลูก หรือบ้านที่มีสัตว์เลี้ยง 1 ตัว', note: 'เหมาะกับคนอยากลองปลูกต้นอ่อนสดก่อน' },
+  { name: 'เมล็ดข้าวสาลี 1 กิโลกรัม', bestFor: 'บ้านที่ปลูกต่อเนื่อง หรือมีสัตว์เลี้ยงหลายตัว', note: 'คุ้มสำหรับการปลูกหมุนเวียนหลายรอบ' },
+  { name: 'ดินพร้อมปลูก 1 กิโลกรัม', bestFor: 'คนที่ต้องการเริ่มปลูกง่าย ไม่อยากเตรียมดินเอง', note: 'ซื้อคู่เมล็ดเพื่อเริ่มปลูกได้สะดวกขึ้น' },
+];
+
+const structuredData = productArticleSchema({
+  title: 'รีวิว เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง พร้อมดินปลูก ต้นอ่อนข้าวสาลี',
+  description: 'รีวิวเมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง ปลอดสารเคมี พร้อมตัวเลือกดินพร้อมปลูก เหมาะกับแมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ ปลูกง่าย งอกไว โตเร็ว',
+  url: productUrl,
+  image: heroImage,
+  product: {
+    name: 'เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง ปลอดสารเคมี และดินพร้อมปลูก',
+    description: 'เมล็ดข้าวสาลีสำหรับปลูกต้นอ่อนให้สัตว์เลี้ยงกินสด เหมาะกับแมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ มีตัวเลือกเมล็ด 500 กรัม, 1 กิโลกรัม และดินพร้อมปลูก 1 กิโลกรัม',
+    image: heroImage,
+    category: 'supplements',
+    sameAs: shopeeUrl,
+  },
+  datePublished: '2026-05-24',
+  dateModified: '2026-05-24',
+  faqs: [
+    { question: 'เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยงเหมาะกับสัตว์อะไร?', answer: 'จากข้อมูลสินค้า เหมาะสำหรับแมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ โดยควรให้กินในปริมาณที่เหมาะกับชนิดและขนาดตัวของสัตว์เลี้ยง' },
+    { question: 'ช่วยขับก้อนขนได้ไหม?', answer: 'ข้อมูลผู้ขายระบุว่าต้นอ่อนข้าวสาลีช่วยขับก้อนขนได้ โดยเฉพาะในแมว แต่ไม่ควรใช้แทนการดูแลสุขภาพ หากอาเจียนบ่อย ซึม หรือกินไม่ได้ควรปรึกษาสัตวแพทย์' },
+    { question: 'ต้องดูแลยังไงหลังปลูก?', answer: 'ควรตัดต้นอ่อนทุก 7 วัน เพื่อให้ได้ต้นอ่อนที่สดใหม่ และควรเก็บเมล็ดไว้ในที่แห้ง มิดชิด หรือแช่ตู้เย็นเพื่อช่วยป้องกันมอด' },
+    { question: 'ควรเลือกเมล็ด 500 กรัมหรือ 1 กิโลกรัม?', answer: 'ถ้าเริ่มทดลองปลูก เลือก 500 กรัมก่อนก็พอ แต่ถ้าปลูกต่อเนื่องหรือมีสัตว์เลี้ยงหลายตัว ตัวเลือก 1 กิโลกรัมจะเหมาะกว่า' },
+  ],
+  breadcrumbs: [
+    { name: 'หน้าแรก', url: 'https://mooma.online' },
+    { name: 'อาหารเสริมสัตว์เลี้ยง', url: 'https://mooma.online/category/supplements' },
+    { name: 'เมล็ดข้าวสาลีสัตว์เลี้ยง', url: productUrl },
+  ],
+});
+---
+
+<Layout
+  title="เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง รีวิว พร้อมดินปลูก | mooma.online"
+  description="รีวิวเมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง ปลอดสารเคมี พร้อมดินปลูก เหมาะกับแมว หมา หนู กระต่าย ปลูกง่าย งอกไว โตเร็ว ช่วยดูแลก้อนขนและกลิ่นปากตามข้อมูลผู้ขาย"
+  ogTitle="เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง — ปลูกต้นอ่อนสดให้น้องกินเอง | mooma.online"
+  ogDescription="เมล็ดข้าวสาลีปลอดสารเคมี พร้อมดินปลูก สำหรับแมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ"
+  ogType="article"
+  ogUrl={productUrl}
+  ogImage={heroImage}
+  structuredData={structuredData}
+>
+
+<article class="product-review">
+  <nav class="breadcrumb">
+    <a href="/">หน้าแรก</a> ›
+    <a href="/category/supplements">อาหารเสริมสัตว์เลี้ยง</a> ›
+    <span>เมล็ดข้าวสาลีสัตว์เลี้ยง</span>
+  </nav>
+
+  <section class="product-hero">
+    <h1>🌱 รีวิว เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง + ดินพร้อมปลูก</h1>
+    <p class="subtitle">ตัวเลือกสำหรับคนที่อยากปลูกต้นอ่อนข้าวสาลีสดให้น้องกินเอง — ปลอดสารเคมี ปลูกง่าย งอกไว โตเร็ว เหมาะกับแมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ</p>
+  </section>
+
+  <div class="product-gallery">
+    {gallery.map((src, index) => (
+      <img src={src} alt={`เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยงและดินพร้อมปลูก รูปที่ ${index + 1}`} onclick="openLightbox(this.src)" loading="lazy" />
+    ))}
+  </div>
+
+  <section class="quick-facts">
+    <h2>📋 ข้อมูลสินค้าแบบสั้น</h2>
+    <div class="facts-grid">
+      <div class="fact"><strong>ประเภท:</strong> เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง / ต้นอ่อนข้าวสาลี</div>
+      <div class="fact"><strong>หมวด:</strong> อาหารเสริมสัตว์เลี้ยง / ของใช้แมว / ของใช้สัตว์เลี้ยง</div>
+      <div class="fact"><strong>จุดเด่น:</strong> ปลอดสารเคมี ปลูกง่าย งอกไว โตเร็ว</div>
+      <div class="fact"><strong>เหมาะกับ:</strong> แมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ</div>
+      <div class="fact"><strong>ช่วยดูแล:</strong> ก้อนขนและกลิ่นปาก ตามข้อมูลจากผู้ขาย</div>
+      <div class="fact"><strong>ตัวเลือก:</strong> เมล็ด 500 กรัม, เมล็ด 1 กก., ดินพร้อมปลูก 1 กก.</div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🔍 เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยงคืออะไร?</h2>
+    <p><strong>เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง</strong> ใช้สำหรับปลูกเป็นต้นอ่อนข้าวสาลีสดให้น้องกินเองที่บ้าน โดยเฉพาะบ้านที่เลี้ยงแมวและอยากมีต้นอ่อนให้แทะเป็นครั้งคราว รวมถึงใช้กับหมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ ตามข้อมูลสินค้า</p>
+    <p>จุดที่น่าสนใจคือมีทั้งเมล็ดและ <strong>ดินพร้อมปลูก</strong> ให้เลือก เหมาะกับคนที่ไม่อยากเตรียมอุปกรณ์เยอะ แต่อยากปลูกของสดให้น้องกินแบบควบคุมความสะอาดเองได้</p>
+  </section>
+
+  <section class="content-section">
+    <h2>✅ จุดเด่นสินค้า</h2>
+    <ul>
+      <li><strong>ปลอดสารเคมี</strong> — เหมาะกับเจ้าของที่ระวังเรื่องวัตถุดิบสำหรับสัตว์เลี้ยง</li>
+      <li><strong>ปลูกง่าย งอกไว โตเร็ว</strong> — เหมาะกับมือใหม่ที่อยากลองปลูกต้นอ่อนสดเอง</li>
+      <li><strong>ใช้ได้กับสัตว์หลายชนิด</strong> — แมว หมา หนู กระต่าย และสัตว์กินหญ้าอื่น ๆ ตามข้อมูลสินค้า</li>
+      <li><strong>ช่วยขับก้อนขน</strong> — เหมาะกับแมวที่เลียขนบ่อย โดยใช้เป็นตัวช่วยดูแลตามข้อมูลผู้ขาย</li>
+      <li><strong>ช่วยลดกลิ่นปาก</strong> — เป็นอีกจุดเด่นที่ผู้ขายระบุ แต่ผลลัพธ์ขึ้นกับสัตว์เลี้ยงแต่ละตัว</li>
+      <li><strong>มีดินพร้อมปลูก</strong> — ช่วยให้เริ่มปลูกง่ายขึ้น ไม่ต้องเตรียมดินเอง</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>🧺 ตัวเลือกสินค้า เลือกแบบไหนดี?</h2>
+    <div class="compare-table">
+      <div class="compare-row compare-header">
+        <div class="compare-cell">ตัวเลือก</div>
+        <div class="compare-cell">เหมาะกับ</div>
+        <div class="compare-cell">คำแนะนำ</div>
+      </div>
+      {options.map((item) => (
+        <div class="compare-row">
+          <div class="compare-cell"><strong>{item.name}</strong></div>
+          <div class="compare-cell">{item.bestFor}</div>
+          <div class="compare-cell green">{item.note}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🐾 เหมาะกับใคร?</h2>
+    <div class="verdict-box">
+      <h3>เหมาะกับ</h3>
+      <ul>
+        <li>คนเลี้ยงแมวที่อยากปลูกต้นอ่อนข้าวสาลีสดไว้ให้น้องแทะ</li>
+        <li>บ้านที่มีสัตว์กินหญ้า เช่น กระต่ายหรือหนู และต้องการของสดปลูกเอง</li>
+        <li>เจ้าของที่อยากลองดูแลเรื่องก้อนขนและกลิ่นปากแบบเสริมจากการดูแลปกติ</li>
+        <li>คนที่อยากเริ่มปลูกง่าย ๆ ด้วยเมล็ดและดินพร้อมปลูก</li>
+      </ul>
+    </div>
+    <div class="verdict-box" style="background:var(--coral-light);border-color:rgba(224,117,77,0.18);">
+      <h3>ควรพิจารณาก่อนใช้ถ้า...</h3>
+      <ul>
+        <li>สัตว์เลี้ยงมีโรคประจำตัว ระบบย่อยไว หรือมีข้อจำกัดเรื่องอาหาร</li>
+        <li>แมวอาเจียนบ่อยผิดปกติ ซึม กินไม่ได้ หรือสงสัยก้อนขนอุดตัน — ควรปรึกษาสัตวแพทย์</li>
+        <li>บ้านมีความชื้นสูง ควรระวังเชื้อราที่ดินหรือต้นอ่อน และเปลี่ยนรอบปลูกสม่ำเสมอ</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🌿 วิธีใช้งาน / การดูแล</h2>
+    <ol>
+      <li><strong>เตรียมเมล็ดและดิน</strong> — ใช้เมล็ดข้าวสาลีร่วมกับดินพร้อมปลูก หรือวัสดุปลูกที่สะอาด</li>
+      <li><strong>รดน้ำพอชื้น</strong> — ไม่ควรแฉะเกินไป เพื่อช่วยลดความเสี่ยงกลิ่นอับหรือเชื้อรา</li>
+      <li><strong>รอให้งอกและโต</strong> — สินค้าระบุว่าปลูกง่าย งอกไว โตเร็ว</li>
+      <li><strong>ตัดต้นอ่อนทุก 7 วัน</strong> — เพื่อให้ได้ต้นอ่อนที่สดใหม่ตามคำแนะนำผู้ขาย</li>
+      <li><strong>เก็บเมล็ดให้ถูกวิธี</strong> — เก็บในที่แห้งและมิดชิด หรือแช่ตู้เย็นเพื่อช่วยป้องกันมอด</li>
+    </ol>
+  </section>
+
+  <section class="content-section" id="faq">
+    <h2>❓ FAQ — เมล็ดข้าวสาลีสำหรับสัตว์เลี้ยง</h2>
+    <div class="faq-item">
+      <h3>Q: แมวกินต้นอ่อนข้าวสาลีได้ไหม?</h3>
+      <p><strong>A:</strong> ได้ตามข้อมูลสินค้า โดยเจ้าของควรให้กินในปริมาณพอดี และสังเกตอาการหลังเริ่มให้กินครั้งแรก</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ช่วยขับก้อนขนได้จริงไหม?</h3>
+      <p><strong>A:</strong> ผู้ขายระบุว่าช่วยขับก้อนขนได้ แต่ไม่ควรใช้แทนการดูแลสุขภาพหรือการรักษา หากแมวอาเจียนบ่อย ซึม หรือกินไม่ได้ ควรพบสัตวแพทย์</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: ต้องตัดต้นอ่อนบ่อยแค่ไหน?</h3>
+      <p><strong>A:</strong> ข้อมูลจากผู้ขายแนะนำให้ตัดต้นอ่อนทุก 7 วัน เพื่อให้ได้ต้นอ่อนที่สดใหม่</p>
+    </div>
+    <div class="faq-item">
+      <h3>Q: เก็บเมล็ดยังไงไม่ให้เสียหรือมีมอด?</h3>
+      <p><strong>A:</strong> ควรเก็บเมล็ดไว้ในที่แห้งและมิดชิด และสามารถแช่ตู้เย็นเพื่อช่วยป้องกันมอดได้</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>🛒 ดูรายละเอียดสินค้าใน Shopee</h2>
+    <p>หากต้องการดูรายละเอียดร้านค้า ตัวเลือกสินค้า และรีวิวผู้ซื้อ แนะนำกดไปดูหน้าสินค้าบน Shopee โดยตรงก่อนตัดสินใจ</p>
+    <div class="cta-section">
+      <a href={shopeeUrl} class="btn-card btn-card-shopee" target="_blank" rel="nofollow sponsored" style="font-size:1.1em;padding:14px 28px;">🛍️ ดูสินค้าใน Shopee</a>
+      <a href="#faq" class="btn-card btn-card-primary" style="font-size:1.1em;padding:14px 28px;">❓ อ่าน FAQ</a>
+    </div>
+  </section>
+
+  <section class="content-section" style="font-size:0.85em;color:var(--gray-300);border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1em;">เกี่ยวกับบทความนี้</h2>
+    <p>บทความนี้เป็นรีวิวเชิงข้อมูลจากรายละเอียดสินค้าและรูปภาพที่ผู้ใช้ส่งให้ เพื่อช่วยให้เจ้าของสัตว์เลี้ยงเลือกเมล็ดต้นอ่อนข้าวสาลีและดินพร้อมปลูกได้ง่ายขึ้น</p>
+    <p><strong>คำค้นที่เกี่ยวข้อง:</strong> เมล็ดข้าวสาลีสัตว์เลี้ยง, ต้นอ่อนข้าวสาลีแมว, หญ้าแมว, wheatgrass cat, เมล็ดหญ้าแมว, ดินพร้อมปลูกสัตว์เลี้ยง, อาหารเสริมสัตว์เลี้ยง</p>
+  </section>
+
+  <section class="content-section" style="border-top:1px solid var(--gray-100);padding-top:24px;margin-top:40px;">
+    <h2 style="font-size:1.25em;">🐱 สินค้าที่เกี่ยวข้อง</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🧻</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">yoyopet แผ่นเช็ดคราบน้ำตาสุนัขและแมว</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">แผ่นเช็ดตา ปาก หู สำหรับดูแลความสะอาดเฉพาะจุด</p>
+          <a href="/products/yoyopet-pet-wipes" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+      <div class="product-card" style="padding:0;">
+        <div class="card-body">
+          <div class="card-stars" style="font-size:0.9em;">🐟</div>
+          <h3 style="font-size:0.9em;margin:8px 0;">DeliSci Skin & Coat Cat อาหารเปียกบำรุงขน</h3>
+          <p style="font-size:0.85em;color:var(--gray-400);margin:4px 0 8px;">โอเมก้า 3-6-9 + ไบโอติน + Zinc สำหรับผิวหนังและขน</p>
+          <a href="/products/delisci-skin-coat-cat" class="btn-card btn-card-primary" style="font-size:0.85em;padding:6px 12px;">📖 อ่านรีวิว</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ShopeeSignupCTA />
+</article>
+
+<div style="max-width:780px;margin:0 auto;padding:32px 0;">
+  <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:12px;padding:20px 24px;margin-bottom:12px;">
+    <p style="font-size:0.92em;color:#6D4C00;margin:0;line-height:1.7;">
+      ⚠️ <strong>ข้อควรรู้:</strong> ข้อมูลในบทความนี้ใช้เพื่อประกอบการตัดสินใจเท่านั้น ไม่ใช่คำแนะนำจากสัตวแพทย์ หากสัตว์เลี้ยงมีโรคประจำตัว อาเจียนบ่อย กินไม่ได้ ซึม หรือมีอาการผิดปกติหลังให้กินต้นอ่อน ควรหยุดใช้และปรึกษาสัตวแพทย์
+    </p>
+  </div>
+  <p style="font-size:0.82em;color:var(--gray-300);text-align:center;">
+    * บางลิงก์เป็น Affiliate Link — อ่านเพิ่มเติมที่ <a href="/disclosure" style="color:var(--coral)">หน้าการเปิดเผยข้อมูล</a> | ตรวจสอบข้อมูลล่าสุดจากร้านค้าก่อนสั่งซื้อ
+  </p>
+</div>
+
+</Layout>

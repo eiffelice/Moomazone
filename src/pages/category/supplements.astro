@@ -1,53 +1,89 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+import { itemListSchema } from '../../utils/structuredData';
+
+const categoryProducts = productsData.products.filter(p => p.category === 'supplements');
+const structuredData = itemListSchema({
+  name: "อาหารเสริมสัตว์เลี้ยง",
+  description: "รวมรีวิวอาหารเสริมและของกินเสริมสำหรับสัตว์เลี้ยง — วิตามิน บำรุงขน ต้นอ่อนข้าวสาลี หญ้าแมว และของใช้ปลูกเอง",
+  url: "https://mooma.online/category/supplements",
+  products: categoryProducts,
+  breadcrumbs: [
+    { name: "หน้าแรก", url: "https://mooma.online" },
+    { name: "อาหารเสริมสัตว์เลี้ยง", url: "https://mooma.online/category/supplements" },
+  ],
+});
 ---
 
 <Layout
-  title="อาหารเสริมสัตว์เลี้ยง — วิตามิน บำรุงขน บำรุงข้อ | mooma.online"
-  description="คู่มืออาหารเสริมสัตว์เลี้ยง — วิตามินบำรุงขน กลูโคซามีนบำรุงข้อ โพรไบโอติก อาหารเสริมแมว อาหารเสริมสุนัข จาก Shopee"
-  ogTitle="อาหารเสริมสัตว์เลี้ยง — วิตามิน บำรุงขน ข้อ | mooma.online"
-  ogDescription="อาหารเสริมสำหรับหมาแมว — บำรุงขน บำรุงข้อ เสริมภูมิคุ้มกัน"
+  title="อาหารเสริมสัตว์เลี้ยง — วิตามิน ต้นอ่อนข้าวสาลี หญ้าแมว | mooma.online"
+  description="รวมรีวิวอาหารเสริมสัตว์เลี้ยง วิตามินบำรุงขน ต้นอ่อนข้าวสาลี หญ้าแมว เมล็ดปลูกเอง และของกินเสริมสำหรับหมาแมวจาก Shopee"
+  ogTitle="อาหารเสริมสัตว์เลี้ยง — วิตามิน ต้นอ่อนข้าวสาลี หญ้าแมว | mooma.online"
+  ogDescription="อาหารเสริมและของกินเสริมสำหรับหมาแมว — บำรุงขน ต้นอ่อนข้าวสาลี หญ้าแมว และของปลูกเอง"
   ogType="website"
   ogUrl="https://mooma.online/category/supplements"
+  structuredData={structuredData}
 >
   <section class="section">
     <nav class="breadcrumb">
       <a href="/">หน้าแรก</a> ›
-      <span>อาหารเสริม</span>
+      <span>อาหารเสริมสัตว์เลี้ยง</span>
     </nav>
 
     <div class="section-header">
       <h1 style="font-size:1.8em">💊 อาหารเสริมสัตว์เลี้ยง</h1>
-      <p>เสริมสุขภาพน้องจากภายใน — เลือกอาหารเสริมที่เหมาะกับปัญหา</p>
+      <p>เสริมสุขภาพน้องจากภายใน — วิตามิน ต้นอ่อนข้าวสาลี หญ้าแมว และของกินเสริมที่เลือกให้เหมาะกับน้อง</p>
     </div>
 
-    <p style="text-align:center;color:var(--gray-400);padding:48px 0;">
-      🚧 กำลังรวบรวมรีวิวอาหารเสริม — กลับมาเร็วๆ นี้
-    </p>
+    <div class="product-grid">
+      {categoryProducts.length > 0 ? (
+        categoryProducts.map(p => (
+          <ProductCard
+            href={`/products/${p.slug}`}
+            shopeeUrl={p.shopeeUrl}
+            emoji={p.emoji}
+            badge={p.badge}
+            badgeClass={p.badgeClass}
+            title={p.title}
+            suitable={p.suitable}
+            highlight={p.highlight}
+            note={p.note}
+            stars={p.stars}
+            image={p.image || null}
+          />
+        ))
+      ) : (
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-400);padding:48px 0;">
+          🚧 กำลังรวบรวมรีวิวอาหารเสริม — กลับมาเร็วๆ นี้
+        </p>
+      )}
+    </div>
 
     <h2>🐾 อาหารเสริมที่พบบ่อย</h2>
     <div class="facts-grid" style="grid-template-columns:1fr 1fr">
+      <div class="fact"><strong>🌱 ต้นอ่อนข้าวสาลี / หญ้าแมว</strong> — ของกินเสริมจากพืช ช่วยให้น้องได้แทะต้นอ่อนสดเป็นครั้งคราว</div>
       <div class="fact"><strong>🐟 โอเมก้า 3-6-9</strong> — บำรุงผิวหนังและขน ลดการอักเสบ ช่วยข้อ — จากน้ำมันปลา</div>
       <div class="fact"><strong>🦴 กลูโคซามีน</strong> — บำรุงข้อต่อ เหมาะกับสุนัขแก่หรือพันธุ์ใหญ่ที่มีปัญหาข้อเสื่อม</div>
-      <div class="fact"><strong>🦠 โพรไบโอติก</strong> — เสริมระบบย่อย ลดท้องเสีย — โดยเฉพาะตอนเปลี่ยนอาหาร</div>
+      <div class="fact"><strong>🦠 โพรไบโอติก</strong> — เสริมระบบย่อย โดยเฉพาะตอนเปลี่ยนอาหาร</div>
       <div class="fact"><strong>💇 ไบโอติน + Zinc</strong> — บำรุงขน ลดขนร่วง เสริมผิวหนังให้แข็งแรง</div>
       <div class="fact"><strong>🛡️ วิตามินรวม</strong> — สำหรับสัตว์ที่ไม่ได้รับสารอาหารครบจากอาหารหลัก</div>
-      <div class="fact"><strong>🌿 Milk Thistle</strong> — บำรุงตับ — โดยเฉพาะสุนัขที่กินยาต่อเนื่อง</div>
     </div>
 
     <section class="faq" style="margin-top:32px">
       <h2>❓ คำถามที่พบบ่อย — อาหารเสริมสัตว์เลี้ยง</h2>
       <details>
         <summary>สัตว์เลี้ยงจำเป็นต้องกินอาหารเสริมไหม?</summary>
-        <p>ถ้ากินอาหารครบถ้วนอยู่แล้ว — ไม่จำเป็น แต่ถ้ามีปัญหาเฉพาะ เช่น ขนร่วง ข้อเสื่อม ผิวแห้ง อาหารเสริมช่วยได้</p>
+        <p>ถ้ากินอาหารครบถ้วนอยู่แล้วอาจไม่จำเป็น แต่ถ้ามีปัญหาเฉพาะหรืออยากเสริมบางอย่าง เช่น ขน ผิว หรือของกินจากพืช ควรเลือกให้เหมาะกับชนิดสัตว์และสุขภาพของน้อง</p>
+      </details>
+      <details>
+        <summary>ต้นอ่อนข้าวสาลีใช้แทนอาหารหลักได้ไหม?</summary>
+        <p>ไม่ควรใช้แทนอาหารหลัก เป็นต้นอ่อนหรือของกินเสริมเท่านั้น ควรให้อาหารหลักที่ครบถ้วนเป็นหลักเสมอ</p>
       </details>
       <details>
         <summary>ให้อาหารเสริมคนกับสัตว์เลี้ยงได้ไหม?</summary>
-        <p>ไม่ควร — ปริมาณและส่วนผสมต่างกัน วิตามินบางตัวเป็นพิษต่อสัตว์ — ควรใช้อาหารเสริมสำหรับสัตว์โดยเฉพาะ</p>
-      </details>
-      <details>
-        <summary>โอเมก้า 3 จากปลา กับจากพืช ต่างกันไหม?</summary>
-        <p>โอเมก้า 3 จากปลา (EPA/DHA) ดูดซึมดีกว่าจากพืช (ALA) — สำหรับผิวหนังและข้อ แนะนำจากน้ำมันปลา</p>
+        <p>ไม่ควร — ปริมาณและส่วนผสมต่างกัน วิตามินบางตัวเป็นพิษต่อสัตว์ ควรใช้อาหารเสริมหรือของกินเสริมสำหรับสัตว์โดยเฉพาะ</p>
       </details>
     </section>
   </section>
