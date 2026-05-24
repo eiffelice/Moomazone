@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2026-05-24 — Sticky mobile share bar and related articles
+
+- Added a mobile sticky share bar with quick native share, LINE, and copy-link actions.
+- Added `RelatedArticles.astro` to surface contextual article cards on article, product, category, and comparison pages.
+- Wired related articles into the shared layout after the share module to improve internal navigation and keep readers moving to the next page.
+- Updated styling for the sticky mobile bar, related article cards, responsive layouts, and safe bottom spacing on mobile.
+- Verification passed: `npm run validate`, `npm run build`, and `npm run health`.
+
 ## 2026-05-24 — Pet wheatgrass seeds and soil product page
 
 - Added `src/pages/products/pet-wheatgrass-seeds-soil-kit.astro` with Thai SEO review content, Shopee affiliate CTA, 5-image gallery, FAQ, structured data, affiliate disclosure, and Shopee signup CTA.

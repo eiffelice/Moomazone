@@ -1,0 +1,95 @@
+---
+// RelatedArticles.astro — contextual internal links near the end of every useful page
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const articles = [
+  {
+    href: '/articles/dog-not-eating-guide',
+    emoji: '🐶',
+    category: 'คู่มือสุนัข · เบื่ออาหาร',
+    title: 'หมาไม่ค่อยกินข้าว ทำยังไงดี?',
+    excerpt: 'ไล่เช็กสุขภาพ พฤติกรรม กลิ่นอาหาร ตารางมื้อ และวิธีเปลี่ยนอาหารให้เหมาะกับน้องหมา',
+    tags: ['dog', 'food'],
+  },
+  {
+    href: '/articles/dog-dental-chews-guide',
+    emoji: '🦷',
+    category: 'คู่มือสุนัข · ช่องปาก',
+    title: 'ขนมขัดฟันสุนัขจำเป็นไหม?',
+    excerpt: 'ดูวิธีเลือกขนาด เนื้อสัมผัส ส่วนผสม และข้อควรระวังเมื่อต้องดูแลคราบฟันน้องหมา',
+    tags: ['dog', 'dental'],
+  },
+  {
+    href: '/articles/dog-bad-breath-solution',
+    emoji: '😬',
+    category: 'คู่มือสุนัข · กลิ่นปาก',
+    title: 'หมากลิ่นปากแรง แก้ยังไง?',
+    excerpt: 'เช็กสาเหตุจากฟัน เหงือก อาหาร และสัญญาณที่ควรให้สัตวแพทย์ตรวจช่องปาก',
+    tags: ['dog', 'dental'],
+  },
+  {
+    href: '/articles/cat-pee-smell-solution',
+    emoji: '👃',
+    category: 'คู่มือแมว · กลิ่นในบ้าน',
+    title: 'แมวฉี่เหม็นมาก แก้ยังไง?',
+    excerpt: 'ไล่เช็กต้นเหตุกลิ่นฉี่แมว ตั้งแต่กระบะ ทราย จุดวาง ไปจนถึงสัญญาณสุขภาพที่ไม่ควรมองข้าม',
+    tags: ['cat', 'litter'],
+  },
+  {
+    href: '/articles/cat-food-skin-coat-guide',
+    emoji: '🐟',
+    category: 'อาหารแมว · ผิวหนังและขน',
+    title: 'อาหารแมวช่วยเรื่องขนร่วง ผิวหนัง และขนสวย เลือกยังไงดี',
+    excerpt: 'เช็กสารอาหารสำคัญ โปรตีน โอเมก้า ไบโอติน Zinc และวิธีอ่านฉลากแบบไม่หลงคำโฆษณา',
+    tags: ['cat', 'food'],
+  },
+  {
+    href: '/articles/cat-condo-new-owner-checklist',
+    emoji: '🏢',
+    category: 'มือใหม่ · เลี้ยงแมวในคอนโด',
+    title: 'เลี้ยงแมวในคอนโดต้องมีอะไรบ้าง?',
+    excerpt: 'เช็กลิสต์ของจำเป็นสำหรับพื้นที่น้อย จัดโซนอาหาร น้ำ กระบะ ที่ลับเล็บ และพื้นที่สูงให้แมวอยู่สบาย',
+    tags: ['cat', 'home'],
+  },
+];
+
+const pathTags = (() => {
+  if (currentPath.includes('/dog-') || currentPath.includes('/category/dog') || currentPath.includes('kin-d') || currentPath.includes('gentle-paws')) return ['dog'];
+  if (currentPath.includes('/cat-') || currentPath.includes('/category/cat') || currentPath.includes('delisci') || currentPath.includes('fiproline') || currentPath.includes('bite-of-wild') || currentPath.includes('litter') || currentPath.includes('water-fountain')) return ['cat'];
+  return [];
+})();
+
+const currentArticle = articles.find((article) => article.href === currentPath);
+const scored = articles
+  .filter((article) => article.href !== currentPath)
+  .map((article) => {
+    const overlap = article.tags.filter((tag) => currentArticle?.tags.includes(tag) || pathTags.includes(tag)).length;
+    return { ...article, score: overlap };
+  })
+  .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, 'th'));
+
+const related = scored.slice(0, 3);
+const shouldShow = currentPath.startsWith('/articles') || currentPath.startsWith('/products') || currentPath.startsWith('/category') || currentPath.startsWith('/compare');
+---
+
+{shouldShow && related.length > 0 && (
+  <section class="related-articles" aria-labelledby="related-articles-heading">
+    <div class="related-articles-header">
+      <p class="related-kicker">อ่านต่อให้ครบก่อนตัดสินใจ</p>
+      <h2 id="related-articles-heading">บทความที่เกี่ยวข้อง</h2>
+      <p>คัดจากหัวข้อใกล้เคียง เพื่อพาคนอ่านไปหน้าถัดไปแทนที่จะออกจากเว็บทันที</p>
+    </div>
+
+    <div class="related-article-grid">
+      {related.map((article) => (
+        <a class="related-article-card" href={article.href}>
+          <span class="related-article-icon" aria-hidden="true">{article.emoji}</span>
+          <span class="related-article-category">{article.category}</span>
+          <strong>{article.title}</strong>
+          <span>{article.excerpt}</span>
+          <em>อ่านต่อ →</em>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

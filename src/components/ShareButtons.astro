@@ -94,6 +94,19 @@ const encodedShareText = encodeURIComponent(shareText);
     <p class="share-hint">ทิป: บนมือถือปุ่ม “แชร์ทันที” จะเปิดเมนูแชร์ของเครื่อง ส่วน “คัดลอกลิงก์” ใช้ส่งในแชตหรือ Story ได้เร็วที่สุด</p>
     <span class="share-copied-msg" id="share-copied-msg" role="status" aria-live="polite">คัดลอกลิงก์แล้ว ✅</span>
   </div>
+
+  <nav class="mobile-sticky-share" aria-label="แชร์บทความด่วนบนมือถือ">
+    <button class="sticky-share-btn sticky-share-native" type="button" data-native-share aria-label="แชร์ทันที">
+      <span aria-hidden="true">↗</span>
+      <span>แชร์</span>
+    </button>
+    <a class="sticky-share-btn sticky-share-line" href={`https://social-plugins.line.me/lineit/share?url=${encodedUrl}&text=${encodedShareText}`} target="_blank" rel="noopener noreferrer" aria-label="ส่งต่อไป LINE">
+      <span aria-hidden="true">LINE</span>
+    </a>
+    <button class="sticky-share-btn sticky-share-copy" type="button" data-copy-share aria-label="คัดลอกลิงก์">
+      <span data-copy-label>คัดลอก</span>
+    </button>
+  </nav>
 </section>
 
 <script is:inline>
@@ -106,9 +119,9 @@ const encodedShareText = encodeURIComponent(shareText);
       text: section.dataset.shareText || document.title,
       url: section.dataset.shareUrl || window.location.href,
     };
-    const nativeBtn = section.querySelector('[data-native-share]');
-    const copyBtn = section.querySelector('[data-copy-share]');
-    const copyLabel = section.querySelector('[data-copy-label]');
+    const nativeButtons = section.querySelectorAll('[data-native-share]');
+    const copyButtons = section.querySelectorAll('[data-copy-share]');
+    const copyLabels = section.querySelectorAll('[data-copy-label]');
     const msg = section.querySelector('#share-copied-msg');
 
     function showMessage(text) {
@@ -138,19 +151,19 @@ const encodedShareText = encodeURIComponent(shareText);
           document.body.removeChild(ta);
         }
         showMessage('คัดลอกลิงก์แล้ว ✅');
-        if (copyBtn) copyBtn.classList.add('share-copy--done');
-        if (copyLabel) copyLabel.textContent = 'คัดลอกแล้ว';
+        copyButtons.forEach((button) => button.classList.add('share-copy--done'));
+        copyLabels.forEach((label) => { label.textContent = 'คัดลอกแล้ว'; });
         window.clearTimeout(copyShareLink.timer);
         copyShareLink.timer = window.setTimeout(() => {
-          if (copyBtn) copyBtn.classList.remove('share-copy--done');
-          if (copyLabel) copyLabel.textContent = 'คัดลอกลิงก์';
+          copyButtons.forEach((button) => button.classList.remove('share-copy--done'));
+          copyLabels.forEach((label, index) => { label.textContent = index === 0 ? 'คัดลอกลิงก์' : 'คัดลอก'; });
         }, 2200);
       } catch (error) {
         showMessage('คัดลอกไม่สำเร็จ ลองกดแชร์ทันทีแทน');
       }
     }
 
-    if (nativeBtn) {
+    nativeButtons.forEach((nativeBtn) => {
       if (!navigator.share) {
         nativeBtn.classList.add('share-native--hidden');
       } else {
@@ -162,11 +175,11 @@ const encodedShareText = encodeURIComponent(shareText);
           }
         });
       }
-    }
+    });
 
-    if (copyBtn) {
+    copyButtons.forEach((copyBtn) => {
       copyBtn.addEventListener('click', copyShareLink);
-    }
+    });
 
     section.querySelectorAll('a.share-btn').forEach((link) => {
       link.addEventListener('click', (event) => {
